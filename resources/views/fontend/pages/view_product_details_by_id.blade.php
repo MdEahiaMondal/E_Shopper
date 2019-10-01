@@ -92,12 +92,12 @@
 
 
 
-                <div class="tab-pane fade active in" id="reviews" >
+                <div class="tab-pane fade active in" id="reviews" >{{--(reviews button) ase in main.css tha has with comment--}}
 
                     <div class="col-sm-12">
                         @if(count($details->comment))
                         @foreach($details->comment as $com)
-                            <div class="per_single_comment" data-commentId="{{$com->id}}">
+                            <div class="per_single_comment" id="ajaxLoad">
                             <ul class="">
                                 <li><a href=""><i class="fa fa-user"></i>{{$com->name}}</a></li>
                                 <li><a href=""><i class="fa fa-clock-o"></i>{{$com->created_at->diffForHumans()}}</a></li>
@@ -110,11 +110,41 @@
                             </ul>
                             <p id="sas" class="comment more">{{$com->body}}</p>
                                 <p>Was this review helpful to you?</p>
+
+                                <?php
+                                    $likes = \App\LikeUnlike::where('comment_id',$com->id)->get();
+                                $like_count = 0;
+                                $dislike_count = 0;
+                                $likeButton = "btn-secondary";
+                                $dislikeButton = "btn-secondary";
+                                ?>
+
+                                @foreach($likes as $like)
+
+                                    @php
+                                        if ($like->like == 1)
+                                            $like_count++;
+
+                                    if ($like->like == 0)
+                                        $dislike_count++;
+
+                                    if(Auth::check()){
+                                        if($like->like == 1 && $like->user_id == Auth::id())
+                                            $likeButton = "btn-warning";
+
+                                        if($like->like == 0 && $like->user_id == Auth::id())
+                                            $dislikeButton = "btn-danger";
+                                    }
+                                    @endphp
+                                @endforeach
+
                                 <span>
-                                    <input type="hidden" class="product_id" value="{{$details->id}}">
-                                    <input type="hidden" class="user_id" value="{{Auth::id()}}">
-                                    <a href="#0" class="like"><i  class="like_dislike_button fa fa-thumbs-up"><small> 10000 liks</small></i></a>
-                                    <a href="#0" class="like" ><i class="like_dislike_button fa fa-thumbs-down"><small> 20000 Dislike</small></i></a>
+                                    <button type="button"   data-comment_id="{{$com->id}}_l" data-like="{{$likeButton}}" class="like btn {{ $likeButton }} ">
+                                        <i class="fa fa-thumbs-up"></i>  <small class="like_count"> {{ $like_count }}</small> <b> Liks </b>
+                                    </button>
+                                    <button type="button"   data-comment_id="{{$com->id}}_d" data-like="{{$likeButton}}" class="dislike btn {{ $dislikeButton }}" >
+                                        <i class="fa fa-thumbs-down"></i> <b><small class="dislike_count"> {{ $dislike_count }} </small></b> <span> Dislikes </span>
+                                    </button>
                                 </span>
                             </div>
                         @endforeach

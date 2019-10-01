@@ -24,6 +24,8 @@ Route::post('search-product','Frontend\HomeController@ProductSearch');
 
 // Frontend Comment controller Route
 Route::post('insert-comment','Frontend\CommentController@insert');
+Route::post('like','Frontend\CommentController@like')->name('like');
+Route::post('dislike','Frontend\CommentController@dislike')->name('dislike');
 
 
 Route::get('user-profile','Frontend\HomeController@UserProfile');

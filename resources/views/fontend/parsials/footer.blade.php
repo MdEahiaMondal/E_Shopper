@@ -1,5 +1,3 @@
-
-
 <footer id="footer"><!--Footer-->
     <div class="footer-top">
         <div class="container">
@@ -277,19 +275,12 @@
     });
 </script>
 
-
+<script src="{{asset('frontend/js/likeDislike.js')}}"></script>
 <script>
-    $(".like").on('click', function (event) {
-        event.preventDefault();
-        var product_id =$(".product_id").val();
-        var user_id =$(".user_id").val();
-        
-
-
-    })
-
+    var likeUrl = "{{route('like')}}";
+    var dislikeUrl = "{{route('dislike')}}";
+    var token = "{{Session::token()}}";
 </script>
-
 
 </body>
 </html>

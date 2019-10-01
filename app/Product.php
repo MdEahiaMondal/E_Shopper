@@ -21,4 +21,5 @@ class Product extends Model
         return $this->hasMany(Comment::class,'product_id','id');
     }
 
+
 }

@@ -1380,14 +1380,14 @@ h2.title {
   width: 99.5%;
 }
 
-#reviews button {
+/*#reviews button {
   background: #FE980F;
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-}
+}*/
 
 
 /*************************
@@ -2634,6 +2634,19 @@ h2.title {
 }
 .like_dislike_button:hover{
   color: #f0ad4e;
+}
+
+.like_button_Auth{
+  color: #f0ad4e;
+  font-size: x-large;
+  border: 1px solid black;
+  padding: 8px;
+}
+.dislike_button_Auth{
+  color: #f03b55;
+  font-size: x-large;
+  border: 1px solid black;
+  padding: 8px;
 }
 
 
