@@ -15,7 +15,7 @@ class CommentController extends Controller
     public function insert(Request $request){
 
         $request->validate([
-            'comment_body' => 'required|min:5|max:2000'
+            'comment_body' => 'required|string|min:5|max:2000'
         ]);
 
         $email = \Auth::user()->email;

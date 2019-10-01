@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class WishListsController extends Controller
@@ -43,9 +42,13 @@ class WishListsController extends Controller
         // now add to the wishlist
         $add_to_wishlist = Cart::instance('wishlist')->add($data);
             if ($add_to_wishlist){
+
                 return back()->with('success','Product Added in your wishlist Successfully ');
+
             }else{
+
                 return back()->with('error','Something problem please try again !!');
+
             }
 
        }
@@ -57,9 +60,12 @@ class WishListsController extends Controller
     {
         $check = Cart::instance('wishlist')->get($rowId);
         if($check){
+
             Cart::instance('wishlist')->remove($rowId);
             return back()->with('success','Product Remove From in Your Wishlist');
+
         }else{
+
             return back()->with('error','It is elegale !!');
         }
 
@@ -91,8 +97,11 @@ class WishListsController extends Controller
         $to_cart = Cart::instance('cart')->add($data);
 
         if($to_cart){
+
             return back()->with('success','Product Added in you Cart successfully');
+
         }else{
+
             return back()->with('error','Somenthing Problem to add to cart !!');
         }
     }

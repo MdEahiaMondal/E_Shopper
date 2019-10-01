@@ -39,11 +39,11 @@ class CheckoutController extends Controller
        Session::put('shipping_address',     $request->shipping_address);
        Session::put('shipping_phone',       $request->shipping_phone);
        Session::put('shipping_city',        $request->shipping_city);
-       return redirect('pament');
+       return redirect('payment');
 
    }
 
-   public function pament(){
+   public function payment(){
       return view('fontend.pages.payment');
    }
 

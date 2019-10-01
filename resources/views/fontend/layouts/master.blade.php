@@ -30,7 +30,7 @@
 <section>
     <div class="container">
         <div class="row">
-            @if($url !=='email/verify' and $url !=='password/reset' and $url !=='login' and $url !=='register' and $url !=='user-profile' and $url !=='wishlist.index' and Route::getFacadeRoot()->current()->uri() !=='contact-us' and Route::getFacadeRoot()->current()->uri() !=='insert-payment' and Route::getFacadeRoot()->current()->uri() !=='pament' and Route::getFacadeRoot()->current()->uri() !=='show-cart' and Route::getFacadeRoot()->current()->uri() !=='checkout' and Route::getFacadeRoot()->current()->uri() !=='login-check')
+            @if($url !=='email/verify' and $url !=='password/reset' and $url !=='login' and $url !=='register' and $url !=='user-profile' and $url !=='wishlist.index' and Route::getFacadeRoot()->current()->uri() !=='contact-us' and Route::getFacadeRoot()->current()->uri() !=='insert-payment' and Route::getFacadeRoot()->current()->uri() !=='payment' and Route::getFacadeRoot()->current()->uri() !=='show-cart' and Route::getFacadeRoot()->current()->uri() !=='checkout' and Route::getFacadeRoot()->current()->uri() !=='login-check')
                 @include('fontend.parsials.sidebar')
             @endif
 

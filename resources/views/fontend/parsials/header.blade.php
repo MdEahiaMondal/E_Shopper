@@ -135,7 +135,7 @@
     <div class="header-bottom"><!--header-bottom-->
         <div class="container">
             <div class="row">
-                @if($url != 'email/verify' and $url != 'login' and $url != 'register' and $url != 'user-profile' and $url != 'wishlist.index' and $url != 'contact-us' and $url != 'insert-payment' and $url != 'show-cart' and $url != 'pament' and $url != 'checkout')
+                @if($url != 'email/verify' and $url != 'login' and $url != 'register' and $url != 'user-profile' and $url != 'wishlist.index' and $url != 'contact-us' and $url != 'insert-payment' and $url != 'show-cart' and $url != 'payment' and $url != 'checkout')
 
                     <form action="{{url('search-product')}}" method="post">
                         @csrf

@@ -1,46 +1,21 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+/*------------------------- start Frontend controller Route-------------------------*/
 
-/*Route::get('/', function () {
-    return view('layout');
-});*/
-
-// Frontend controller Route
+// Homecontroller here.....
 Route::get('/','Frontend\HomeController@index');
 Route::get('category-product/{id}','Frontend\HomeController@category_widgs_product');
 Route::get('brand-product/{id}','Frontend\HomeController@product_brand');
 Route::get('view-details/{slug}','Frontend\HomeController@view_product_details');
 Route::post('search-product','Frontend\HomeController@ProductSearch');
-
-// Frontend Comment controller Route
-Route::post('insert-comment','Frontend\CommentController@insert');
-Route::post('like','Frontend\CommentController@like')->name('like');
-Route::post('dislike','Frontend\CommentController@dislike')->name('dislike');
-
-
 Route::get('user-profile','Frontend\HomeController@UserProfile');
 Route::post('update-profile','Frontend\HomeController@updateProfile')->name('update.profile');
 Route::post('update-profile-password/{id}','Frontend\HomeController@PasswordUpdate')->name('update.profile.password');
 
-
-// LoginController Route
-Route::post('login','Frontend\LoginController@CommentLoginCheck')->name('user.login');
-Route::get('register','Frontend\LoginController@RegisterForm')->name('user.register');
-Route::post('register-store','Frontend\LoginController@RegisterValueStore')->name('user.register-info');
-
-
-
-
+// Frontend Comment and like dislike controller Route
+Route::post('insert-comment','Frontend\CommentController@insert');
+Route::post('like','Frontend\CommentController@like')->name('like');
+Route::post('dislike','Frontend\CommentController@dislike')->name('dislike');
 
 // Cart Route
 Route::post('add-cart','Frontend\CartController@add_to_cart');
@@ -48,24 +23,15 @@ Route:: get('show-cart','Frontend\CartController@showCart')->name('cart.index');
 Route:: get('delete-item/{rowId}','Frontend\CartController@deleteItem');
 Route:: post('update-cart','Frontend\CartController@updateItem');
 
-
-
-
-
 // checkout Route
-Route::get('login-check','Frontend\CheckoutController@loginCheck');
-Route::post('customer-login','Frontend\CheckoutController@customer_login');
-Route::post('curtomer-registration','Frontend\CheckoutController@curtomer_registration');
 Route::get('checkout','Frontend\CheckoutController@checkout')->middleware('auth');
-Route::get('customer-logout','Frontend\CheckoutController@customer_logout');
 Route::post('insert-shipping','Frontend\CheckoutController@insert_shipping')->middleware('auth');
-Route::get('pament','Frontend\CheckoutController@pament')->middleware('auth');
+Route::get('payment','Frontend\CheckoutController@payment')->middleware('auth');
 Route::post('insert-payment','Frontend\CheckoutController@stor_payment')->middleware('auth');
 
 // send email route contact-us
 Route::get('contact-us','Frontend\SendEmailController@index');
 Route::post('send-email','Frontend\SendEmailController@send')->name('send.email');
-
 
 // WishListsController Route
 Route::get('wishlist.index','Frontend\WishListsController@index');
@@ -73,13 +39,16 @@ Route::get('add-wishlist/{slug}','Frontend\WishListsController@store');
 Route::get('remove-item/{rowId}','Frontend\WishListsController@removeItem');
 Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
 
+/*------------------------- end Frontend controller Route-------------------------*/
 
 
 
 
 
 
-/*.............................start the Backend Controller.................................*/
+
+
+/*.............................start the Backend Controller.........................*/
 
     // Backend controller Route
     Route::get('/admin','Backend\Auth\LoginController@showLoginForm');
