@@ -24,6 +24,7 @@ class OrderController extends Controller
      */
     public function index()
     {
+
         $all_orders = Order::all();
         dd($all_orders->user_id);
         foreach ($all_orders as $oreder){

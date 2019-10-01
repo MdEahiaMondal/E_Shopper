@@ -2860,6 +2860,14 @@ form .form-group {
   }
 }
 
+.cus_size{
+  width: 207px;
+  height: 183px
+}
+
+#commentForm{
+  display: none;
+}
 
 
 

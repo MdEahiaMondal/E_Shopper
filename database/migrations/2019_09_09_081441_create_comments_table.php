@@ -20,7 +20,7 @@ class CreateCommentsTable extends Migration
             $table->string('email');
             $table->string('approved')->default('0');
             $table->text('body');
-            $table->integer('star_rating');
+            $table->integer('star_rating')->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');

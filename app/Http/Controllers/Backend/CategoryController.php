@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Backend;
 
 use App\Category;
 use App\Product;
+use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Session;
+use Yajra\DataTables\DataTables;
 
 class CategoryController extends Controller
 {
@@ -22,6 +24,20 @@ class CategoryController extends Controller
     public function index(){
        return view('backend.admin.category.add_category');
     }
+
+
+    public function UnActived($id){
+        Category::where('id', $id)->update(['status'=>0]);
+        return 'success';
+    }
+
+    public function Actived($id){
+        Category::where('id',$id)->update(['status'=>1]);
+        return 'success';
+    }
+
+
+
 
 
     public function all_category(){
@@ -76,16 +92,6 @@ class CategoryController extends Controller
             return back()->with('success','Category Delete Successfully !!');
     }
 
-
-    public function unactive($id){
-        Category::where('id', $id)->update(['status'=>0]);
-        return back()->with('success','Category Status Unactive Successfully !!');
-    }
-
-    public function active($id){
-        Category::where('id',$id)->update(['status'=>1]);
-        return back()->with('success','Category Status Active Successfully !!');
-    }
 
 
 }

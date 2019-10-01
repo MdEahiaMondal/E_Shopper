@@ -9,7 +9,7 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo text-center">
-                                <a href="{{URL:: to('view-details/'.$category_wigs_products->slug)}}"> <img class="zoom" src="{{asset('images/product_image/'.$category_wigs_products->image)}}" alt="" /></a>
+                                <a href="{{URL:: to('view-details/'.$category_wigs_products->slug)}}"> <img class="zoom cus_size" src="{{asset('images/product_image/'.$category_wigs_products->image)}}" alt="" /></a>
                                 <h2>{{$category_wigs_products->price}} TK</h2>
                                 <p>{{$category_wigs_products->name}}</p>
                                 <a href="{{URL:: to('view-details/'.$category_wigs_products->slug)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>

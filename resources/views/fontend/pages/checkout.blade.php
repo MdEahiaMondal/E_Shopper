@@ -11,7 +11,7 @@
 
 
             <div class="register-req">
-                <p class="text-danger">Please Fileup this form</p>
+                <h4 class="text-danger">Please Fileup this form</h4>
             </div><!--/register-req-->
 
             <div class="shopper-informations">
@@ -20,29 +20,43 @@
                         <div class="bill-to">
                             <p>Bill To</p>
                             <div class="form-one">
-                                <?php
-                                    if( $errors->all())
-                                        foreach ($errors as $error)
-                                ?>
+
                                 <form action="{{url('insert-shipping')}}" method="post">
                                     @csrf
-                                    <input type="text" name="shipping_first_name" placeholder="First Name">
+                                    <input type="text" name="shipping_first_name"  placeholder="First Name">
+                                    @error('shipping_first_name')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
                                     <input type="text" name="shipping_last_name" placeholder="Last Name">
+                                    @error('shipping_last_name')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
                                     <input type="email" name="shipping_email" placeholder="Email*">
+                                    @error('shipping_email')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
                                     <input type="text" name="shipping_address" placeholder="Address*">
+                                    @error('shipping_address')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
                                     <input type="text" name="shipping_phone" placeholder="Phone">
-                                 {{--   <input type="text" name="shipping_postal_code" placeholder="Zip / Postal Code *">--}}
-                                   {{-- <select>
-                                        <option>-- Country --</option>
-                                        <option>United States</option>
-                                        <option>Bangladesh</option>
-                                        <option>UK</option>
-                                        <option>India</option>
-                                        <option>Pakistan</option>
-                                        <option>Ucrane</option>
-                                        <option>Canada</option>
-                                        <option>Dubai</option>
-                                    </select>--}}
+                                    @error('shipping_phone')
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
 
                                     <select name="shipping_city">
                                         <option>-- City --</option>

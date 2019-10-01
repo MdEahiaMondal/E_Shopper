@@ -12,7 +12,7 @@
                         <input type="email" value="{{old('email')}}" name="email" class="@error('email') is-invalid @enderror" placeholder="Email Address" />
 
                             @error('email')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                             @enderror

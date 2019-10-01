@@ -5,10 +5,9 @@
         <div class="product-details"><!--product-details-->
             <div class="col-sm-5">
                 <div class="view-product">
-                    <img src="{{asset('images/product_image/'.$details->image)}}" alt="" />
-                    <h3>ZOOM</h3>
+                    <img style="height: 345px; width: 300px" class="xzoom" id="xzoom-default" src="{{asset('images/product_image/'.$details->image)}}" xoriginal="{{asset('images/product_image/'.$details->image)}}" />
                 </div>
-                <div id="similar-product" class="carousel slide" data-ride="carousel">
+                {{--<div id="similar-product" class="carousel slide" data-ride="carousel">
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
@@ -37,28 +36,26 @@
                     <a class="right item-control" href="#similar-product" data-slide="next">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                </div>
+                </div>--}}
 
             </div>
-            <div class="col-sm-7">
                 <div class="product-information"><!--/product-information-->
                     <img src="images/product-details/new.jpg" class="newarrival" alt="" />
                     <h2>{{$details->name}}</h2>
                     {{--<p>Web ID: 1089772</p>--}}
                     <img src="images/product-details/rating.png" alt="" />
-                    <span>
-									<span>BD {{$details->price}} TK</span>
-                                        <form action="{{url('add-cart')}}" method="post">
-                                            @csrf
-                                           <label>Quantity:</label>
-                                           <input type="text" name="qty" value="1" />
-                                            <input type="hidden" name="product_id" value="{{$details->id}}">
-                                             @if($details->quantity > 0)
-                                                <button type="submit" class="btn btn-fefault cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            @endif
-                                        </form>
-
-								</span>
+                        <span>
+                            <span>BD {{$details->price}} TK</span>
+                            <form action="{{url('add-cart')}}" method="post">
+                                @csrf
+                               <label>Quantity:</label>
+                               <input type="text" name="qty" value="1" />
+                                <input type="hidden" name="product_id" value="{{$details->id}}">
+                                 @if($details->quantity > 0)
+                                    <button type="submit" class="btn btn-fefault cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                @endif
+                            </form>
+						</span>
                     <p><b>Availability:</b>
                         @if($details->quantity > 0)
                             <span class="text-success">In Stock</span>
@@ -100,7 +97,7 @@
                     <div class="col-sm-12">
                         @if(count($details->comment))
                         @foreach($details->comment as $com)
-                            <div class="per_single_comment">
+                            <div class="per_single_comment" data-commentId="{{$com->id}}">
                             <ul class="">
                                 <li><a href=""><i class="fa fa-user"></i>{{$com->name}}</a></li>
                                 <li><a href=""><i class="fa fa-clock-o"></i>{{$com->created_at->diffForHumans()}}</a></li>
@@ -113,7 +110,12 @@
                             </ul>
                             <p id="sas" class="comment more">{{$com->body}}</p>
                                 <p>Was this review helpful to you?</p>
-                                <span> <a href=""><i s class="like_dislike_button fa fa-thumbs-up"></i></a> <a href=""><i class="like_dislike_button fa fa-thumbs-down"></i></a> </span>
+                                <span>
+                                    <input type="hidden" class="product_id" value="{{$details->id}}">
+                                    <input type="hidden" class="user_id" value="{{Auth::id()}}">
+                                    <a href="#0" class="like"><i  class="like_dislike_button fa fa-thumbs-up"><small> 10000 liks</small></i></a>
+                                    <a href="#0" class="like" ><i class="like_dislike_button fa fa-thumbs-down"><small> 20000 Dislike</small></i></a>
+                                </span>
                             </div>
                         @endforeach
 
@@ -159,24 +161,24 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="comment_login_link">
-                                    @if(Session('comment_login'))
-                                        <form  action="{{url('comment-login-check')}}" method="post">
+                                        <form id="commentForm"  action="{{ route('login') }}" method="post">
                                             @csrf
 										<span style="margin-bottom: 18px">
-											<input type="text" name="customer_name" placeholder="Your Name"/>
-											<input type="email" name="customer_email" placeholder="Email Address"/>
+											<input type="email" name="email" placeholder="Email Address"/>
 										</span>
-                                            <span style="margin-bottom: 18px"><input type="password" name="customer_password" placeholder="Enter Password"/></span>
-                                            <button type="submit" class="btn btn-default">Submit</button>
+                                            <span style="margin-bottom: 18px"><input type="password" name="password" placeholder="Enter Password"/></span>
+                                            <button type="submit" class="btn btn-default">Login</button>
                                         </form>
-                                        @else
-                                        <b>Please log in to write review <a  class="comment_login" href="{{--{{route('login')}}--}}">Login</a></b>
-                                    @endif
+
+                                        <b class="hideMe">Please log in to write review <a  id="commentFormButton" class="comment_login" >Login</a></b>
                                 </div>
                             </div>
                         </div>
                     @endif
                 </div>
+
+
+
 
 
             </div>
@@ -274,4 +276,6 @@
         </div><!--/recommended_items-->
 
     </div>
+
+
 @endsection

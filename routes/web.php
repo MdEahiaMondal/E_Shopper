@@ -21,10 +21,14 @@ Route::get('category-product/{id}','Frontend\HomeController@category_widgs_produ
 Route::get('brand-product/{id}','Frontend\HomeController@product_brand');
 Route::get('view-details/{slug}','Frontend\HomeController@view_product_details');
 Route::post('search-product','Frontend\HomeController@ProductSearch');
-Route::get('comment-login','Frontend\HomeController@CommentLogin');
-Route::post('comment-login-check','Frontend\HomeController@CommentLoginCheck');
+
+// Frontend Comment controller Route
+Route::post('insert-comment','Frontend\CommentController@insert');
+
+
 Route::get('user-profile','Frontend\HomeController@UserProfile');
 Route::post('update-profile','Frontend\HomeController@updateProfile')->name('update.profile');
+Route::post('update-profile-password/{id}','Frontend\HomeController@PasswordUpdate')->name('update.profile.password');
 
 
 // LoginController Route
@@ -33,8 +37,7 @@ Route::get('register','Frontend\LoginController@RegisterForm')->name('user.regis
 Route::post('register-store','Frontend\LoginController@RegisterValueStore')->name('user.register-info');
 
 
-// Frontend Comment controller Route
-Route::post('insert-comment','Frontend\CommentController@insert');
+
 
 
 // Cart Route
@@ -89,8 +92,11 @@ Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
     Route::get('/edit-category/{id}','Backend\CategoryController@edit');
     Route::post('/update-category/{id}','Backend\CategoryController@update');
     Route::get('/delete-category/{id}','Backend\CategoryController@delete');
-    Route::get('/unactive_category/{id}','Backend\CategoryController@unactive');
-    Route::get('/active_category/{id}','Backend\CategoryController@active');
+    Route::get('category/unctive/{id}','Backend\CategoryController@UnActived');
+    Route::get('category/active/{id}','Backend\CategoryController@Actived');
+
+
+
 
     // Brand route::
     Route::get('/add-brand','Backend\BrandController@index');
@@ -130,6 +136,7 @@ Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
 
 
 // order Route
+
     Route::get('all-order','Backend\OrderController@index');
     Route::get('view-order/{order_id}','Backend\OrderController@show');
     Route::get('orders/{id}/delete', 'Backend\OrderController@destroy')->name('orders.delete');
@@ -139,6 +146,7 @@ Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
 
 
 Auth::routes(['verify' => true]);
+
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
 

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Customer;
+
 use App\Product;
 use App\User;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Image;
 use Session;
 use App\Http\Controllers\Controller;
@@ -132,6 +131,10 @@ class HomeController extends Controller
        Session::put('success','Update Your Info  Successfully !!');
     return back();
 
+   }
+
+   public function PasswordUpdate(Request $request, $id){
+        dd($request->all());
    }
 
 

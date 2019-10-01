@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | E-Shopper</title>
+
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -13,6 +14,9 @@
     <link href="{{asset('frontend/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet">
+    <!-- CSS STYLE-->
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/plagin/zoom/css/xzoom.css')}}" media="all" />
+
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -25,6 +29,15 @@
 {{--    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">--}}
     <link rel="stylesheet" href="{{asset('frontend/starRating/StarRating.css')}}">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
+
+ {{--  --}}{{-- // for wuick view--}}{{--
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{asset('frontend/qucickView/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/qucickView/css/reset.css')}}"> <!-- CSS reset -->
+    <script src="{{asset('frontend/qucickView/js/modernizr.js')}}"></script> <!-- Modernizr -->--}}
+
 </head><!--/head-->
 
 <body>

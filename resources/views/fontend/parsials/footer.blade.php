@@ -167,7 +167,15 @@
 <script src="{{asset('backend/sweat_aleart/sweataleart.min.js')}}"></script>
 <script src="{{asset('frontend/showMore/showMoreAndLess.js')}}"></script> {{--show more text and less--}}
 
+{{--// for quick view--}}{{--
+--}}{{--<script src="{{asset('frontend/qucickView/js/jquery-2.1.1.js')}}"></script>--}}{{--
+<script src="{{asset('frontend/qucickView/js/velocity.min.js')}}"></script>
+<script src="{{asset('frontend/qucickView/js/main.js')}}"></script><!-- Resource jQuery -->--}}
 
+{{-- for zoom--}}
+<!-- XZOOM JQUERY PLUGIN  -->
+<script type="text/javascript" src="{{asset('frontend/plagin/zoom/js/xzoom.min.js')}}"></script>
+<script src="{{asset('frontend/plagin/zoom/js/setup.js')}}"></script>
 
 
 <script>
@@ -258,6 +266,29 @@
     });
 </script>
 
+
+{{--// its ony for comment login form section--}}
+<script>
+    $(document).ready(function() {
+        $("#commentFormButton").click(function() {
+            $("#commentForm").show();
+            $(".hideMe").hide();
+        });
+    });
+</script>
+
+
+<script>
+    $(".like").on('click', function (event) {
+        event.preventDefault();
+        var product_id =$(".product_id").val();
+        var user_id =$(".user_id").val();
+        
+
+
+    })
+
+</script>
 
 
 </body>

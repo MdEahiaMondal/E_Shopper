@@ -438,8 +438,10 @@
 
 </footer>
 
-<!-- start: JavaScript-->
 
+
+
+<!-- start: JavaScript-->
 <script src="{{asset('backend/js/jquery-1.9.1.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery-migrate-1.0.0.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery-ui-1.10.0.custom.min.js')}}"></script>
@@ -470,12 +472,59 @@
 <script src="{{asset('backend/js/counter.js')}}"></script>
 <script src="{{asset('backend/js/retina.js')}}"></script>
 <script src="{{asset('backend/js/custom.js')}}"></script>
-
-
 <script src="{{asset('backend/sweat_aleart/sweataleart.min.js')}}"></script>
 
 <!-- end: JavaScript-->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.2/bootbox.min.js"></script>
+
+<script>
+
+
+
+    // unctive
+    function Student(id,value) {
+        var Data = value;
+        if (Data == 'active'){
+            url = "{{url('category/unctive')}}"+ '/' +id;
+        }else{
+            url = "{{url('category/active')}}"+ '/' +id;
+        }
+        $.ajax({
+            url: url,
+            type: "GET",
+            data: {
+                'id' : 'id',
+            },
+            success: function (response) {
+                if(response == "success"){ // if true (1)
+                    $("#reloadAjax").load(location.href + " #reloadAjax");
+                }
+            },
+            error: function (response) {
+                alert(response)
+            }
+        })
+    }
+
+
+    // show  form model
+    function showCategoryForm() {
+        save_method = 'add'; // this line for condition to update bellow
+        $('input[name=_method]').val('POST'); // this line all input method POST
+        $('#categoryModal').modal('show'); // data form modal show
+        $("#categoryForm form")[0].reset();
+        $("#modelTitle").text('Add ');// added new title
+        $("#submitButton").text('Add');// add new title
+    }
+
+
+</script>
+
+
+
+
+
 <script>
     $(document).on('click','#delete', function (e) {
         e.preventDefault();
@@ -561,7 +610,7 @@ $('#deleteFormId').on('submit',function (e) {
             location.reload()
         }
 
-        
+
 
     });
 })

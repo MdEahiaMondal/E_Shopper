@@ -12,7 +12,7 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="#mail-inbox.html">
+                        <a href="#0">
                             <i class="fa fa-user"></i>My Profile
                         </a>
                     </li>
@@ -25,12 +25,8 @@
 
                     <li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <a  href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                <i class="fa fa-sign-out"></i> {{ __('Logout') }}
-                            </a>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit"><i class="fa fa-sign-out"></i> {{ __('Logout') }}</button>
                         </form>
                     </li>
                 </ul><!-- /.nav -->
@@ -163,23 +159,25 @@
                     <div class="panel-heading resume-heading">
                         <h2 style="padding: 20px;">Your password <sub id="Profile_pass_edit" style="font-size: 18px; color: #0e90d2; cursor: pointer"> Change Password </sub> </h2>
 
-                        <form action="">
+                        <form action="{{route('update.profile.password',$user_info->id)}}" method="post">
+                            @csrf
+
                             <div class="form-group">
                                 <label for="address">Your Current Password</label>
-                                <input type="password" name="address" value="{{$user_info->password}}"  id="address" class="form-control">
+                                <input type="password"  name="current_password" value="{{$user_info->password}}"  id="address" class="form-control">
                             </div>
 
                             <div class="form-group">
-                                <label for="address">New Password</label>
-                                <input type="password" name="address" value=""  id="address" class="form-control">
+                                <label for="new_password">New Password</label>
+                                <input type="password" name="new_password" value=""  id="new_password" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="address">Confirm Password</label>
-                                <input type="password" name="address" value=""  id="address" class="form-control">
+                                <label for="confirm_new_password">Confirm Password</label>
+                                <input type="password" name="confirm_new_password" value=""  id="confirm_new_password" class="form-control">
                             </div>
 
                             <div class="form-group">
-                                <input id="pass_submit" type="submit"  value="Change Password"  id="address" class="form-control btn btn-warning">
+                                <input id="pass_submit" type="submit"  value="Change Password"  class="form-control btn btn-warning">
                             </div>
 
                         </form>

@@ -35,7 +35,7 @@ class WishListsController extends Controller
         $data = array();
         $data['id']                 = $product->id;
         $data['name']               = $product->name;
-        $data['qty']                = $product->quantity;
+        $data['qty']                = '1'; // it is  default value for wishlist
         $data['price']              = $product->price;
         $data['weight']             = '0';
         $data['options']['image']   = $product->image;

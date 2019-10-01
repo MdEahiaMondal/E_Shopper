@@ -19,7 +19,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <a  href="{{URL:: to('view-details/'.$features_product->slug)}}"> <img class="zoom" src="{{asset('images/product_image/'.$features_product->image)}}" alt="" /></a>
+                                    <a  href="{{URL:: to('view-details/'.$features_product->slug)}}"> <img class="zoom cus_size" src="{{asset('images/product_image/'.$features_product->image)}}" alt="" /></a>
                                     <h2>{{$features_product->price}} TK</h2>
                                     <p>{{$features_product->name}}</p>
                                     <a  href="{{URL:: to('view-details/'.$features_product->slug)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -57,7 +57,7 @@
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <a href="{{URL:: to('view-details/'.$products->slug)}}"> <img class="zoom" src="{{asset('images/product_image/'.$products->image)}}" alt="" /></a>
+                            <a href="{{URL:: to('view-details/'.$products->slug)}}"> <img class="zoom cus_size" src="{{asset('images/product_image/'.$products->image)}}" alt="" /></a>
                             <h2>{{$products->price}} TK</h2>
                             <p>{{$products->name}}</p>
                             <a href="{{URL:: to('view-details/'.$products->slug)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -67,11 +67,12 @@
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
                             <li><a href="{{url('add-wishlist/'.$products->slug)}}"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                            <li><a href="{{URL:: to('view-details/'.$products->slug)}}"><i class="fa fa-plus-square"></i>View to Details</a></li>
+                            <li><a  class="cd-trigger" href="{{ URL:: to('view-details/'.$products->slug) }}"><i class="fa fa-plus-square"></i> View Details</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             @endforeach
     </div><!--features_items-->
+
 @endsection

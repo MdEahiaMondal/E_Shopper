@@ -105,9 +105,13 @@ class CheckoutController extends Controller
 
        if($pay_method == 'handCash'){
            Cart::destroy();
-           return view('fontend.pages.handcash');
+           return view('fontend.pages.thanks_confir_order');
        }elseif ($pay_method == 'Bkash'){
-           echo "Bkash";
+           Cart::destroy();
+           return view('fontend.pages.thanks_confir_order');
+       }elseif($pay_method == 'amex'){
+           Cart::destroy();
+           return view('fontend.pages.thanks_confir_order');
        }
    }
 
