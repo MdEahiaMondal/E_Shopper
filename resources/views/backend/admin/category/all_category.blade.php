@@ -1,7 +1,7 @@
 @extends('backend.admin.layout.admin_layout')
 @section('admin_content')
 
-    <button onclick="AddNew()" id="showForm" title="Go to top"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    <button onclick="AddNew()" id="showForm" title="New Category"><i class="fa fa-plus" aria-hidden="true"></i></button>
     <style>
 
         #showForm {
@@ -157,7 +157,7 @@
                data: getInputs(),
                success: function (data) {
                    if(data.success){
-                       categoryTable.draw();
+                       categoryTable.draw();// it will autometic table reload without refresh only for DataTable
                        toastr.success(data.message);
                    }
                    reset();// our created
@@ -165,12 +165,12 @@
                    categoryTable.draw();
                },
                error: function (error) {
-                  var allerror = JSON.parse(error.responseText);
-                  var error_object = allerror.errors;
+                  var allerror = JSON.parse(error.responseText);// to understand call json parse
+                  var error_object = allerror.errors; // it is make array boject
 
-                   for (let elemete in error_object) {
+                   for (let elemete in error_object) { // it convert frome object array
                        var itemError =  error_object[elemete][0];
-                       toastr.error(itemError);
+                       toastr.error(itemError);// per single error
                    }
                }
            });
@@ -179,13 +179,13 @@
         // end of create new
 
 
+
         // start for edit and update
         $('table').on('click','.editBtn', function () {
             $("#modelTitle").text('Edit Category');
             reset();
             $("#categoryModal").modal('show');
             $("#createtButton").hide();
-            $("#updatButton").show();
             $("#updatButton").show();
             $(".hideMeC_status").hide();
 

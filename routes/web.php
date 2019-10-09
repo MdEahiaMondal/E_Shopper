@@ -65,16 +65,10 @@ Route::post('categories/activeUnctive','Backend\CategoryController@activeUnactiv
 Route::resource('categories','Backend\CategoryController');
 
 
-
     // Brand route::
-    Route::get('/add-brand','Backend\BrandController@index');
-    Route::get('/all-brand','Backend\BrandController@show');
-    Route::post('/insert-brand','Backend\BrandController@store');
-    Route::get('/edit-brand/{id}','Backend\BrandController@edit');
-    Route::post('/update-brand/{id}','Backend\BrandController@update');
-    Route::get('/delete-brand/{id}','Backend\BrandController@destroy');
-    Route::get('/unactive-brand/{id}','Backend\BrandController@unactive');
-    Route::get('/active-brand/{id}','Backend\BrandController@active');
+Route::post('brands/activeUnctive','Backend\BrandController@ActiveUnactive')->name('brand.active.unactive');
+Route::resource('brands','Backend\BrandController');
+
 
 // product route::
     Route::get('/add-product','Backend\ProductController@index');

@@ -4,14 +4,7 @@
         <ul class="nav nav-tabs nav-stacked main-menu">
             <li><a href="{{URL::to('admin/dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
             <li><a class="submenu" href="{{route('categories.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Categories</span></a></li>
-
-            <li>
-                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Manage Brand</span><span class="label label-important"></span></a>
-                <ul>
-                    <li><a class="submenu" href="{{URL::to('all-brand')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Brands</span></a></li>
-                    <li><a class="submenu" href="{{URL::to('add-brand')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Brand</span></a></li>
-                </ul>
-            </li>
+            <li><a class="submenu" href="{{route('brands.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Brands</span></a></li>
 
             <li>
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Manage Product</span><span class="label label-important"></span></a>

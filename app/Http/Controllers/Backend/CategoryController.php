@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 
 class CategoryController extends Controller
@@ -19,7 +20,7 @@ class CategoryController extends Controller
     public function index(Request $request){
 
         if ($request->ajax()){{
-            $all_category = Category::latest()->get();
+             $all_category = Category::latest()->get();
             return DataTables::of($all_category)
                 ->addIndexColumn()
                 ->addColumn('status', function ($row){
@@ -33,6 +34,9 @@ class CategoryController extends Controller
                     $btn = "<button type='button' class='btn btn-xs btn-info editBtn' data-id =".$row->id." title='Edit Item'> <i class='fa fa-edit'></i> </button>";
                     $btn .= "<button type='button' class='btn btn-xs btn-danger dlBtn' data-id =".$row->id." title='Delete Item'> <i class='fa fa-trash' aria-hidden='true'></i></button>";
                     return $btn;
+                })
+                ->editColumn('description',  function ($row){
+                    return Str::limit($row->description,'30','....');
                 })
                 ->rawColumns(['status','action',])
                 ->make(true);
