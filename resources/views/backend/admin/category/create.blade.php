@@ -6,12 +6,12 @@
             <a href="{{URL::to('dashboard')}}">Home</a>
             <i class="icon-angle-right"></i>
         </li>
-        <li><a href="#">Add Category</a></li>
+        <li><a href="#">Create Category</a></li>
     </ul>
     <div class="row-fluid sortable">
         <div class="box span12">
             <div class="box-header" data-original-title>
-                <h2><i class="halflings-icon edit"></i><span class="break"></span>Add Category</h2>
+                <h2><i class="halflings-icon edit"></i><span class="break"></span>Create Category</h2>
                 <div class="box-icon">
                     <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
                     <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -36,7 +36,7 @@
                         <p class="alert alert-danger">{{$error}}</p>
                     @endforeach
                 @endif
-                <form class="form-horizontal" method="post" action="{{url('insert-category')}}">
+                <form class="form-horizontal" method="post" action="{{ route('categories.store') }}">
                     @csrf
                     <fieldset>
 

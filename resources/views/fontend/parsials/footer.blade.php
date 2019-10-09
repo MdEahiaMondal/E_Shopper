@@ -265,22 +265,11 @@
 </script>
 
 
-{{--// its ony for comment login form section--}}
-<script>
-    $(document).ready(function() {
-        $("#commentFormButton").click(function() {
-            $("#commentForm").show();
-            $(".hideMe").hide();
-        });
-    });
-</script>
 
-<script src="{{asset('frontend/js/likeDislike.js')}}"></script>
-<script>
-    var likeUrl = "{{route('like')}}";
-    var dislikeUrl = "{{route('dislike')}}";
-    var token = "{{Session::token()}}";
-</script>
+@yield('script')
+
+
+
 
 </body>
 </html>

@@ -12,8 +12,10 @@ Route::get('user-profile','Frontend\HomeController@UserProfile');
 Route::post('update-profile','Frontend\HomeController@updateProfile')->name('update.profile');
 Route::post('update-profile-password/{id}','Frontend\HomeController@PasswordUpdate')->name('update.profile.password');
 
+
 // Frontend Comment and like dislike controller Route
-Route::post('insert-comment','Frontend\CommentController@insert');
+Route::post('insert-comment','Frontend\CommentController@insert')->name('insert.comment');
+Route::get('getComment','Frontend\CommentController@getComment')->name('get.comment.data');
 Route::post('like','Frontend\CommentController@like')->name('like');
 Route::post('dislike','Frontend\CommentController@dislike')->name('dislike');
 
@@ -50,6 +52,8 @@ Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
 
 /*.............................start the Backend Controller.........................*/
 
+
+
     // Backend controller Route
     Route::get('/admin','Backend\Auth\LoginController@showLoginForm');
     Route::post('admin/login', 'Backend\Auth\LoginController@login')->name('admin.login');
@@ -57,15 +61,8 @@ Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
 
 
     // category route::
-    Route::get('/add-category','Backend\CategoryController@index');
-    Route::get('/all-category','Backend\CategoryController@all_category')/*->middleware('AdminCheck')*/;
-    Route::post('/insert-category','Backend\CategoryController@insert');
-    Route::get('/edit-category/{id}','Backend\CategoryController@edit');
-    Route::post('/update-category/{id}','Backend\CategoryController@update');
-    Route::get('/delete-category/{id}','Backend\CategoryController@delete');
-    Route::get('category/unctive/{id}','Backend\CategoryController@UnActived');
-    Route::get('category/active/{id}','Backend\CategoryController@Actived');
-
+Route::post('categories/activeUnctive','Backend\CategoryController@activeUnactive')->name('categories.activeUnctive');
+Route::resource('categories','Backend\CategoryController');
 
 
 

@@ -9,7 +9,7 @@
                             $all_category = \App\Category::all();
                             ?>
                             @foreach($all_category as $categorys)
-                                <li><a href="{{URL:: to('category-product/'.$categorys->id)}}"> <span class="pull-right">(50)</span>{{$categorys->name}}</a></li>
+                                    <li><a class="{{ (request()->is('category-product/'.$categorys->id)) ? 'active':''}}" href="{{URL:: to('category-product/'.$categorys->id)}}"> <span class="pull-right">(50)</span>{{$categorys->name}}</a></li>
                             @endforeach
 
                         </ul>
@@ -25,7 +25,7 @@
                         $all_brand = \App\Brand::all();
                         ?>
                         @foreach($all_brand as $brand)
-                            <li><a href="{{URL:: to('brand-product/'.$brand->id)}}"> <span class="pull-right">(50)</span>{{$brand->name}}</a></li>
+                            <li><a class="{{ (request()->is('brand-product/'.$brand->id)) ? 'active':''}}" href="{{URL:: to('brand-product/'.$brand->id)}}"> <span class="pull-right">(50)</span>{{$brand->name}}</a></li>
                         @endforeach
 
                     </ul>

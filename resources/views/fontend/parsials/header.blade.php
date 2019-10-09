@@ -31,12 +31,15 @@
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 
+    {{--Custom style--}}
+    <link href="{{asset('frontend/css/custom_style.css')}}" rel="stylesheet">
 
- {{--  --}}{{-- // for wuick view--}}{{--
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{asset('frontend/qucickView/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/qucickView/css/reset.css')}}"> <!-- CSS reset -->
-    <script src="{{asset('frontend/qucickView/js/modernizr.js')}}"></script> <!-- Modernizr -->--}}
+
+    {{--  --}}{{-- // for wuick view--}}{{--
+       <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+       <link rel="stylesheet" href="{{asset('frontend/qucickView/css/style.css')}}">
+       <link rel="stylesheet" href="{{asset('frontend/qucickView/css/reset.css')}}"> <!-- CSS reset -->
+       <script src="{{asset('frontend/qucickView/js/modernizr.js')}}"></script> <!-- Modernizr -->--}}
 
 </head><!--/head-->
 
@@ -90,7 +93,7 @@
                             /*$all =  url()->current()*/
                             ?>
                             <li><a class="<?php if($url == "/"){echo 'active';}?>" href="{{url('/')}}"><i class="fa fa-home"></i> Home</a></li>
-                            <li><a href="{{url('wishlist.index')}}"><i class="fa fa-star"></i> Wishlist <sup>{{count(Cart::instance('wishlist')->content())}}</sup></a></li>
+                            <li><a class="<?php if($url == "wishlist.index"){echo 'active';}?>" href="{{url('wishlist.index')}}"><i class="fa fa-star"></i> Wishlist <sup>{{count(Cart::instance('wishlist')->content())}}</sup></a></li>
                             @if(Auth::user())
                                 <li><a class="<?php if($url == "checkout"){echo 'active';}?>" href="{{URL::to('checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             @else
@@ -98,7 +101,7 @@
                             @endif
                             <li><a class="<?php if($url == "show-cart"){echo 'active';}?>" href="{{route('cart.index')}}"><i class="fa fa-shopping-cart"></i> Cart <sup class="text-danger">{{count(Cart::instance('cart')->content())}}</sup></a></li>
                             <?php $customer_id = Session::get('customer_id')?>
-                            <li><a href="{{URL::to('contact-us')}}">Contact</a></li>
+                            <li><a class="{{ (request()->is('contact-us*')) ? 'active' : '' }}" href="{{URL::to('contact-us')}}">Contact</a></li>
                             @guest
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-lock"></i> {{ __('Login') }}</a>

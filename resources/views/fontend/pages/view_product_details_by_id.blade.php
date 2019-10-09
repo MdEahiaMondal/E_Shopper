@@ -92,102 +92,36 @@
 
 
 
+
+
                 <div class="tab-pane fade active in" id="reviews" >{{--(reviews button) ase in main.css tha has with comment--}}
 
                     <div class="col-sm-12">
                         @if(count($details->comment))
-                        @foreach($details->comment as $com)
-                            <div class="per_single_comment" id="ajaxLoad">
-                            <ul class="">
-                                <li><a href=""><i class="fa fa-user"></i>{{$com->name}}</a></li>
-                                <li><a href=""><i class="fa fa-clock-o"></i>{{$com->created_at->diffForHumans()}}</a></li>
-                                <li><a href=""><i class="fa fa-calendar-o"></i>{{$com->created_at->setTimezone('Asia/Dhaka')->isoFormat(' Do-MMM-Y')}}</a></li>
-                                 <p>
-                                    @for($i=1; $i<=$com->star_rating; $i++)
-                                         <i style="color: gold" class="fa fa-star"></i>
-                                   @endfor
-                                 </p>
-                            </ul>
-                            <p id="sas" class="comment more">{{$com->body}}</p>
-                                <p>Was this review helpful to you?</p>
-
-                                <?php
-                                    $likes = \App\LikeUnlike::where('comment_id',$com->id)->get();
-                                $like_count = 0;
-                                $dislike_count = 0;
-                                $likeButton = "btn-secondary";
-                                $dislikeButton = "btn-secondary";
-                                ?>
-
-                                @foreach($likes as $like)
-
-                                    @php
-                                        if ($like->like == 1)
-                                            $like_count++;
-
-                                    if ($like->like == 0)
-                                        $dislike_count++;
-
-                                    if(Auth::check()){
-                                        if($like->like == 1 && $like->user_id == Auth::id())
-                                            $likeButton = "btn-warning";
-
-                                        if($like->like == 0 && $like->user_id == Auth::id())
-                                            $dislikeButton = "btn-danger";
-                                    }
-                                    @endphp
-                                @endforeach
-
-                                <span>
-                                    <button type="button"   data-comment_id="{{$com->id}}_l" data-like="{{$likeButton}}" class="like btn {{ $likeButton }} ">
-                                        <i class="fa fa-thumbs-up"></i>  <small class="like_count"> {{ $like_count }}</small> <b> Liks </b>
-                                    </button>
-                                    <button type="button"   data-comment_id="{{$com->id}}_d" data-like="{{$likeButton}}" class="dislike btn {{ $dislikeButton }}" >
-                                        <i class="fa fa-thumbs-down"></i> <b><small class="dislike_count"> {{ $dislike_count }} </small></b> <span> Dislikes </span>
-                                    </button>
-                                </span>
-                            </div>
-                        @endforeach
-
-                       {{-- for show and less text star--}}
-                            <style>
-
-                                a:visited {
-                                    color: #0254EB
-                                }
-                                a.morelink {
-                                    text-decoration:none;
-                                    outline: none;
-                                }
-                                .morecontent span {
-                                    display: none;
-                                }
-                                .comment {
-                                    width: 100%;
-                                }
-                            </style>
-                            {{-- for show and less text end--}}
-                        @else
-                            <p class="alert alert-warning">There is a no comments !!</p>
+                              <div class="per_single_comment" id="ajaxLoad">
+                                    {{--data come here from database vai ajax--}}
+                              </div>
+                            @else
+                            <p class="alert alert-warning">There is no Comment !</p>
                         @endif
-                            @if(Auth::user())
-                                @if(count($errors ) > 0)
-                                    @foreach($errors->all() as $error)
-                                        <p class="alert alert-danger">{{$error}}</p>
-                                    @endforeach
-                                @endif
-                        <p><b>Write Your Review</b></p>
-                        <form action="{{url('insert-comment')}}" method="post">
-                            @csrf
-                            <input type="hidden" name="product_id" value="{{$details->id}}">
-                            <textarea name="comment_body"> {{old('comment_body')}} </textarea>
-                            <b>Rating: </b> <x-star-rating {{--value="3"--}} number="5"></x-star-rating>
-                            <input id="rate" type="hidden" name="star_rating" value=""/>
-                            <script src="{{asset('frontend/starRating/StarRating.js')}}"></script>
-                            <button type="submit" class="btn btn-default pull-right">Submit</button>
-                        </form>
+                        <hr>
+
+                        @if(Auth::user())
+                            <p><b>Write Your Review</b></p>
+                            <form id="mainCommentForm"  method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{$details->id}}">
+                                <p id="CommentError"></p>
+                                <textarea name="comment_body"> {{old('comment_body')}} </textarea>
+                                <b>Rating: </b> <x-star-rating {{--value="3"--}} number="5"></x-star-rating>
+                                <input id="rate" type="hidden" name="star_rating" value=""/>
+                                <script src="{{asset('frontend/starRating/StarRating.js')}}"></script>
+                                <button type="submit" class="btn btn-default pull-right">Submit</button>
+                            </form>
+                        @endif
                     </div>
-                    @else
+
+                    @if(!Auth::user())
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="comment_login_link">
@@ -204,10 +138,27 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                        @endif
+
                 </div>
 
-
+                {{-- for show and less text star--}}
+                <style>
+                    a:visited {
+                        color: #0254EB
+                    }
+                    a.morelink {
+                        text-decoration:none;
+                        outline: none;
+                    }
+                    .morecontent span {
+                        display: none;
+                    }
+                    .comment {
+                        width: 100%;
+                    }
+                </style>
+                {{-- for show and less text end--}}
 
 
 
@@ -216,5 +167,162 @@
 
   {{--  </div>--}}
 
+
+@endsection
+
+
+@section('script')
+    {{--// its ony for comment login form section--}}
+
+    <script src="{{asset('frontend/js/moment.js')}}"></script>{{--// this moment.js use only for js time format--}}
+
+    <script src="{{asset('frontend/js/likeDislike.js')}}"></script>
+    <script>
+        var likeUrl = "{{route('like')}}";
+        var dislikeUrl = "{{route('dislike')}}";
+        var token = "{{Session::token()}}";
+        var commentUrl = "{{route('insert.comment')}}"
+    </script>
+    <script>
+
+        $(document).ready(function() {
+            $("#commentFormButton").click(function() {
+                $("#commentForm").show();
+                $(".hideMe").hide();
+            });
+        });
+
+
+        // get all comment from database
+        var GetCommentUrl = "{{ route('get.comment.data') }}";
+        function getCommentRecords(){
+            $.get(GetCommentUrl)
+            .success(function (data) {
+                var html = "";
+                data.forEach(function (row) {
+                    <?php
+                        $likes = \App\LikeUnlike::all();
+                        $like_count = 0;
+                        $dislike_count = 0;
+                        $likeButton = "btn-secondary";
+                        $dislikeButton = "btn-secondary";
+                        foreach ($likes as $like) {
+
+                            if ($like->like == 1) {
+                                $like_count++;
+                            }
+                            if ($like->like == 0) {
+                                $dislike_count++;
+                            }
+
+                            if(Auth::check()){
+                                if($like->like == 1 && $like->user_id == Auth::id())
+                                    $likeButton = "btn-warning";
+
+                                if($like->like == 0 && $like->user_id == Auth::id())
+                                    $dislikeButton = "btn-danger";
+                            }
+
+                        }
+                        ?>
+                     html += "<ul>";
+
+                    html += "<input type='hidden' id='comment_id' value='"+row.id+"'>";
+                     html += "<li>";
+                         html += "<a href=''><i class='fa fa-user'></i>"+row.name+"</a>";
+                     html += "</li>";
+
+                     html += "<li>";
+                        html += "<a href=''><i class='fa fa-clock-o'></i>"+ row.created_at  +"</a>";
+                     html += "</li>";
+
+                     html += "<li>";
+                        html += "<a href=''><i class='fa fa-calendar-o'></i>"+row.created_at+"</a>";
+                     html += "</li>";
+
+
+                     html += "<p>";
+                        for (var i =1; i<=row.star_rating; i++) {
+                            html += "<i style='color: gold' class='fa fa-star'></i>";
+                        }
+                    html += "</p>";
+
+
+                     html += "<li id='sas' class='comment more' style='color: initial; margin-bottom:20px;'>"  + row.body + "</li>";
+
+                    html += "<li>";
+                        html += "<p>Was this review helpful to you?</p>";
+                    html += "</li>";
+
+
+                    html += "<p>";
+                        html +="<span>";
+                            html += "<button class='like btn <?php echo $likeButton?>' onclick='likeComment("+row.id+")'>" +"<i class='fa fa-thumbs-up'></i>"+ "</button>";
+                            html += "<button class='dislike btn <?php echo $dislikeButton ?>'>" +"<i class='fa fa-thumbs-down'></i>"+ "</button>";
+                        html +="</span>";
+                    html += "</p>";
+
+                     html += "</ul>";
+                     html += "<hr>";
+                });
+                $(".per_single_comment").html(html);
+            });
+
+
+        }
+        getCommentRecords();
+
+
+
+        $(document).ready(function() {
+            $(".nav a").on("click", function(){
+                $(".nav").find(".active").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+        });
+
+
+        // comment insert section
+        $(document).ready(function () {
+            $("#mainCommentForm").on('submit', function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: commentUrl,
+                    type: "POST",
+                    dataType: "json",
+                    data:  $("#mainCommentForm").serialize(),
+                    success: function (data) {
+                        if(data.success){
+                            Swal.fire(
+                                'Good job!',
+                                'Thanks For Your Comment !',
+                                'success'
+                            );
+                            getCommentRecords();
+                        }
+                    },
+                    error:function (data) {
+                        if (data.error){
+                            var Error =data.responseJSON.errors.comment_body[0];
+                            $("#CommentError").html('<div class="alert alert-danger">'+Error+'</div>')
+                        }
+                    },
+
+                }); // end of  $.ajax({
+
+            })// end of $("#mainCommentForm").on('submit', function (event) {
+
+        });// end of main $(document).ready(function () {
+
+
+
+        // like unlike system
+        function likeComment(id) {
+            alert(id)
+        }
+
+
+    </script>
 
 @endsection

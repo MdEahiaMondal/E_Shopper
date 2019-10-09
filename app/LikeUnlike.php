@@ -8,6 +8,8 @@ class LikeUnlike extends Model
 {
 
 
+    protected $fillable = ['comment_id','like','user_id'];
+
     public function comment(){
         return $this->hasMany(Comment::class);
     }

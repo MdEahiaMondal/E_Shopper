@@ -4,13 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Category;
 use App\Product;
-use App\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
-use Session;
 use Yajra\DataTables\DataTables;
 
 class CategoryController extends Controller
@@ -21,46 +16,66 @@ class CategoryController extends Controller
         $this->middleware('auth:admin');
     }
 
-    public function index(){
-       return view('backend.admin.category.add_category');
+    public function index(Request $request){
+
+        if ($request->ajax()){{
+            $all_category = Category::latest()->get();
+            return DataTables::of($all_category)
+                ->addIndexColumn()
+                ->addColumn('status', function ($row){
+                    $status = ($row->status > 0) ? "Active":"Unactive";
+                    $classCss = ($row->status > 0) ? "badge badge-success":"badge badge-danger";
+                    $Title    =  ($row->status > 0) ? "Press to unactive":"Prase to active";
+                    $btn ='<a class="'.$classCss.'" id="ActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  status="'.$row->status.'">'.$status.'</a>';
+                    return $btn;
+                })
+                ->addColumn('action', function ($row){
+                    $btn = "<button type='button' class='btn btn-xs btn-info editBtn' data-id =".$row->id." title='Edit Item'> <i class='fa fa-edit'></i> </button>";
+                    $btn .= "<button type='button' class='btn btn-xs btn-danger dlBtn' data-id =".$row->id." title='Delete Item'> <i class='fa fa-trash' aria-hidden='true'></i></button>";
+                    return $btn;
+                })
+                ->rawColumns(['status','action',])
+                ->make(true);
+        }}
+        return view('backend.admin.category.all_category');
+
     }
 
-
-    public function UnActived($id){
-        Category::where('id', $id)->update(['status'=>0]);
-        return 'success';
+    public function create()
+    {
+        return view('backend.admin.category.create');
     }
 
-    public function Actived($id){
-        Category::where('id',$id)->update(['status'=>1]);
-        return 'success';
-    }
-
-
-
-
-
-    public function all_category(){
-       $all_category = Category::get()->sortBy('id');
-        return view('backend.admin.category.all_category',compact('all_category',$all_category));
-    }
-
-
-    public function insert(Request $request){
-        $request->validate([
-            'category_name' => 'unique:categories,name',
-            'category_description' => 'string|nullable',
-            'category_status' => 'numeric|nullable',
+    public function store(Request $request)
+    {
+        $validation = $request->validate([
+            'name' => 'required|unique:categories,name',
+            'description' => 'string|nullable',
+            'status' => 'numeric|nullable',
         ]);
-        $value = array();
-        $value['name']          = $request->category_name;
-        $value['description']   = $request->category_description;
-        if($request->category_status==1){
-            $value['status']    = $request->category_status;
+
+        if ($validation){
+            $value = array();
+            $value['name']          = $request->name;
+            $value['description']   = $request->description;
+
+            if($request->status == 1){
+                $value['status']    = $request->status;
+            }
+
+            Category::insert($value);
+            return ['success'=>true, 'message'=>'Successfully added Category'];
+        }else{
+            return response()->json(['error'=>$validation->errors()->all()]);
         }
-        Category::insert($value);
-        return back()->with('success','Category Added Successfully !!');
+
     }
+
+    public function show($id)
+    {
+        //
+    }
+
 
 
     public function edit($id)
@@ -69,28 +84,55 @@ class CategoryController extends Controller
         return view('backend.admin.category.edit_category', compact('category_info',$category_info));
     }
 
-    public function update(Request $request, $id){
-       $request->validate([
-           'category_name'  => 'required|unique:categories,name,'.$id.',id',
-           'category_description' => 'string|nullable',
+    public function update(Request $request, Category $category)
+    {
+        $id = $request->get('id');
+        $validation = $request->validate([
+            'name'  => 'required|unique:categories,name,'.$id.',id',
+            'description' => 'string|nullable',
         ]);
 
-        $value = array();
-        $value['name']          = $request->category_name;
-        $value['description']   = $request->category_description;
-        Category::where('id', $id)->update($value);
-        Session::put('success','Category Update Successfully !!');
-        return back();
+
+        if ($validation){
+            $value = array();
+            $value['name']          = $request->name;
+            $value['description']   = $request->description;
+
+            Category::where('id', $id)->update($value);
+            return ['success'=>true, 'message'=>'Category Updated Successfully'];
+        }else{
+            return response()->json(['error'=>$validation->errors()->all()]);
+        }
+
+
     }
 
-    public function delete($id){
-        $checkProduct = Product::where('category_id',$id)->first();
+    public function destroy(Request $request)
+    {
+        $checkProduct = Product::where('category_id',$request->id)->first();
+
         if($checkProduct){
-            return back()->with('error','This Category Could not allow to delete!!');
+            return response()->json(['error'=>true,'message'=>'This Category Could not allow to delete!!']);
         }
-        Category::where('id',$id)->delete();
-            return back()->with('success','Category Delete Successfully !!');
+        Category::where('id',$request->id)->delete();
+
+        return response()->json(['success'=>true,'message'=>'Category Delete Successfully !!']);
     }
+
+    public function activeUnactive(Request $request)
+    {
+        $id = $request->id;
+        $status = $request->status;
+        $suc = Category::where('id',$id)->update(['status'=>$status]);
+
+        if ($suc){
+            return response()->json(['Publicstatus successfully Updated !']);
+        }else{
+            return response()->json(['error','Something  Problem']);
+        }
+
+    }
+
 
 
 

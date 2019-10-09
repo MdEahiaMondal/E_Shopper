@@ -27,17 +27,22 @@
                         },2000);
                     });
                 </script>
+
                 @if(Session('message'))
                     <li id="category_status" class="alert alert-success">{{Session::get('message')}} {{Session::put('message',null)}}</li>
                     <br>
                 @endif
+
                 @if($errors->all())
                     @foreach($errors->all() as $error)
                         <p class="alert alert-danger">{{$error}}</p>
                     @endforeach
                 @endif
-                <form class="form-horizontal" method="post" action="{{url('update-category',$category_info->id)}}">
+
+                <form class="form-horizontal" method="post" action="{{ route('categories.update',$category_info->id) }}">
                     @csrf
+                    @method('patch')
+
                     <fieldset>
 
                         <div class="form-group">
@@ -51,7 +56,7 @@
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Update Category</button>
                             <button class="btn">Cancel</button>
-                            <a class="btn btn-warning" href="{{url('all-category')}}">Back</a>
+                            <a class="btn btn-warning" href="{{route('categories.index')}}">Back</a>
                         </div>
                     </fieldset>
                 </form>

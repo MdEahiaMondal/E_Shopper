@@ -14,32 +14,46 @@ class CommentController extends Controller
 {
     public function insert(Request $request){
 
-        $request->validate([
-            'comment_body' => 'required|string|min:5|max:2000'
+       $validate =  $request->validate([
+            'comment_body' => 'required|min:5|max:2000'
         ]);
 
-        $email = \Auth::user()->email;
-        $product_id     = $request->product_id;
-        $body           = $request->comment_body;
-        $star_rating    = $request->star_rating;
+        if ($validate){
+            $email = Auth::user()->email;
+            $product_id     = $request->product_id;
+            $body           = $request->comment_body;
+            $star_rating    = $request->star_rating;
+            $checkEmail = User::where('email',$email)->first();
+            if($checkEmail){
+                // insert into the comments table
+                Comment::insert([
+                    'product_id'     => $product_id,
+                    'name'           => $checkEmail->name,
+                    'email'          => $checkEmail->email,
+                    'body'           => $body,
+                    'star_rating'    => $star_rating,
+                    'created_at'     => Carbon::now(),
 
-        $checkEmailOrName = User::where('email',$email)->first();
-       if($checkEmailOrName){
-           // insert into the comments table
-           Comment::insert([
-               'product_id'     => $product_id,
-               'name'           => $checkEmailOrName->name,
-               'email'          => $checkEmailOrName->email,
-               'body'           => $body,
-               'star_rating'    => $star_rating,
-               'created_at'     => Carbon::now(),
+                ]);
+                /*return back()->with('success','Thanks for your comment!!');*/
 
-           ]);
-           return back()->with('success','Thanks for your comment!!');
-       }
+                return response()->json([
+                    'success' => "Comment Added Successfully !",
+                ]);
+            }
+
+        }else{
+            return response()->json(['error'=>$validate->errors()->all()]);
+        }
 
 
     }
+
+
+    public function getComment(){
+        return  $all = Comment::all();
+    }
+
 
 
 
@@ -116,6 +130,5 @@ class CommentController extends Controller
         return response()->json($response,200);
 
     }
-
 
 }

@@ -16,7 +16,6 @@
     <!-- start: Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- end: Mobile Specific -->
-
     <!-- start: CSS -->
     <link id="bootstrap-style" href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('backend/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
@@ -24,6 +23,11 @@
     <link id="base-style-responsive" href="{{asset('backend/css/style-responsive.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"> {{--// for toastr popup--}}
+
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
     <!-- end: CSS -->
 
     <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -39,9 +43,6 @@
     <!-- start: Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- end: Favicon -->
-
-
-
 
 </head>
 
@@ -349,8 +350,8 @@
                     <li>
                         <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Manage Category</span><span class="label label-important"></span></a>
                         <ul>
-                            <li><a class="submenu" href="{{URL::to('all-category')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Categories</span></a></li>
-                            <li><a class="submenu" href="{{url('add-category')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Category</span></a></li>
+                            <li><a class="submenu" href="{{route('categories.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Categories</span></a></li>
+                            <li><a class="submenu" href="{{route('categories.create')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Category</span></a></li>
                         </ul>
                     </li>
 
@@ -443,14 +444,17 @@
 
 <!-- start: JavaScript-->
 <script src="{{asset('backend/js/jquery-1.9.1.min.js')}}"></script>
+<script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery-migrate-1.0.0.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery-ui-1.10.0.custom.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery.ui.touch-punch.js')}}"></script>
 <script src="{{asset('backend/js/modernizr.js')}}"></script>
-<script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery.cookie.js')}}"></script>
 <script src='{{asset('backend/js/fullcalendar.min.js')}}'></script>
-<script src='{{asset('backend/js/jquery.dataTables.min.js')}}'></script>
+{{--<script src='{{asset('backend/js/jquery.dataTables.min.js')}}'></script>--}}
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
 <script src="{{asset('backend/js/excanvas.js')}}"></script>
 <script src="{{asset('backend/js/jquery.flot.js')}}"></script>
 <script src="{{asset('backend/js/jquery.flot.pie.js')}}"></script>
@@ -477,61 +481,16 @@
 <!-- end: JavaScript-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.2/bootbox.min.js"></script>
-
-<script>
-
-
-
-    // unctive
-    function Student(id,value) {
-        var Data = value;
-        if (Data == 'active'){
-            url = "{{url('category/unctive')}}"+ '/' +id;
-        }else{
-            url = "{{url('category/active')}}"+ '/' +id;
-        }
-        $.ajax({
-            url: url,
-            type: "GET",
-            data: {
-                'id' : 'id',
-            },
-            success: function (response) {
-                if(response == "success"){ // if true (1)
-                    $("#reloadAjax").load(location.href + " #reloadAjax");
-                }
-            },
-            error: function (response) {
-                alert(response)
-            }
-        })
-    }
-
-
-    // show  form model
-    function showCategoryForm() {
-        save_method = 'add'; // this line for condition to update bellow
-        $('input[name=_method]').val('POST'); // this line all input method POST
-        $('#categoryModal').modal('show'); // data form modal show
-        $("#categoryForm form")[0].reset();
-        $("#modelTitle").text('Add ');// added new title
-        $("#submitButton").text('Add');// add new title
-    }
-
-
-</script>
-
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> {{--// for toastr popup--}}
 
 
 <script>
     $(document).on('click','#delete', function (e) {
         e.preventDefault();
-        var link = $(this).attr('href');
+        var  form_id = $(this).attr('form_id');
         bootbox.confirm('Are you want to delete!!', function (confirmed) {
             if(confirmed){
-                window.location.href = link;
+                document.getElementById(form_id).submit();
             };
         });
     });
@@ -695,6 +654,10 @@ $('#deleteFormId').on('submit',function (e) {
 </script>--}}
 
 @yield('script')
+
+
+
+
 
 </body>
 
