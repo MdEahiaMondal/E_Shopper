@@ -2,10 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1092591085.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1234158742.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1277530448.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1318926510.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1387580752.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1456107194.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1471177478.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1545229883.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1586557008.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1731048930.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1772294252.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1840185760.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1855734760.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1884338400.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1930457156.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/2121005353.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/361679510.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/363912055.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/378998750.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/413302538.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/564292843.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/565521810.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/617619473.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/635109607.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/680177158.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/731505627.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/73661175.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/991333366.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Slider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +161,11 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1RirCdVgS7770rS9s8hbbvRa7OJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -144,7 +178,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -267,8 +301,16 @@
       <workItem from="1570725537920" duration="753000" />
       <workItem from="1570843529416" duration="672000" />
       <workItem from="1570930964339" duration="9067000" />
-      <workItem from="1570963969851" duration="3377000" />
+      <workItem from="1570963969851" duration="15535000" />
     </task>
+    <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
+      <created>1570970432200</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1570970432200</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -295,5 +337,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="slider per item show in modal from database value for edit update" />
+    <option name="LAST_COMMIT_MESSAGE" value="slider per item show in modal from database value for edit update" />
   </component>
 </project>

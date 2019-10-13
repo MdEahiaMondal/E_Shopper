@@ -67,6 +67,7 @@ Route::resource('brands','Backend\BrandController');
 
 // Slider route::
 Route::resource('sliders','SliderController');
+Route::post('sliders/update','SliderController@update')->name('sliders.update');
 
 
 // product route::

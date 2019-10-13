@@ -81,8 +81,9 @@
 
         function Slider_formReset(){
             $("#output_image").attr('src','');
-            $(".filename").text('');
+            $(".filename").text('No file selected');
             $("#s_status").parent().removeClass('checked');
+            $("#sliderForm")[0].reset();
         }
 
         // first click the createNewSlider thene modal show
@@ -123,6 +124,41 @@
                 });
             }//end create slider
 
+        // start slider  update
+           if($("#actionSubmitSlider").val() == 'edit'){
+               /*var id = $("#s_id").val();
+               var oldImage = $("#sliderHiddenImageName").val();
+               var new_image = $("#s_image").val();
+               var Attr = $("#s_status").parent().attr('class');
+              if(Attr == "checked"){
+                  var status = '1'
+              }else{
+                  var status = '0'
+              }*/
+              $.ajax({
+                  url: "{{ route('sliders.update') }}",
+                  method: "POST",
+                  data: new FormData(this),
+                  dataType: "JSON",
+                  contentType: false,
+                  cache: false,
+                  processData: false,
+                  success: function (feedBackResult) {
+                      if(feedBackResult.success){
+                          toastr.success(feedBackResult.message);
+                          $("#SliderTable").DataTable().ajax.reload();
+                          Slider_formReset();
+                          $("#sliderModal").modal('hide')
+                      }
+
+                      if (feedBackResult.errors){
+                          toastr.error(feedBackResult.errors)
+                      }
+                  }
+              })
+
+
+           }
 
 
 
@@ -150,11 +186,17 @@
                         $("#s_status").parent().removeClass('checked')
                     }
 
+                    $("#modelTitle").text('Edit Slider');
+                    $("#actionSubmitSlider").text('Update');
+                    $("#actionSubmitSlider").val('edit');
                     $("#sliderModal").modal('show');
                 }
             });
         });
         // end click the edit button
+
+
+
 
 
 

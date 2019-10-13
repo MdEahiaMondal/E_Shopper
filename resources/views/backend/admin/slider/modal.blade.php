@@ -7,8 +7,8 @@
                 <h4 class="modal-title" id="modelTitle"></h4>
             </div>
 
-            <form method="post" id="sliderForm" enctype="multipart/form-data">
-                @csrf
+            <form   id="sliderForm" name="sliderForm" enctype="multipart/form-data">
+
                 <div class="modal-body">
                     <input type="hidden" name="s_id" id="s_id"> {{--// this row id--}}
                     <input type="hidden" id="sliderHiddenImageName" name="sliderHiddenImageName"> {{--// this image name from database  --}}
