@@ -52,26 +52,25 @@ Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
 
 /*.............................start the Backend Controller.........................*/
 
-
-
-    // Backend controller Route
-    Route::get('/admin','Backend\Auth\LoginController@showLoginForm');
-    Route::post('admin/login', 'Backend\Auth\LoginController@login')->name('admin.login');
-    Route::get('admin/dashboard','Backend\AdminController@index');
-
+// Backend controller Route
+Route::get('/admin','Backend\Auth\LoginController@showLoginForm');
+Route::post('admin/login', 'Backend\Auth\LoginController@login')->name('admin.login');
+Route::get('admin/dashboard','Backend\AdminController@index');
 
     // category route::
 Route::post('categories/activeUnctive','Backend\CategoryController@activeUnactive')->name('categories.activeUnctive');
 Route::resource('categories','Backend\CategoryController');
 
-
     // Brand route::
 Route::post('brands/activeUnctive','Backend\BrandController@ActiveUnactive')->name('brand.active.unactive');
 Route::resource('brands','Backend\BrandController');
 
+// Slider route::
+Route::resource('sliders','SliderController');
+
 
 // product route::
-    Route::get('/add-product','Backend\ProductController@index');
+    /*Route::get('/add-product','Backend\ProductController@index');
     Route::get('/all-product','Backend\ProductController@show');
     Route::post('/insert-product','Backend\ProductController@store');
     Route::get('/edit-product/{id}','Backend\ProductController@edit');
@@ -83,10 +82,10 @@ Route::resource('brands','Backend\BrandController');
     Route::get('/unactive-product/{id}','Backend\ProductController@unactive');
     Route::get('/unactive-product-feture/{id}','Backend\ProductController@unactive_product_feture');
     Route::get('/active-product/{id}','Backend\ProductController@active');
-    Route::get('active-product-feture/{id}','Backend\ProductController@active_product_features');
+    Route::get('active-product-feture/{id}','Backend\ProductController@active_product_features');*/
 
 
-// Slider route::
+/*// Slider route::
     Route::get('/add-slider','Backend\SliderController@index');
     Route::get('/all-slider','Backend\SliderController@show');
     Route::post('/insert-slider','Backend\SliderController@store');
@@ -94,14 +93,14 @@ Route::resource('brands','Backend\BrandController');
     Route::post('/update-slider/{id}','Backend\SliderController@update');
     Route::get('/delete-slider/{id}','Backend\SliderController@destroy');
     Route::get('/unactive-slider/{id}','Backend\SliderController@unactive');
-    Route::get('/active-slider/{id}','Backend\SliderController@active');
+    Route::get('/active-slider/{id}','Backend\SliderController@active');*/
 
 
 // order Route
 
-    Route::get('all-order','Backend\OrderController@index');
+   /* Route::get('all-order','Backend\OrderController@index');
     Route::get('view-order/{order_id}','Backend\OrderController@show');
-    Route::get('orders/{id}/delete', 'Backend\OrderController@destroy')->name('orders.delete');
+    Route::get('orders/{id}/delete', 'Backend\OrderController@destroy')->name('orders.delete');*/
 
 /*.............................end the Backend Controller.................................*/
 
