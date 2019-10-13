@@ -79,7 +79,10 @@ class SliderController extends Controller
 
     public function edit($id)
     {
-        //
+        if (request()->ajax()){
+            $data = Slider::findOrFail($id);
+            return response()->json(['data'=>$data]);
+        }
     }
 
 

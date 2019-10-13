@@ -131,6 +131,30 @@
 
         });
 
+        // start click the edit button
+        $(document).on('click','.editBtn', function () {
+            var id = $(this).data('id');
+            $.ajax({
+               url: "sliders/" + id + "/edit",
+                data: {id:id},
+                dataType: "JSON",
+                success: function (result) {
+                   $("#s_id").val(result.data.id);
+
+                    $("#output_image").attr('src','{{ asset('images/slider_image') }}/' + result.data.image + '');
+                    $("#sliderHiddenImageName").val(result.data.image);
+
+                    if (result.data.status == 1){
+                        $("#s_status").parent().addClass('checked')
+                    }else{
+                        $("#s_status").parent().removeClass('checked')
+                    }
+
+                    $("#sliderModal").modal('show');
+                }
+            });
+        });
+        // end click the edit button
 
 
 

@@ -10,11 +10,13 @@
             <form method="post" id="sliderForm" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
-                    <input type="hidden" name="s_id" id="s_id">
+                    <input type="hidden" name="s_id" id="s_id"> {{--// this row id--}}
+                    <input type="hidden" id="sliderHiddenImageName" name="sliderHiddenImageName"> {{--// this image name from database  --}}
                     <div class="form-group">
                         <label for="s_image"><h3>Slider Image</h3></label>
                         <input  type="file" class="form-control" id="s_image" name="s_image" accept="image/*" onchange="preview_image(event)">
-                        <img width="300" src="" id="output_image" alt="">
+                        <img style="width: 250px; height: 119px;" src="" id="output_image" alt="">
+
                     </div>
 
                     <div class="form-group form-check slider_status">
