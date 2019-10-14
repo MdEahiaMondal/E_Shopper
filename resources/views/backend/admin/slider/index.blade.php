@@ -195,6 +195,44 @@
         });
         // end click the edit button
 
+        // now  delete per item
+        $(document).on('click', '.delBtn', function () {
+            var id = $(this).data('id');
+            $.ajax({
+                url: "{{ route('sliders.destroy','') }}/"+id,
+                method: "DELETE",
+                dataType: "JSON",
+                data: {id:id},
+                success: function (feed_back_result) {
+                    toastr.success(feed_back_result.success);
+                    $('#SliderTable').DataTable().ajax.reload();
+                }
+            })
+        })// close delete script
+
+        // start active unactive script
+        $(document).on('click', '#ActiveUnactive',function () {
+            var id = $(this).data('id');
+            var statusNumber = $(this).attr('statusNumber');
+           var getStatusNumber =  (statusNumber==1)? 0:1;
+
+           $.ajax({
+               url: "{{ route('slider.active.unactive') }}",
+               method: "POST",
+               dataType: "JSON",
+               data: {
+                   id: id,
+                   getStatusNumber: getStatusNumber,
+               },
+               success: function (feedBackResult) {
+                   toastr.success(feedBackResult.success);
+                   $('#SliderTable').DataTable().ajax.reload();
+               }
+           })
+
+        })
+
+        // end active unactive script
 
 
 

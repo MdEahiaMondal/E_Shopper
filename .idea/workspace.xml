@@ -2,39 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1092591085.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1234158742.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1277530448.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1318926510.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1387580752.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1456107194.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1471177478.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1545229883.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1586557008.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1731048930.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1772294252.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1840185760.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1855734760.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1884338400.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1930457156.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/2121005353.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/361679510.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/363912055.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/378998750.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/413302538.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/564292843.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/565521810.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/617619473.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/635109607.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/680177158.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/731505627.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/73661175.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/991333366.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/171453928.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/2017812211.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Slider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/108835406.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1092591085.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1119275877.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1159071922.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1177599013.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1182565637.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1234158742.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1265707533.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1277530448.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1318926510.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1352205937.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1387580752.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1456107194.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1471177478.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1492672149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1545229883.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1576854020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1586557008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1697202894.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1731048930.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1772294252.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/18101149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1840185760.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1855734760.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1884338400.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1895110990.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1930457156.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/2038562840.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/2115786348.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/2121005353.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/361679510.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/363912055.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/378998750.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/381939782.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/413302538.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/498984523.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/524959447.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/559209508.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/564292843.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/565521810.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/617619473.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/635109607.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/680177158.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/720359580.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/731505627.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/73661175.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/777549808.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/848543593.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/856180389.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/991333366.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -301,7 +323,9 @@
       <workItem from="1570725537920" duration="753000" />
       <workItem from="1570843529416" duration="672000" />
       <workItem from="1570930964339" duration="9067000" />
-      <workItem from="1570963969851" duration="15535000" />
+      <workItem from="1570963969851" duration="16917000" />
+      <workItem from="1571021655356" duration="2360000" />
+      <workItem from="1571031214343" duration="1167000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>

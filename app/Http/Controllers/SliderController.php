@@ -22,7 +22,7 @@ class SliderController extends Controller
                     $addCss = ($row->status > 0) ? 'badge badge-success' : 'badge badge-danger';
                     $title = ($row->status > 0) ? "Press to unactive" : "Prase to active";
 
-                    $btn = "<button type='button' title='$title' class='$addCss' status='$row->status' data-id='$row->id'>$status</button>";
+                    $btn = "<button type='button' id='ActiveUnactive' title='$title' class='$addCss' statusNumber='$row->status' data-id='$row->id'>$status</button>";
                     return $btn;
                 })
                 ->addColumn('action', function ($row){
@@ -138,6 +138,31 @@ class SliderController extends Controller
 
     public function destroy($id)
     {
-        //
+        $check = Slider::findOrFail($id);
+        if ($check->image){
+            file_exists('images/slider_image/'.$check->image);
+            unlink('images/slider_image/'.$check->image);
+            Slider::whereId($id)->delete();
+            return response()->json(['success'=>'Deleted Successfully Done !']);
+        }else{
+            Slider::whereId($id)->delete();
+            return response()->json(['success'=>'Deleted Successfully Done !']);
+        }
+
     }
+
+
+    public function ActiveUnactive(Request $request){
+          $id = $request->id;
+          $getStatusNumber = $request->getStatusNumber;
+
+          $check = Slider::findOrFail($id); // you can you ( Slider::where('id',$id)->update(['status'=>$status]); )
+          if ($check){
+              $check->update(['status'=>$getStatusNumber]);
+              return response()->json(['success' => "Publication Status Updated Successfully !"]);
+          }
+
+    }
+
+
 }
