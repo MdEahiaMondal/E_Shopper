@@ -5,6 +5,7 @@
             <li><a href="{{URL::to('admin/dashboard')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
             <li><a class="submenu" href="{{route('categories.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Categories</span></a></li>
             <li><a class="submenu" href="{{route('brands.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Brands</span></a></li>
+            <li><a class="submenu" href="{{route('products.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Products</span></a></li>
             <li><a class="submenu" href="{{route('sliders.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Sliders</span></a></li>
 
             <li>

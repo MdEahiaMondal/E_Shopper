@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Slider;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
@@ -86,54 +87,47 @@ class SliderController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(Request $request, Slider $slider)
     {
 
+
+        // if have a new image
         $newImage = $request->file('s_image');
         if ($newImage){
 
-                $oldImage = $request->sliderHiddenImageName;
-                if ($oldImage){
-                    file_exists('images/slider_image/'.$oldImage);
-                    unlink('images/slider_image/'.$oldImage);
-                }
-
-            $rules = array(
-                's_status' => 'numeric|nullable',
-                's_image' => 'required|image|max:2048',
-            );
-
-            $error = Validator::make($request->all(), $rules);
-            if ($error->fails()){
-                return response()->json(['errors'=>$error->errors()->all()]);
+            // now we can delete old image in my dir
+            $oldImage = $request->sliderHiddenImageName;
+            if ($oldImage){
+                file_exists('images/slider_image/'.$oldImage);
+                unlink('images/slider_image/'.$oldImage);
             }
 
-                $setImageName = rand(). '.' .$newImage->getClientOriginalExtension();
-                Image::make($newImage)->resize('1140','400')->save(base_path('public/images/slider_image/'.$setImageName),100);
+            // now need to  validation
+            $validator = Validator::make($request->all(), [
+                's_status' => 'numeric|nullable',
+                's_image' => 'required|image|max:2048',
+            ]);
 
-                $value = array();
-                $value['image'] = $setImageName;
-                if ($request->s_status == 1){
-                    $value['status'] = $request->s_status;
-                }else{
-                    $value['status'] = 0;
-                }
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()]);
+            }
 
-                Slider::whereId($request->s_id)->update($value);
+            // now set image name
+            $setImageName = rand(). '.' .$newImage->getClientOriginalExtension();
+            Image::make($newImage)->resize('1140','400')->save(base_path('public/images/slider_image/'.$setImageName),100);
+
+            // now update all
+            $request['status'] = $request->s_status == 1 ? 1 : 0;
+            $slider->update($request->all());
             return response()->json(['success'=>true, 'message'=>'Slider Image Updated Successfully!']);
+
         }
 
-        $value = array();
-        $value['image'] = $request->sliderHiddenImageName;
-        if ($request->s_status == 1){
-            $value['status'] = $request->s_status;
-        }else{
-            $value['status'] = 0;
-        }
-        Slider::whereId($request->s_id)->update($value);
+        $request['status'] = $request->s_status == 1 ? 1 : 0;
+        $slider->update($request->all());
         return response()->json(['success'=>true, 'message'=>'Slider Image Updated Successfully!']);
-
     }
+
 
 
     public function destroy($id)

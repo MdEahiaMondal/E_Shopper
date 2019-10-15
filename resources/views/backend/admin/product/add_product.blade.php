@@ -133,6 +133,7 @@
                             </div>
 
                         </div>
+
                         <div class="span3" style="margin: 20px">
                             <button type="submit" class="btn btn-warning">Add Product</button>
                             <p class="btn">Cancel</p>

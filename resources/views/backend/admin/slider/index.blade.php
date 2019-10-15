@@ -135,15 +135,23 @@
               }else{
                   var status = '0'
               }*/
+
+               var id = $("#s_id").val();
+               let formData = new FormData(this);
+               formData.append('_method', 'put');
+
               $.ajax({
-                  url: "{{ route('sliders.update') }}",
+                  url: "{{ route('sliders.update','') }}/"+id,
                   method: "POST",
-                  data: new FormData(this),
+                  data: formData,
                   dataType: "JSON",
                   contentType: false,
                   cache: false,
                   processData: false,
                   success: function (feedBackResult) {
+
+                      console.log(feedBackResult);
+
                       if(feedBackResult.success){
                           toastr.success(feedBackResult.message);
                           $("#SliderTable").DataTable().ajax.reload();
@@ -181,7 +189,7 @@
                     $("#sliderHiddenImageName").val(result.data.image);
 
                     if (result.data.status == 1){
-                        $("#s_status").parent().addClass('checked')
+                        $("#s_status").parent().addClass('checked');
                     }else{
                         $("#s_status").parent().removeClass('checked')
                     }

@@ -68,7 +68,7 @@ Route::resource('brands','Backend\BrandController');
 // Slider route::
 Route::post('slidersActiveUnactive','SliderController@ActiveUnactive')->name('slider.active.unactive');
 Route::resource('sliders','SliderController');
-Route::post('sliders/update','SliderController@update')->name('sliders.update');
+/*Route::post('sliders/update','SliderController@update')->name('sliders.update');*/
 
 
 // product route::
@@ -85,6 +85,10 @@ Route::post('sliders/update','SliderController@update')->name('sliders.update');
     Route::get('/unactive-product-feture/{id}','Backend\ProductController@unactive_product_feture');
     Route::get('/active-product/{id}','Backend\ProductController@active');
     Route::get('active-product-feture/{id}','Backend\ProductController@active_product_features');*/
+
+Route::post('products/getCategoryBrand','ProductController@getCategoryBrand')->name('get.categoryBrand.data');
+Route::resource('products','ProductController');
+
 
 
 /*// Slider route::

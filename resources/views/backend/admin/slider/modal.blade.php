@@ -10,8 +10,10 @@
             <form   id="sliderForm" name="sliderForm" enctype="multipart/form-data">
 
                 <div class="modal-body">
+
                     <input type="hidden" name="s_id" id="s_id"> {{--// this row id--}}
                     <input type="hidden" id="sliderHiddenImageName" name="sliderHiddenImageName"> {{--// this image name from database  --}}
+
                     <div class="form-group">
                         <label for="s_image"><h3>Slider Image</h3></label>
                         <input  type="file" class="form-control" id="s_image" name="s_image" accept="image/*" onchange="preview_image(event)">
