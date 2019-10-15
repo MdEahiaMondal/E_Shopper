@@ -2,19 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/2038089693.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/888945653.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/slider_image/96758869.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1262327060.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1398783359.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/142823228.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1435354002.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1440458862.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1536435111.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/597564030.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/709507395.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/85239501.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/868663357.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/parsials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/parsials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/add_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/add_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,19 +164,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\xmp\xm\htdocs\runningGitHub project\E_Shopper\public\backend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend\admin\auth" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Backend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\database\migrations" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Frontend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend\auth" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\FrontendController" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\xmp\xm\htdocs\runningGitHub project\E_Shopper\public\backend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend\admin\auth" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Backend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\database\migrations" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -285,7 +289,8 @@
       <workItem from="1571031214343" duration="1815000" />
       <workItem from="1571068669970" duration="599000" />
       <workItem from="1571069821499" duration="5602000" />
-      <workItem from="1571103971025" duration="9248000" />
+      <workItem from="1571103971025" duration="13875000" />
+      <workItem from="1571153976436" duration="5675000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -301,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571032439198</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="make resource route for product and make modal with form and pages,, and show all category and brand">
+      <created>1571114459591</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571114459591</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -333,6 +345,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="slider per item show in modal from database value for edit update" />
     <MESSAGE value="slider delete and active unactive status successfully done" />
-    <option name="LAST_COMMIT_MESSAGE" value="slider delete and active unactive status successfully done" />
+    <MESSAGE value="make resource route for product and make modal with form and pages,, and show all category and brand" />
+    <option name="LAST_COMMIT_MESSAGE" value="make resource route for product and make modal with form and pages,, and show all category and brand" />
   </component>
 </project>

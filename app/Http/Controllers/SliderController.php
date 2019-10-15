@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Slider;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;

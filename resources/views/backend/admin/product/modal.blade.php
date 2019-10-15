@@ -7,6 +7,8 @@
                 <h4 class="modal-title" id="modelTitle"></h4>
             </div>
 
+            <p id="formError"></p>
+
             <form   id="productForm" name="productForm" enctype="multipart/form-data">
 
                 <div class="modal-body">
@@ -18,16 +20,19 @@
                         <div class="form-group">
                             <label for="name"><h3>Name <sup style="color: #f82f53">*</sup> </h3></label>
                             <input type="text" name="name" value="{{old('name')}}" class="form-control" id="name" placeholder="Product Name" >
+                            <p id="error_Name"></p>
                         </div>
 
                         <div class="form-group">
                             <label for="price"><h3>Price <sup style="color: #f82f53">*</sup></h3></label>
                             <input type="text" name="price" value="{{old('price')}}" id="price" placeholder="Product Price">
+                            <p id="error_price"></p>
                         </div>
 
                         <div class="form-group">
                             <label for="quantity"><h3>Quantity <sup style="color: #f82f53">*</sup></h3></label>
                             <input type="text" name="quantity" value="{{old('quantity')}}" id="quantity" placeholder="Product Quantity">
+                            <p id="error_quantity"></p>
                         </div>
 
                         <div class="form-group">
@@ -61,26 +66,30 @@
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="category_id"> <h3>Select Category <sup style="color: #f82f53">*</sup></h3></label>
                             </div>
-                            <select class="custom-select" id="category_id" name="category">
+                            <select class="custom-select" id="category_id" name="category_id">
                                 <option selected>Choose...</option>
                             </select>
+                            <p id="error_category_id"></p>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="brand_id"> <h3>Select Brand <sup style="color: #f82f53">*</sup></h3></label>
                             </div>
-                            <select class="custom-select" id="brand_id" name="brand">
+                            <select class="custom-select" id="brand_id" name="brand_id">
                                 <option selected>Choose...</option>
                             </select>
+                            <p id="error_brand_id"></p>
                         </div>
                         <div class="form-group">
                             <label for="description"><h3>Description <sup style="color: #f82f53">*</sup></h3></label>
                             <textarea name="description" id="description" cols="30" rows="10" placeholder="Please type something aboout your product">{{old('description')}}</textarea>
+                            <p id="error_description"></p>
                         </div>
 
                         <div class="form-group form-check">
                             <label for="image"><h3>Image</h3></label>
                             <input type="file" name="image" id="image" accept="image/*" onchange="preview_image(event)">
+                            <p id="error_image"></p>
                         </div>
 
                         <div class="form-group form-check" >
@@ -105,3 +114,14 @@
 </div>
 {{-- // modal here--}}
 
+
+<style>
+    .errorsProduct{
+        color: red;
+        margin-bottom: 30px;
+    }
+    .borderColor{
+        border-color: #FF0000;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+    }
+</style>

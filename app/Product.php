@@ -9,6 +9,9 @@ class Product extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ['name', 'description', 'status', 'quantity', 'color', 'features', 'slug', 'price', 'image'];
+
+
     public function category(){
         return $this->hasOne('App\Category','id','category_id');
     }

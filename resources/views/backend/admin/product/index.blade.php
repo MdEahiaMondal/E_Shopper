@@ -113,6 +113,49 @@
                    });
            });
 
+        // finaly we create a product
+        $("#productForm").on('submit', function (e) {
+            e.preventDefault();
+
+            if ($("#actionButton").val() == "create"){
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: "{{ route('products.store') }}",
+                    method: "POST",
+                    data: formData,
+                    dataType: "JSON",
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (feedBackResult) {
+
+                        if (feedBackResult.errorsSlag){
+                            toastr.error(feedBackResult.errorsSlag)
+                        }
+
+                        if(feedBackResult.errors){
+                            var allErrors = feedBackResult.errors;
+                            $("#error_Name").html('<div class="errorsProduct">'+allErrors.name[0]+'</div>');
+                            $("#error_price").html('<div class="errorsProduct">'+allErrors.price[0]+'</div>');
+                            $("#error_quantity").html('<div class="errorsProduct">'+allErrors.quantity[0]+'</div>');
+                            $("#error_category_id").html('<div class="errorsProduct">'+allErrors.category_id[0]+'</div>');
+                            $("#error_brand_id").html('<div class="errorsProduct">'+allErrors.brand_id[0]+'</div>');
+                            $("#error_description").html('<div class="errorsProduct">'+allErrors.description[0]+'</div>');
+                        }
+
+                        if(feedBackResult.success){
+                            toastr.success(feedBackResult.message)
+                        }
+                    }
+
+                })
+            }
+
+
+
+        })
+
     </script>
 
 @endsection

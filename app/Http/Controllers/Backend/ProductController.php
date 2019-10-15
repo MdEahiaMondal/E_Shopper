@@ -7,7 +7,7 @@ use App\Product;
 use File;
 use function GuzzleHttp\Psr7\str;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Session;
