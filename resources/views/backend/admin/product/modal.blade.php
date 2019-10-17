@@ -55,7 +55,7 @@
 
                             <div class="span3">
                                 <label class="form-check-label">
-                                    <input type="checkbox" name="status" value="1" class="form-check-input" id="status"> Status
+                                    <input type="checkbox"  name="status" value="1" class="form-check-input" id="status"> Status
                                 </label>
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                                 <label class="input-group-text" for="category_id"> <h3>Select Category <sup style="color: #f82f53">*</sup></h3></label>
                             </div>
                             <select class="custom-select" id="category_id" name="category_id">
-                                <option selected>Choose...</option>
+                                <option value="selectedCategoryValue" selected>Choose...</option>
                             </select>
                             <p id="error_category_id"></p>
                         </div>
@@ -76,7 +76,7 @@
                                 <label class="input-group-text" for="brand_id"> <h3>Select Brand <sup style="color: #f82f53">*</sup></h3></label>
                             </div>
                             <select class="custom-select" id="brand_id" name="brand_id">
-                                <option selected>Choose...</option>
+                                <option value="selectedBrandValue" selected>Choose...</option> {{--// only for selected value="selectedBrandValue"--}}
                             </select>
                             <p id="error_brand_id"></p>
                         </div>

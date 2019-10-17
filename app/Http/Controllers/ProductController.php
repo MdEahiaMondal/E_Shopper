@@ -24,14 +24,14 @@ class ProductController extends Controller
                     $status = ($row->status > 0) ? "Active":"Unactive";
                     $classCss = ($row->status > 0) ? "badge badge-success":"badge badge-danger";
                     $Title    =  ($row->status > 0) ? "Press to unactive":"Prase to active";
-                    $btn ='<a class="'.$classCss.'" id="ActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  status="'.$row->status.'">'.$status.'</a>';
+                    $btn ='<a class="'.$classCss.'" id="statusActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  statusNumber="'.$row->status.'">'.$status.'</a>';
                     return $btn;
                 })
                 ->addColumn('features', function ($row){
                     $features = ($row->features > 0) ? "Active":"Unactive";
                     $classCss = ($row->features > 0) ? "badge badge-success":"badge badge-danger";
                     $Title    =  ($row->features > 0) ? "Press to unactive":"Prase to active";
-                    $btn ='<a class="'.$classCss.'" id="ActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  status="'.$row->features.'">'.$features.'</a>';
+                    $btn ='<a class="'.$classCss.'" id="featuresActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  featuresNumber="'.$row->features.'">'.$features.'</a>';
                     return $btn;
                 })
                 ->addColumn('action', function ($row){
@@ -39,9 +39,9 @@ class ProductController extends Controller
                     $btn .= "<button type='button' class='btn btn-xs btn-danger dlBtn' data-id =".$row->id." title='Delete Item'> <i class='fa fa-trash' aria-hidden='true'></i></button>";
                     return $btn;
                 })
-                ->editColumn('description',  function ($row){
+                /*->editColumn('description',  function ($row){
                     return Str::limit($row->description,'30','....');
-                })
+                })*/
                 ->editColumn('category',  function ($row){// for relationship
                     return $row->category->name;
                 })
@@ -66,13 +66,11 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-
-        info($request->all());
         // now need to  validation
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:products,name',
             'price' => 'required|string',
-            'quantity' => 'required|string',
+            'quantity' => 'required|numeric',
             'size' => 'string|nullable',
             'color' => 'string|nullable',
             'features' => 'numeric|nullable',
@@ -138,13 +136,75 @@ class ProductController extends Controller
 
     public function edit($id)
     {
-        //
+        if (request()->ajax()){
+            $data =  Product::with('category')->with('brand')->findOrFail($id);
+            return response()->json(['data'=>$data]);
+        }
+
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+
+        $id = $request->row_id;
+        // now need to  validation
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:products,name,'.$id.',id',
+            'price' => 'required|string',
+            'quantity' => 'required|numeric',
+            'size' => 'string|nullable',
+            'color' => 'string|nullable',
+            'features' => 'numeric|nullable',
+            'status' => 'numeric|nullable',
+            'category_id' => 'required|numeric',
+            'brand_id' => 'required|numeric',
+            'description' => 'required|string',
+            'image' => 'image|max:2048|nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
+        /*test for unique slug in the database*/
+        $slug = Str::slug($request->name, '-');
+        $value = array();
+        $value['name'] = $request->name;
+        $value['slug'] = $slug;
+        $value['category_id'] = $request->category_id;
+        $value['brand_id'] = $request->brand_id;
+        $value['description'] = $request->description;
+        $value['price'] = $request->price;
+        $value['size'] = $request->size;
+        $value['quantity'] = $request->quantity;
+        $value['color'] = $request->color;
+
+        $value['status'] = ($request->status == 1)? 1: 0;
+        $value['features'] = ($request->features == 1)? 1: 0;
+
+
+        $newImage = $request->file('image');
+        if ($newImage){
+
+            // first delete old image
+            $oldImage = $request->file('productHiddenImageName');
+            if ($oldImage != ''){
+                file_exists('images/product_image/'.$oldImage);
+                unlink('images/product_image/'.$oldImage);
+            }
+
+            $setNewImageName = rand(). '.' .$newImage->getClientOriginalExtension();
+            Image::make($newImage)->resize(207,183)->save(public_path('images/product_image/'.$setNewImageName),'100');
+            $value['image'] = $setNewImageName;
+            $product->update($value);
+            return response()->json(['success'=>true, 'message'=>'Product Updated Successfully !']);
+        }
+
+        $value['image'] = $request->productHiddenImageName;
+        $product->update($value);
+        return response()->json(['success'=>true, 'message'=>'Product Updated Successfully !']);
+
     }
 
 
@@ -195,5 +255,17 @@ class ProductController extends Controller
 
 
     }
+
+
+    public function statusActiveUnactive(Request $request){
+        Product::whereId($request->id)->update(['status'=>$request->setStatusNumber]);
+        return response()->json(['success'=>true, 'message'=>'Publication Status updated Successfully !']);
+    }
+
+    public function featuresActiveUnactive(Request $request){
+        Product::whereId($request->id)->update(['features'=>$request->setFeaturesNumber]);
+        return response()->json(['success'=>true, 'message'=>'Publication Features updated Successfully !']);
+    }
+
 
 }
