@@ -80,8 +80,8 @@
                 ]
         });
 
-
         // end data read
+
 
         // start unactive active
         $('table').on('click', "#ActiveUnactive", function () {

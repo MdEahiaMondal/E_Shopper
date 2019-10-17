@@ -37,8 +37,8 @@
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Status</th>
-                            <th>Feture</th>
-                            <th>Actions</th>
+                            <th>Features</th>
+                            <th width="100">Actions</th>
                         </tr>
                         </thead>
 
@@ -64,6 +64,37 @@
         $.ajaxSetup({
             headers: {'X-CSRF-Token': '{{ csrf_token() }}'}
         });
+
+
+        // start  data read
+        var productUrl = "{{ route('products.index') }}";
+        var productTable = $("#productTable").DataTable({
+            processing: true,
+            serverSide: true,
+            ajax:productUrl,
+            columns: [
+                {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                {
+                    data: 'image',
+                    name: 'image',
+                    render: function (data,type, full, meta) {
+                        return '<img class="img-thumbnail" style="width: 80px; height: 80px;" src="{{ asset('images/product_image/') }}/'+data+'"/>';
+                    },
+                    orderable: false,
+                },
+                { data: 'name', name: 'name' },
+                { data: 'slug', name: 'slug' },
+                { data: 'category', name: 'category' },
+                { data: 'brand', name: 'brand' },
+                { data: 'price', name: 'price' },
+                { data: 'quantity', name: 'quantity' },
+                { data: 'status', name: 'status' },
+                { data: 'features', name: 'features' },
+                { data: 'action', name: 'action', orderable: false, searchable: false },
+            ]
+
+        });
+        // end data read
 
 
 
@@ -136,6 +167,7 @@
 
                         if(feedBackResult.errors){
                             var allErrors = feedBackResult.errors;
+
                             $("#error_Name").html('<div class="errorsProduct">'+allErrors.name[0]+'</div>');
                             $("#error_price").html('<div class="errorsProduct">'+allErrors.price[0]+'</div>');
                             $("#error_quantity").html('<div class="errorsProduct">'+allErrors.quantity[0]+'</div>');
@@ -145,7 +177,9 @@
                         }
 
                         if(feedBackResult.success){
-                            toastr.success(feedBackResult.message)
+                            toastr.success(feedBackResult.message);
+                            $("#productModal").modal('hide');
+                            $("#productTable").DataTable().ajax.reload();
                         }
                     }
 

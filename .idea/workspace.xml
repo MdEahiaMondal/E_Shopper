@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1262327060.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1398783359.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/142823228.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1435354002.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1440458862.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1536435111.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/597564030.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/709507395.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/85239501.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/868663357.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1434269532.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1544216829.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1586170307.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1650216905.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1888236315.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/853001162.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/918551551.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SliderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/all_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/all_category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +145,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ajaxValidation" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -290,7 +284,9 @@
       <workItem from="1571068669970" duration="599000" />
       <workItem from="1571069821499" duration="5602000" />
       <workItem from="1571103971025" duration="13875000" />
-      <workItem from="1571153976436" duration="5675000" />
+      <workItem from="1571153976436" duration="5863000" />
+      <workItem from="1571245757552" duration="1645000" />
+      <workItem from="1571269671708" duration="4729000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -313,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571114459591</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="profuct insert">
+      <created>1571160082071</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571160082071</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -346,6 +349,7 @@
     <MESSAGE value="slider per item show in modal from database value for edit update" />
     <MESSAGE value="slider delete and active unactive status successfully done" />
     <MESSAGE value="make resource route for product and make modal with form and pages,, and show all category and brand" />
-    <option name="LAST_COMMIT_MESSAGE" value="make resource route for product and make modal with form and pages,, and show all category and brand" />
+    <MESSAGE value="profuct insert" />
+    <option name="LAST_COMMIT_MESSAGE" value="profuct insert" />
   </component>
 </project>

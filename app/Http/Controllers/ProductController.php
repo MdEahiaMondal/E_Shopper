@@ -9,6 +9,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {
@@ -16,6 +17,39 @@ class ProductController extends Controller
     public function index()
     {
         if (request()->ajax()){
+            $products = Product::with('category')->with('brand')->latest()->get();// relation with get data
+            return DataTables::of($products)
+                ->addIndexColumn()
+                ->addColumn('status', function ($row){
+                    $status = ($row->status > 0) ? "Active":"Unactive";
+                    $classCss = ($row->status > 0) ? "badge badge-success":"badge badge-danger";
+                    $Title    =  ($row->status > 0) ? "Press to unactive":"Prase to active";
+                    $btn ='<a class="'.$classCss.'" id="ActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  status="'.$row->status.'">'.$status.'</a>';
+                    return $btn;
+                })
+                ->addColumn('features', function ($row){
+                    $features = ($row->features > 0) ? "Active":"Unactive";
+                    $classCss = ($row->features > 0) ? "badge badge-success":"badge badge-danger";
+                    $Title    =  ($row->features > 0) ? "Press to unactive":"Prase to active";
+                    $btn ='<a class="'.$classCss.'" id="ActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  status="'.$row->features.'">'.$features.'</a>';
+                    return $btn;
+                })
+                ->addColumn('action', function ($row){
+                    $btn = "<button type='button' class='btn btn-xs btn-info editBtn' data-id =".$row->id." title='Edit Item'> <i class='fa fa-edit'></i> </button>";
+                    $btn .= "<button type='button' class='btn btn-xs btn-danger dlBtn' data-id =".$row->id." title='Delete Item'> <i class='fa fa-trash' aria-hidden='true'></i></button>";
+                    return $btn;
+                })
+                ->editColumn('description',  function ($row){
+                    return Str::limit($row->description,'30','....');
+                })
+                ->editColumn('category',  function ($row){// for relationship
+                    return $row->category->name;
+                })
+                ->editColumn('brand',  function ($row){// for relationship
+                     return $row->brand->name;
+                })
+                ->rawColumns(['status', 'features', 'action',])
+                ->make(true);
 
         }
 
@@ -33,6 +67,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
 
+        info($request->all());
         // now need to  validation
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:products,name',
@@ -72,13 +107,9 @@ class ProductController extends Controller
         $value['size'] = $request->size;
         $value['quantity'] = $request->quantity;
         $value['color'] = $request->color;
-        if($request->status == 1 ){
-            $value['status'] = $request->status;
 
-        }
-        if($request->features == 1){
-            $value['features'] = $request->features;
-        }
+        $value['status'] = ($request->status == 1)? '1' : '0';
+        $value['features'] = ($request->features == 1)? '1' : '0';
 
 
             $CheckImage = $request->file('image');
@@ -86,12 +117,12 @@ class ProductController extends Controller
                 $setImageName = rand(). '.' .$CheckImage->getClientOriginalExtension();
                 Image::make($CheckImage)->resize(207,183)->save(public_path('images/product_image/'.$setImageName),'100');
                 $value['image'] = $setImageName;
-                Product::create($value);
+                Product::insert($value);
                 return response()->json(['success'=>true, 'message'=>'Product Created Successfully !']);
             }
 
         $value['image'] = '';
-        Product::create($value);
+        Product::insert($value);
         return response()->json(['success'=>true, 'message'=>'Product Created Successfully !']);
 
 
