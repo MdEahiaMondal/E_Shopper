@@ -150,7 +150,22 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        //
+       $check = Product::findOrFail($id);
+       $checkImage = $check->image;
+       if ($checkImage){
+           // now delete the image
+           if(file_exists('images/product_image/'.$checkImage)){
+               unlink('images/product_image/'.$checkImage);
+               Product::whereId($id)->delete();
+               return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
+           }
+           Product::whereId($id)->delete();
+           return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
+       }
+       // if there in a no image you can delete
+        Product::whereId($id)->delete();
+        return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
+
     }
 
 

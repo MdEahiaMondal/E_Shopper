@@ -2,16 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1434269532.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1544216829.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1586170307.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1650216905.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1888236315.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/853001162.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/918551551.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/all_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/all_category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1020126284.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1262327060.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1398783359.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/142823228.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1434269532.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1435354002.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1440458862.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1536435111.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1544216829.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1586170307.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1650216905.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1888236315.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/597564030.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/709507395.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/834016161.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/85239501.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/853001162.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/868663357.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/8YtAgaDiUqxDeRUxEuFS.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/918551551.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/967391120.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/AnuoiOEuQUlFygqXJv8U.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/CJ94gtTjwkKdPhbav918.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/NBphI1WxseTImFYG7eJF.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/NicQV0gSuxg8QL1ZMsSA.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/X4RWHmFfkx8OqXWIffPz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/YGh38IUqj3yb3QEDpw1Z.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/Ynee4m77Tdt9dwpmuaFm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/dKe4Ze6WVrQzq9HKuLuu.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -286,7 +307,7 @@
       <workItem from="1571103971025" duration="13875000" />
       <workItem from="1571153976436" duration="5863000" />
       <workItem from="1571245757552" duration="1645000" />
-      <workItem from="1571269671708" duration="4729000" />
+      <workItem from="1571269671708" duration="6621000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -316,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571160082071</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="profuct insert complete with ajax and DataTables">
+      <created>1571274606142</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571274606142</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -350,6 +378,7 @@
     <MESSAGE value="slider delete and active unactive status successfully done" />
     <MESSAGE value="make resource route for product and make modal with form and pages,, and show all category and brand" />
     <MESSAGE value="profuct insert" />
-    <option name="LAST_COMMIT_MESSAGE" value="profuct insert" />
+    <MESSAGE value="profuct insert complete with ajax and DataTables" />
+    <option name="LAST_COMMIT_MESSAGE" value="profuct insert complete with ajax and DataTables" />
   </component>
 </project>

@@ -148,6 +148,7 @@
         $("#productForm").on('submit', function (e) {
             e.preventDefault();
 
+            // whene click the action button then create
             if ($("#actionButton").val() == "create"){
                 var formData = new FormData(this);
 
@@ -184,11 +185,36 @@
                     }
 
                 })
-            }
+            } // end create
 
 
+            // start edit product
 
-        })
+            // end edit product
+
+        }); // main form submit
+
+
+        // start finaly delete the product
+            $(document).on('click','.dlBtn', function () {
+                var id = $(this).data('id');
+
+                $.ajax({
+                    url: "{{ route('products.destroy', '') }}/"+id,
+                    data:{id:id},
+                    method: "DELETE",
+                    dataType: "JSON",
+                    success: function (feedBackResult) {
+                        if(feedBackResult.success){
+                            toastr.success(feedBackResult.message);
+                            $("#productTable").DataTable().ajax.reload();
+                        }
+
+                    }
+                })
+            })
+        // end delete the product
+
 
     </script>
 
