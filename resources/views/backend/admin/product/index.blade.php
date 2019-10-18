@@ -109,6 +109,7 @@
             $(".filename").text('No file selected');
             $("#features").parent().addClass('');
             $("#status").parent().addClass('');
+            $(".removeErrorText").text('');
         }
 
         // modal show for create the product

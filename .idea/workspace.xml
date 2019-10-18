@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/146194237.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1572594135.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/693887370.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/product_image/326959037.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -286,7 +278,8 @@
       <workItem from="1571153976436" duration="5863000" />
       <workItem from="1571245757552" duration="1645000" />
       <workItem from="1571269671708" duration="24289000" />
-      <workItem from="1571329111702" duration="3388000" />
+      <workItem from="1571329111702" duration="3540000" />
+      <workItem from="1571365899638" duration="771000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -323,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571274606142</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="product udate and edit complete">
+      <created>1571334221699</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1571334221699</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -358,6 +358,7 @@
     <MESSAGE value="make resource route for product and make modal with form and pages,, and show all category and brand" />
     <MESSAGE value="profuct insert" />
     <MESSAGE value="profuct insert complete with ajax and DataTables" />
-    <option name="LAST_COMMIT_MESSAGE" value="profuct insert complete with ajax and DataTables" />
+    <MESSAGE value="product udate and edit complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="product udate and edit complete" />
   </component>
 </project>
