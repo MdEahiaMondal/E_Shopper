@@ -112,6 +112,9 @@
             $(".removeErrorText").text('');
             $("#features").attr('checked', false);// it's only get value
             $("#status").attr('checked', false);// it's only get value
+            $("#category_id option[name='Category1']").remove();
+            $("#brand_id option[name='Brand1']").remove();
+
         }
 
         // modal show for create the product
@@ -267,8 +270,8 @@
                      $("#size").val(feedBackResult.data.size);
                      $("#color").val(feedBackResult.data.color);
                      $("#description").val(feedBackResult.data.description);
-                     $("#category_id").append('<option selected value="'+feedBackResult.data.category.id+'">' + feedBackResult.data.category.name + '</option>');
-                     $("#brand_id").append('<option selected value="'+feedBackResult.data.brand.id+'">' + feedBackResult.data.brand.name + '</option>');
+                     $("#category_id").append('<option name="Category1"  selected value="'+feedBackResult.data.category.id+'">' + feedBackResult.data.category.name + '</option>');
+                     $("#brand_id").append('<option name="Brand1" selected value="'+feedBackResult.data.brand.id+'">' + feedBackResult.data.brand.name + '</option>');
 
                      if(feedBackResult.data.status == 1){
                          $("#status").attr('checked', true);// it's only get value

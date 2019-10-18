@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/50819920.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
     </list>
@@ -280,7 +279,7 @@
       <workItem from="1571245757552" duration="1645000" />
       <workItem from="1571269671708" duration="24289000" />
       <workItem from="1571329111702" duration="3540000" />
-      <workItem from="1571365899638" duration="1950000" />
+      <workItem from="1571365899638" duration="3611000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -324,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571334221699</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="status and features when update thats time catch the error fix and solved">
+      <created>1571367968269</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571367968269</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -360,6 +366,7 @@
     <MESSAGE value="profuct insert" />
     <MESSAGE value="profuct insert complete with ajax and DataTables" />
     <MESSAGE value="product udate and edit complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="product udate and edit complete" />
+    <MESSAGE value="status and features when update thats time catch the error fix and solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="status and features when update thats time catch the error fix and solved" />
   </component>
 </project>
