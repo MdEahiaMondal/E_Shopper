@@ -65,11 +65,11 @@
 
 <div class="clearfix"></div>
 
-<footer>
+<footer style="background: rgb(47, 64, 80);">
 
     <p>
-        <span style="text-align:left;float:left">&copy; 2013 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes">creativeLabs</a></span>
-        <span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="http://admintemplates.co/" alt="Bootstrap Admin Templates">Metro</a></span>
+        <span style="text-align:left;float:left">&copy; 2019 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes">creative</a></span>
+        <span class="hidden-phone" style="text-align:right;float:right">Powered by: <a href="#0">Md.Eahia Khan</a></span>
     </p>
 
 </footer>
