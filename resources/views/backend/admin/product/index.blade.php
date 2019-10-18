@@ -52,7 +52,7 @@
                         $countTrash = count($TrashProducts);
                     @endphp
 
-                    <a href="{{ route('product.recycle.bin') }}" class="badge badge-danger pull-right" id="showRecycle" title="Recycle" style="margin: 17px; background-color: #f82f53"> View Trash ({{ $countTrash }}) </a>
+                    <a href="{{ route('product.recycle.bin') }}" class="badge badge-danger pull-right" id="showRecycle" title="Recycle" style="margin: 17px; background-color: #f82f53"> View Trash ( <span id="productTrshCount"> {{ $countTrash }} </span>  )</a>
                     <table class="table table-bordered data-table" id="productTable">
                         <thead>
                         <tr>
@@ -376,6 +376,8 @@
         // start finaly delete the product
             $(document).on('click','.dlBtn', function () { // it is only for softdelete not parmanent
                 var id = $(this).data('id');
+                var productTrshCount = $("#productTrshCount").text();
+                console.log(productTrshCount);
 
                 $.ajax({
                     url: "{{ route('product.softdelete', '') }}/"+id,
@@ -386,14 +388,14 @@
                         if(feedBackResult.success){
                             toastr.success(feedBackResult.message);
                             $("#productTable").DataTable().ajax.reload();
+                            var count = Number(productTrshCount) + Number(1);
+                            $("#productTrshCount").text(count)
                         }
 
                     }
                 })
-            })
+            });
         // end delete the product
-
-
     </script>
 
 @endsection

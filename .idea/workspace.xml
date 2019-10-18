@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="select category and brand when i click edit button thats time all appened value show the own selected option one item is more whene you click create button and click selected field thats time show this problem catch the error fix and solved">
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/1875088978.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/product_image/584183976.jpg" afterDir="false" />
+    <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/product_image/1512067813.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/product_image/50819920.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/product_image/693887370.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/recycle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/recycle.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +136,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lara-Ecommerce" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AjaxCrudeInLaravel" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -288,7 +279,7 @@
       <workItem from="1571245757552" duration="1645000" />
       <workItem from="1571269671708" duration="24289000" />
       <workItem from="1571329111702" duration="3540000" />
-      <workItem from="1571365899638" duration="15017000" />
+      <workItem from="1571365899638" duration="18254000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -346,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571369932914</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="product trash delete successfully">
+      <created>1571388722450</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1571388722450</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -384,6 +382,7 @@
     <MESSAGE value="product udate and edit complete" />
     <MESSAGE value="status and features when update thats time catch the error fix and solved" />
     <MESSAGE value="select category and brand when i click edit button thats time all appened value show the own selected option one item is more whene you click create button and click selected field thats time show this problem catch the error fix and solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="select category and brand when i click edit button thats time all appened value show the own selected option one item is more whene you click create button and click selected field thats time show this problem catch the error fix and solved" />
+    <MESSAGE value="product trash delete successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="product trash delete successfully" />
   </component>
 </project>
