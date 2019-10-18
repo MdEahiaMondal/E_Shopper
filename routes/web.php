@@ -72,39 +72,13 @@ Route::resource('sliders','SliderController');
 
 
 // product route::
-    /*Route::get('/add-product','Backend\ProductController@index');
-    Route::get('/all-product','Backend\ProductController@show');
-    Route::post('/insert-product','Backend\ProductController@store');
-    Route::get('/edit-product/{id}','Backend\ProductController@edit');
-    Route::post('update-product/{id}','Backend\ProductController@update');
-    Route::get('/remove-product/{id}','Backend\ProductController@softdelete');
-    Route::get('/delete-product/{id}','Backend\ProductController@delete');
-    Route::get('/undo-product/{id}','Backend\ProductController@undo');
-    Route::get('/recycle-product','Backend\ProductController@recycle');
-    Route::get('/unactive-product/{id}','Backend\ProductController@unactive');
-    Route::get('/unactive-product-feture/{id}','Backend\ProductController@unactive_product_feture');
-    Route::get('/active-product/{id}','Backend\ProductController@active');
-    Route::get('active-product-feture/{id}','Backend\ProductController@active_product_features');*/
-
-Route::post('products/getCategoryBrand','ProductController@getCategoryBrand')->name('get.categoryBrand.data');
-Route::post('products/status/activeUnactive','ProductController@statusActiveUnactive')->name('status.active.unactive');
-Route::post('products/features/activeUnactive','ProductController@featuresActiveUnactive')->name('features.active.unactive');
-Route::get('products-softdelete/{product}','ProductController@softdelete')->name('product.softdelete');// it is normal delete
-Route::get('recycle-product','ProductController@recycle')->name('product.recycle.bin');
-Route::resource('products','ProductController');
-
-
-
-/*// Slider route::
-    Route::get('/add-slider','Backend\SliderController@index');
-    Route::get('/all-slider','Backend\SliderController@show');
-    Route::post('/insert-slider','Backend\SliderController@store');
-    Route::get('/edit-slider/{id}','Backend\SliderController@edit');
-    Route::post('/update-slider/{id}','Backend\SliderController@update');
-    Route::get('/delete-slider/{id}','Backend\SliderController@destroy');
-    Route::get('/unactive-slider/{id}','Backend\SliderController@unactive');
-    Route::get('/active-slider/{id}','Backend\SliderController@active');*/
-
+Route::post('products/getCategoryBrand','Backend\ProductController@getCategoryBrand')->name('get.categoryBrand.data');
+Route::post('products/status/activeUnactive','Backend\ProductController@statusActiveUnactive')->name('status.active.unactive');
+Route::post('products/features/activeUnactive','Backend\ProductController@featuresActiveUnactive')->name('features.active.unactive');
+Route::get('products-softdelete/{product}','Backend\ProductController@softdelete')->name('product.softdelete');// it is normal delete
+Route::get('products-undo/{product}','Backend\ProductController@undoTrash')->name('undo.trash.product');// it is normal delete
+Route::get('recycle-product','Backend\ProductController@recycle')->name('product.recycle.bin');
+Route::resource('products','Backend\ProductController');
 
 // order Route
 

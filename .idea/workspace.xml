@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/1414779101.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/parsials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/parsials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/add_product.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/all_product.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/recycle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/recycle.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -279,7 +287,7 @@
       <workItem from="1571245757552" duration="1645000" />
       <workItem from="1571269671708" duration="24289000" />
       <workItem from="1571329111702" duration="3540000" />
-      <workItem from="1571365899638" duration="18254000" />
+      <workItem from="1571365899638" duration="21171000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -344,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571388722450</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="product trash count  successfully done">
+      <created>1571392487067</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571392487067</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -383,6 +398,7 @@
     <MESSAGE value="status and features when update thats time catch the error fix and solved" />
     <MESSAGE value="select category and brand when i click edit button thats time all appened value show the own selected option one item is more whene you click create button and click selected field thats time show this problem catch the error fix and solved" />
     <MESSAGE value="product trash delete successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="product trash delete successfully" />
+    <MESSAGE value="product trash count  successfully done" />
+    <option name="LAST_COMMIT_MESSAGE" value="product trash count  successfully done" />
   </component>
 </project>

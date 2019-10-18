@@ -2,237 +2,291 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Brand;
 use App\Category;
-use App\Product;
-use File;
-use function GuzzleHttp\Psr7\str;
-use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Session;
-use Image;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Validation\Rule;
-
-
+use App\Product;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Yajra\DataTables\DataTables;
 
 class ProductController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
-
     public function index()
     {
-        return view('backend.admin.product.add_product');
+        if (request()->ajax()){
+            $products = Product::with('category')->with('brand')->latest()->get();// relation with get data
+            return DataTables::of($products)
+                ->addIndexColumn()
+                ->addColumn('status', function ($row){
+                    $status = ($row->status > 0) ? "Active":"Unactive";
+                    $classCss = ($row->status > 0) ? "badge badge-success":"badge badge-danger";
+                    $Title    =  ($row->status > 0) ? "Press to unactive":"Prase to active";
+                    $btn ='<a class="'.$classCss.'" id="statusActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  statusNumber="'.$row->status.'">'.$status.'</a>';
+                    return $btn;
+                })
+                ->addColumn('features', function ($row){
+                    $features = ($row->features > 0) ? "Active":"Unactive";
+                    $classCss = ($row->features > 0) ? "badge badge-success":"badge badge-danger";
+                    $Title    =  ($row->features > 0) ? "Press to unactive":"Prase to active";
+                    $btn ='<a class="'.$classCss.'" id="featuresActiveUnactive" title="'.$Title.'" data-id ="'.$row->id.'"  featuresNumber="'.$row->features.'">'.$features.'</a>';
+                    return $btn;
+                })
+                ->addColumn('action', function ($row){
+                    $btn = "<button type='button' class='btn btn-xs btn-info editBtn' data-id =".$row->id." title='Edit Item'> <i class='fa fa-edit'></i> </button>";
+                    $btn .= "<button type='button' class='btn btn-xs btn-danger dlBtn' data-id =".$row->id." title='Normal Delete'> <i class='fa fa-recycle' aria-hidden='true'></i></button>";
+                    return $btn;
+                })
+                /*->editColumn('description',  function ($row){
+                    return Str::limit($row->description,'30','....');
+                })*/
+                ->editColumn('category',  function ($row){// for relationship
+                    return $row->category->name;
+                })
+                ->editColumn('brand',  function ($row){// for relationship
+                    return $row->brand->name;
+                })
+                ->rawColumns(['status', 'features', 'action',])
+                ->make(true);
+
+        }
+
+        return view('backend.admin.product.index');
+
     }
 
+
+    public function create()
+    {
+        //
+    }
 
 
     public function store(Request $request)
     {
-
-        //  validation test
-        $request->validate([
-           'product_name' => 'unique:products,name',
+        // now need to  validation
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:products,name',
+            'price' => 'required|string',
+            'quantity' => 'required|numeric',
+            'size' => 'string|nullable',
+            'color' => 'string|nullable',
+            'features' => 'numeric|nullable',
+            'status' => 'numeric|nullable',
             'category_id' => 'required|numeric',
             'brand_id' => 'required|numeric',
-            'product_description' => 'required',
-            'product_price' => 'required',
-            'product_quantity' => 'required',
-
+            'description' => 'required|string',
+            'image' => 'image|max:2048|nullable',
         ]);
 
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
+
         /*test for unique slug in the database*/
-        $slug = Str::slug($request->product_name, '-');
-       if ($slug){
-           $unique_product_slug = DB::table('products')->where('slug',$request->product_slug)->first();
-           if($unique_product_slug){
-               return back()->with('error','Product Slug is alredy Exist in your database');
-           }
-       }
+        $slug = Str::slug($request->name, '-');
+        if ($slug){
+            $unique_product_slug = Product::where('slug', $slug)->first();
+            if($unique_product_slug){
+                return response()->json(['errorsSlag' => 'Product Slug is alredy Exist !!']);
+            }
+        }
+
 
         $value = array();
-        $value['name'] = $request->product_name;
+        $value['name'] = $request->name;
         $value['slug'] = $slug;
         $value['category_id'] = $request->category_id;
         $value['brand_id'] = $request->brand_id;
-        $value['description'] = $request->product_description;
-        $value['price'] = $request->product_price;
-        $value['size'] = $request->product_size;
-        $value['quantity'] = $request->product_quantity;
-        $value['color'] = $request->product_color;
-        if($request->product_status == 1 ){
-            $value['status'] = $request->product_status;
+        $value['description'] = $request->description;
+        $value['price'] = $request->price;
+        $value['size'] = $request->size;
+        $value['quantity'] = $request->quantity;
+        $value['color'] = $request->color;
 
+        $value['status'] = ($request->status == 1)? '1' : '0';
+        $value['features'] = ($request->features == 1)? '1' : '0';
+
+
+        $CheckImage = $request->file('image');
+        if ($CheckImage){
+            $setImageName = rand(). '.' .$CheckImage->getClientOriginalExtension();
+            Image::make($CheckImage)->resize(207,183)->save(public_path('images/product_image/'.$setImageName),'100');
+            $value['image'] = $setImageName;
+            Product::insert($value);
+            return response()->json(['success'=>true, 'message'=>'Product Created Successfully !']);
         }
-        if($request->features_product == 1){
-            $value['features'] = $request->features_product;
-        }
 
-
-        // image  upload without any extra file
-        $originalFileName = $request->file('product_image');
-        if($originalFileName){
-            $AutoRandomName =Str::random(20);
-            $getFileExtension =$originalFileName->getClientOriginalExtension();
-            $make_file_name =$AutoRandomName.'.'.$getFileExtension;
-            $uploadLocation = 'images/product_image/';
-            $image_url = $uploadLocation.$make_file_name;
-            $success = $originalFileName->move($uploadLocation,$make_file_name);
-            if($success){
-                $value['image'] =$make_file_name;
-                Product::insert($value);
-                Session::put('success','Product Uploaded Successfully !!');
-                return back();
-            }
-
-        }
         $value['image'] = '';
-        DB::table('products')->insert($value);
-        return back()->with('success', 'Product Uploaded Successfully without Image!');
+        Product::insert($value);
+        return response()->json(['success'=>true, 'message'=>'Product Created Successfully !']);
+
+
+
     }
 
 
-    // show for admin
-    public function show()
+    public function show($id)
     {
-
-        $all_product = Product::all();
-        return view('backend.admin.product.all_product',compact('all_product',$all_product));
+        //
     }
 
 
     public function edit($id)
     {
+        if (request()->ajax()){
+            $data =  Product::with('category')->with('brand')->findOrFail($id);
+            return response()->json(['data'=>$data]);
+        }
 
-        $single_product = DB::table('products')->where('id',$id)->first();// this line not use a model
-        return view('backend.admin.product.edit',compact('single_product'));
     }
 
 
-
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-         $request->validate([
-            'product_name'  => 'required|unique:products,name,'.$id.',id',// here in this colum statment is :: when you update this column its will be compear to others column without this column if your table column id is id
+
+        $id = $request->row_id;
+        // now need to  validation
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:products,name,'.$id.',id',
+            'price' => 'required|string',
+            'quantity' => 'required|numeric',
+            'size' => 'string|nullable',
+            'color' => 'string|nullable',
+            'features' => 'numeric|nullable',
+            'status' => 'numeric|nullable',
             'category_id' => 'required|numeric',
             'brand_id' => 'required|numeric',
-            'product_description' => 'required',
-            'product_price' => 'required',
-            'product_quantity' => 'required|numeric',
-
+            'description' => 'required|string',
+            'image' => 'image|max:2048|nullable',
         ]);
 
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        }
 
         /*test for unique slug in the database*/
-        $slug = Str::slug($request->product_name, '-');
+        $slug = Str::slug($request->name, '-');
         $value = array();
-        $value['name'] = $request->product_name;
+        $value['name'] = $request->name;
         $value['slug'] = $slug;
         $value['category_id'] = $request->category_id;
         $value['brand_id'] = $request->brand_id;
-        $value['description'] = $request->product_description;
-        $value['price'] = $request->product_price;
-        $value['size'] = $request->product_size;
-        $value['quantity'] = $request->product_quantity;
-        $value['color'] = $request->product_color;
+        $value['description'] = $request->description;
+        $value['price'] = $request->price;
+        $value['size'] = $request->size;
+        $value['quantity'] = $request->quantity;
+        $value['color'] = $request->color;
 
-        // first delete the old image
-        $old_image_name = DB::table('products')->where('id',$id)->first();
-        $image_name = $old_image_name->image;
+        $value['status'] = ($request->status == 1)? 1: 0;
+        $value['features'] = ($request->features == 1)? 1: 0;
 
-        if($request->product_image){
-           // first check the old image in stor folder
-            if(File::exists('images/product_image/'.$image_name)){
 
-                // delete the file
-                File::delete('images/product_image/'.$image_name);
+        $newImage = $request->file('image');
+        if ($newImage){
+
+            // first delete old image
+            $oldImage = $request->file('productHiddenImageName');
+            if ($oldImage != ''){
+                file_exists('images/product_image/'.$oldImage);
+                unlink('images/product_image/'.$oldImage);
             }
 
-            // after delete the old image  so now new image upload
-            $new_image_name = $request->product_image;
-            $getfile_extension = $new_image_name->getClientOriginalExtension();
-            $make_randomName = Str::random(20);
-            $makeFileName =$make_randomName.'.'.$getfile_extension;
-            $goToRightLocation =public_path('images/product_image/'.$makeFileName);
-            Image::make($new_image_name)->resize(207,183)->save($goToRightLocation);
-            $value['image'] = $makeFileName;
-            DB::table('products')->where('id',$id)->update($value);
-            Session::put('success','Product Updated with Image Successfully !!');
-            return back();
-
+            $setNewImageName = rand(). '.' .$newImage->getClientOriginalExtension();
+            Image::make($newImage)->resize(207,183)->save(public_path('images/product_image/'.$setNewImageName),'100');
+            $value['image'] = $setNewImageName;
+            $product->update($value);
+            return response()->json(['success'=>true, 'message'=>'Product Updated Successfully !']);
         }
 
-        DB::table('products')->where('id',$id)->update($value);
-        Session::put('success','Product Updated without image Successfully done !!');
-        return back();
-
+        $value['image'] = $request->productHiddenImageName;
+        $product->update($value);
+        return response()->json(['success'=>true, 'message'=>'Product Updated Successfully !']);
 
     }
 
 
-    public function softdelete($id)
+
+    public function softdelete($id) // only normal delete
     {
         Product::find($id)->delete();
-        Session::put('success','Product SoftDelete Successfully !!');
-        return back();
+        return response()->json(['success'=>true, 'message'=>'Product Soft-Deleted Successfully Done!']);
     }
 
-    public function delete($id)
+
+    public function destroy($id)// permanent delete
     {
-        $image_name  = DB::table('products')->where('id',$id)->first();
-        $get_image_name =$image_name->image;
-        if(File::exists('images/product_image/',$get_image_name)){
-            File::delete('images/product_image/'.$get_image_name);
+        $check = Product::onlyTrashed()->where('id',$id)->first();
+        $checkImage = $check->image;
+        if ($checkImage != ''){
+            if (file_exists('images/product_image/'.$checkImage)){
+                unlink('images/product_image/'.$checkImage);
+                Product::onlyTrashed()->where('id',$id)->forceDelete();
+                return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
+            }
+
+            Product::onlyTrashed()->where('id',$id)->forceDelete();
+            return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
         }
+        // if there in a no image you can delete
         Product::onlyTrashed()->where('id',$id)->forceDelete();
-        Session::put('success','Product Parmanently Deleted Successfully !!');
-        return back();
+        return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
+
     }
+
+
+    public function getCategoryBrand(Request $request){
+        $categoryName = $request->categoryName;
+        $brandName = $request->brandName;
+
+        if ($categoryName == "category_id"){
+            $data = Category::all();
+
+            $output = '<option value="">Choose '. ucfirst('Category') .'</option>';
+            foreach ($data as $row){
+                $output .= '<option value="' .$row->id. '">'.$row->name.'</option>';
+            }
+            return response()->json(['data'=>$output]);
+        }
+
+        if ($brandName == "brand_id"){
+            $data = Brand::all();
+
+            $output = '<option value="">Choose '. ucfirst('Brand') .'</option>';
+            foreach ($data as $row){
+                $output .= '<option value="' .$row->id. '">'.$row->name.'</option>';
+            }
+            return response()->json(['data'=>$output]);
+        }
+
+
+    }
+
+
+    public function statusActiveUnactive(Request $request){
+        Product::whereId($request->id)->update(['status'=>$request->setStatusNumber]);
+        return response()->json(['success'=>true, 'message'=>'Publication Status updated Successfully !']);
+    }
+
+    public function featuresActiveUnactive(Request $request){
+        Product::whereId($request->id)->update(['features'=>$request->setFeaturesNumber]);
+        return response()->json(['success'=>true, 'message'=>'Publication Features updated Successfully !']);
+    }
+
 
     public function recycle(){
-        $all_product = Product::onlyTrashed()->get();
-        return view('backend.admin.product.recycle',compact('all_product'));
+        $TrashedProducts = Product::onlyTrashed()->get();
+        return view('backend.admin.product.recycle',compact('TrashedProducts'));
     }
 
 
-    public function undo($id){
+    public function undoTrash($id){
         Product::onlyTrashed()->where('id',$id)->restore();
-        return back()->with('success','Product Undo Successfully !!');
+        return response()->json(['success'=>true, 'message'=>'Product undo Successfully !']);
     }
-
-
-    public function unactive($id){
-        DB::table('products')->where('id', $id)->update(['status'=>0]);
-        Session::put('success','Product Unactive Successfully !!');
-        return back();
-    }
-
-
-    public function active($id){
-        DB::table('products')->where('id',$id)->update(['status'=>1]);
-        Session::put('success','Product Active Successfully !!');
-        return back();
-    }
-
-
-    public function unactive_product_feture($id){
-        DB::table('products')->where('id', $id)->update(['features'=>0]);
-        Session::put('success','Product Features Unactive  Successfully !!');
-        return back();
-    }
-
-    public function active_product_features($id){
-        DB::table('products')->where('id',$id)->update(['features'=>1]);
-        Session::put('success','Product Features Active Successfully !!');
-        return back();
-    }
-
 
 
 }

@@ -7,18 +7,14 @@
             <li><a class="submenu" href="{{route('brands.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Brands</span></a></li>
             <li><a class="submenu" href="{{route('products.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Products</span></a></li>
             <li><a class="submenu" href="{{route('sliders.index')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Sliders</span></a></li>
-
-            <li>
+            {{--<li>
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Manage Product</span><span class="label label-important"></span></a>
                 <ul>
                     <li><a class="submenu" href="{{URL::to('all-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
                     <li><a class="submenu" href="{{URL::to('add-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Product</span></a></li>
                     <li><a class="submenu" href="{{URL::to('recycle-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Recycle Bin</span></a></li>
                 </ul>
-            </li>
-
-
-
+            </li>--}}
             <li>
                 <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Manage Order</span><span class="label label-important"></span></a>
                 <ul>

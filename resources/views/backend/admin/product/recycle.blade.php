@@ -38,7 +38,14 @@
                 </div>
             </div>
             <div class="box-content">
-                <table class="table table-striped table-bordered bootstrap-datatable datatable" id="productTable">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="pull-right">
+                            <input type="text" placeholder="Search">
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered" id="productTable">
                     <thead>
                     <tr>
                         <th>Product ID</th>
@@ -76,19 +83,19 @@
 
                             @if($product->features == 1)
                                 <td class="center">
-                                    <a class="badge badge-success" href="{{URL::to('unactive-product-feture/'.$product->id)}}">Active</a>
+                                    <a class="badge badge-success" disabled="disabled" href="{{URL::to('unactive-product-feture/'.$product->id)}}">Active</a>
                                 </td>
                             @else
                                 <td class="center">
-                                    <a class="badge badge-danger" href="{{URL::to('active-product-feture/'.$product->id)}}">Unactive</a>
+                                    <a class="badge badge-danger" href="#">Unactive</a>
                                 </td>
                             @endif
                             <input type="hidden" value="{{$product->id}}">
                             <td>
-                                <a title="undo" data-id="{{ $product->id }}" class="btn btn-primary" href="{{URL::to('undo-product/'.$product->id)}}">
+                                <a title="undo" data-id="{{ $product->id }}" class="btn btn-primary undoTrash">
                                     <i class="fa fa-undo" aria-hidden="true"></i>
                                 </a>
-                                <a title="Permanent Delete" data-id="{{ $product->id }}" class="btn btn-danger dlBtn">
+                                <a title="Permanent Delete" data-id="{{ $product->id }}" class="btn btn-danger dleTrashBtn">
                                     <i class="halflings-icon white trash"></i>
                                 </a>
                             </td>
@@ -111,8 +118,9 @@
             headers: {'X-CSRF-Token': '{{ csrf_token() }}'}
         });
 
+
         // start finaly delete the product
-        $(document).on('click','.dlBtn', function () {
+        $(document).on('click','.dleTrashBtn', function () {
             var id = $(this).data('id');
             $.ajax({
                 url: "{{ route('products.destroy', '') }}/"+id,
@@ -126,8 +134,28 @@
                     }
                 }
             })
-        })
+        });
         // end delete the product
+
+
+        // ,undo trsh delete
+        $(document).on('click', '.undoTrash', function () {
+            var id = $(this).data('id');
+
+            $.ajax({
+                url: "{{ route('undo.trash.product', '') }}/"+id,
+                data:{id:id},
+                method: "GET",
+                dataType: "JSON",
+                success: function (feedBackResult) {
+                    if(feedBackResult.success){
+                        toastr.success(feedBackResult.message);
+                        $("#productTable").load(location.href + " #productTable");
+                    }
+                }
+            })
+        })
+
 
     </script>
 
