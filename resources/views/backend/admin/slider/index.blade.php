@@ -89,7 +89,8 @@
         // first click the createNewSlider thene modal show
         $("#createNewSlider").click(function () {
             Slider_formReset();
-            $("#sliderModal").modal('show')
+            $("#sliderModal").modal('show');
+            $("#actionSubmitSlider").val('create')
         });
 
 
@@ -126,16 +127,6 @@
 
         // start slider  update
            if($("#actionSubmitSlider").val() == 'edit'){
-               /*var id = $("#s_id").val();
-               var oldImage = $("#sliderHiddenImageName").val();
-               var new_image = $("#s_image").val();
-               var Attr = $("#s_status").parent().attr('class');
-              if(Attr == "checked"){
-                  var status = '1'
-              }else{
-                  var status = '0'
-              }*/
-
                var id = $("#s_id").val();
                let formData = new FormData(this);
                formData.append('_method', 'put');
@@ -160,7 +151,7 @@
                       }
 
                       if (feedBackResult.errors){
-                          toastr.error(feedBackResult.errors)
+                          toastr.error(feedBackResult.errors.s_image)
                       }
                   }
               })
@@ -189,9 +180,11 @@
                     $("#sliderHiddenImageName").val(result.data.image);
 
                     if (result.data.status == 1){
+                        $("#s_status").attr('checked', true);// it's only get value
                         $("#s_status").parent().addClass('checked');
                     }else{
-                        $("#s_status").parent().removeClass('checked')
+                        $("#s_status").parent().removeClass('checked');
+                        $("#s_status").attr('checked', false);// it's only get value
                     }
 
                     $("#modelTitle").text('Edit Slider');

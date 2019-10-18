@@ -22,7 +22,7 @@ class SliderController extends Controller
                     $addCss = ($row->status > 0) ? 'badge badge-success' : 'badge badge-danger';
                     $title = ($row->status > 0) ? "Press to unactive" : "Prase to active";
 
-                    $btn = "<button type='button' id='ActiveUnactive' title='$title' class='$addCss' statusNumber='$row->status' data-id='$row->id'>$status</button>";
+                    $btn = "<a type='button' id='ActiveUnactive' title='$title' class='$addCss' statusNumber='$row->status' data-id='$row->id'>$status</a>";
                     return $btn;
                 })
                 ->addColumn('action', function ($row){
@@ -88,18 +88,14 @@ class SliderController extends Controller
 
     public function update(Request $request, Slider $slider)
     {
-
-
-        // if have a new image
         $newImage = $request->file('s_image');
         if ($newImage){
 
-            // now we can delete old image in my dir
-            $oldImage = $request->sliderHiddenImageName;
-            if ($oldImage){
-                file_exists('images/slider_image/'.$oldImage);
-                unlink('images/slider_image/'.$oldImage);
+            $oldimage = $request->sliderHiddenImageName;
+            if (file_exists('images/slider_image/'.$oldimage)){
+                unlink('images/slider_image/'.$oldimage);
             }
+
 
             // now need to  validation
             $validator = Validator::make($request->all(), [
@@ -111,20 +107,28 @@ class SliderController extends Controller
                 return response()->json(['errors' => $validator->errors()]);
             }
 
-            // now set image name
-            $setImageName = rand(). '.' .$newImage->getClientOriginalExtension();
-            Image::make($newImage)->resize('1140','400')->save(base_path('public/images/slider_image/'.$setImageName),100);
 
-            // now update all
-            $request['status'] = $request->s_status == 1 ? 1 : 0;
-            $slider->update($request->all());
+
+            $setName = rand(). '.' . $newImage->getClientOriginalExtension();
+            Image:: make($newImage)->resize(1140,450)->save(base_path('public/images/slider_image/'.$setName),100);
+
+            $status = $request->s_status == 1 ? 1 : 0;
+            $value['image'] = $setName;
+            $value['status'] = $status;
+
+            $slider->update($value);
             return response()->json(['success'=>true, 'message'=>'Slider Image Updated Successfully!']);
 
         }
 
-        $request['status'] = $request->s_status == 1 ? 1 : 0;
-        $slider->update($request->all());
+        $status = $request->s_status == 1 ? 1 : 0;
+
+        $value['image'] = $request->sliderHiddenImageName;
+        $value['status'] = $status;
+
+        $slider->update($value);
         return response()->json(['success'=>true, 'message'=>'Slider Image Updated Successfully!']);
+
     }
 
 
@@ -133,8 +137,12 @@ class SliderController extends Controller
     {
         $check = Slider::findOrFail($id);
         if ($check->image){
-            file_exists('images/slider_image/'.$check->image);
-            unlink('images/slider_image/'.$check->image);
+            if (file_exists('images/slider_image/'.$check->image)){
+                unlink('images/slider_image/'.$check->image);
+
+                Slider::whereId($id)->delete();
+                return response()->json(['success'=>'Deleted Successfully Done !']);
+            }
             Slider::whereId($id)->delete();
             return response()->json(['success'=>'Deleted Successfully Done !']);
         }else{
