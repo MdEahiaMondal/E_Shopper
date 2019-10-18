@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/product_image/50819920.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/product/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -279,7 +280,7 @@
       <workItem from="1571245757552" duration="1645000" />
       <workItem from="1571269671708" duration="24289000" />
       <workItem from="1571329111702" duration="3540000" />
-      <workItem from="1571365899638" duration="771000" />
+      <workItem from="1571365899638" duration="1950000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>

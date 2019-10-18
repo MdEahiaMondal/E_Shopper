@@ -110,6 +110,8 @@
             $("#features").parent().addClass('');
             $("#status").parent().addClass('');
             $(".removeErrorText").text('');
+            $("#features").attr('checked', false);// it's only get value
+            $("#status").attr('checked', false);// it's only get value
         }
 
         // modal show for create the product
@@ -207,6 +209,7 @@
                         cache: false,
                         processData: false,
                         success: function (feedBackResult) {
+
                            /* console.log(feedBackResult);*/
 
                             if (feedBackResult.errorsSlag){
@@ -215,19 +218,20 @@
 
                             if(feedBackResult.errors){
                                 var allErrors = feedBackResult.errors;
-
                                 $("#error_Name").html('<div class="errorsProduct">'+allErrors.name[0]+'</div>');
                                 $("#error_price").html('<div class="errorsProduct">'+allErrors.price[0]+'</div>');
                                 $("#error_quantity").html('<div class="errorsProduct">'+allErrors.quantity[0]+'</div>');
                                 $("#error_category_id").html('<div class="errorsProduct">'+allErrors.category_id[0]+'</div>');
                                 $("#error_brand_id").html('<div class="errorsProduct">'+allErrors.brand_id[0]+'</div>');
                                 $("#error_description").html('<div class="errorsProduct">'+allErrors.description[0]+'</div>');
+
                             }
 
                             if(feedBackResult.success){
                                 toastr.success(feedBackResult.message);
                                 $("#productModal").modal('hide');
                                 $("#productTable").DataTable().ajax.reload();
+                                $(".removeErrorText").text('');
                             }
 
 
