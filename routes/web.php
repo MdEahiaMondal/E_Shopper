@@ -89,6 +89,8 @@ Route::resource('sliders','SliderController');
 Route::post('products/getCategoryBrand','ProductController@getCategoryBrand')->name('get.categoryBrand.data');
 Route::post('products/status/activeUnactive','ProductController@statusActiveUnactive')->name('status.active.unactive');
 Route::post('products/features/activeUnactive','ProductController@featuresActiveUnactive')->name('features.active.unactive');
+Route::get('products-softdelete/{product}','ProductController@softdelete')->name('product.softdelete');// it is normal delete
+Route::get('recycle-product','ProductController@recycle')->name('product.recycle.bin');
 Route::resource('products','ProductController');
 
 

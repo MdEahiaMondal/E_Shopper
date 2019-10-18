@@ -36,7 +36,7 @@ class ProductController extends Controller
                 })
                 ->addColumn('action', function ($row){
                     $btn = "<button type='button' class='btn btn-xs btn-info editBtn' data-id =".$row->id." title='Edit Item'> <i class='fa fa-edit'></i> </button>";
-                    $btn .= "<button type='button' class='btn btn-xs btn-danger dlBtn' data-id =".$row->id." title='Delete Item'> <i class='fa fa-trash' aria-hidden='true'></i></button>";
+                    $btn .= "<button type='button' class='btn btn-xs btn-danger dlBtn' data-id =".$row->id." title='Normal Delete'> <i class='fa fa-recycle' aria-hidden='true'></i></button>";
                     return $btn;
                 })
                 /*->editColumn('description',  function ($row){
@@ -208,22 +208,30 @@ class ProductController extends Controller
     }
 
 
-    public function destroy($id)
+
+    public function softdelete($id) // only normal delete
     {
-       $check = Product::findOrFail($id);
-       $checkImage = $check->image;
-       if ($checkImage){
-           // now delete the image
-           if(file_exists('images/product_image/'.$checkImage)){
-               unlink('images/product_image/'.$checkImage);
-               Product::whereId($id)->delete();
-               return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
-           }
-           Product::whereId($id)->delete();
-           return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
-       }
+        Product::find($id)->delete();
+        return response()->json(['success'=>true, 'message'=>'Product Soft-Deleted Successfully Done!']);
+    }
+
+
+    public function destroy($id)// permanent delete
+    {
+        $check = Product::onlyTrashed()->where('id',$id)->first();
+        $checkImage = $check->image;
+        if ($checkImage != ''){
+            if (file_exists('images/product_image/'.$checkImage)){
+                unlink('images/product_image/'.$checkImage);
+                Product::onlyTrashed()->where('id',$id)->forceDelete();
+                return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
+            }
+
+            Product::onlyTrashed()->where('id',$id)->forceDelete();
+            return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
+        }
        // if there in a no image you can delete
-        Product::whereId($id)->delete();
+        Product::onlyTrashed()->where('id',$id)->forceDelete();
         return response()->json(['success'=>true, 'message'=>'Product Deleted Successfully Done!']);
 
     }
@@ -266,6 +274,13 @@ class ProductController extends Controller
         Product::whereId($request->id)->update(['features'=>$request->setFeaturesNumber]);
         return response()->json(['success'=>true, 'message'=>'Publication Features updated Successfully !']);
     }
+
+
+    public function recycle(){
+        $TrashedProducts = Product::onlyTrashed()->get();
+        return view('backend.admin.product.recycle',compact('TrashedProducts'));
+    }
+
 
 
 }

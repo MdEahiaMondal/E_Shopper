@@ -8,7 +8,7 @@
             <a href="{{url('dashboard')}}">Home</a>
             <i class="icon-angle-right"></i>
         </li>
-        <li><a href="#">All Product</a></li>
+        <li><a href="#">Trash Products</a></li>
     </ul>
 
     @if(Session('success'))
@@ -26,34 +26,6 @@
             <p class="alert alert-danger">{{$error}}</p>
         @endforeach
     @endif
-    <!-- Modal -->
-    <div class="modal fade" id="productModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <form id="deleteFormId" action="">
-                    <div class="modal-body">
-                        @csrf
-                        {{method_field('delete')}}
-                        <input type="hidden" name="id" id="delete_id">
-                        <p>Are you sure want to delete the data ??</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Delete</button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
 
     <div class="row-fluid sortable">
         <div class="box span12">
@@ -66,38 +38,57 @@
                 </div>
             </div>
             <div class="box-content">
-                <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <table class="table table-striped table-bordered bootstrap-datatable datatable" id="productTable">
                     <thead>
                     <tr>
                         <th>Product ID</th>
-                        <th>Product Image</th>
-                        <th>Product Name</th>
-                        <th>Product slug</th>
-                        <th>Product Category</th>
-                        <th>Product Brand</th>
-                        <th>Product Price</th>
-                        <th>Product Quantity</th>
-                        <th>Actions</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>slug</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Features</th>
+                        <th width="100">Actions</th>
                     </tr>
                     </thead>
 
-                    @foreach($all_product as $product)
+                    @foreach($TrashedProducts as $product)
                         <tbody>
                         <tr>
                             <td>{{$product->id}}</td>
-                            <td class="center"><img width="75" src="{{asset('images/product_image/'.$product->image)}}" alt=""></td>
+                            <td class="center"><img width="75" src="{{ asset('images/product_image/'.$product->image) }}" alt=""></td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->slug}}</td>
                             <td>{{$product->category->name}}</td>
                             <td>{{$product->brand->name}}</td>
-                            <td>{{$product->price}}</td>
-                            <td>{{$product->quantity}}</td>
+                            <td>{{$product->price}} TK</td>
+                            @if($product->status == 1)
+                                <td class="center">
+                                    <a class="badge badge-success" href="{{URL::to('unactive-product/'.$product->id)}}">Active</a>
+                                </td>
+                            @else
+                                <td class="center">
+                                    <a class="badge badge-danger" href="{{URL::to('active-product/'.$product->id)}}">Unactive</a>
+                                </td>
+                            @endif
+
+                            @if($product->features == 1)
+                                <td class="center">
+                                    <a class="badge badge-success" href="{{URL::to('unactive-product-feture/'.$product->id)}}">Active</a>
+                                </td>
+                            @else
+                                <td class="center">
+                                    <a class="badge badge-danger" href="{{URL::to('active-product-feture/'.$product->id)}}">Unactive</a>
+                                </td>
+                            @endif
                             <input type="hidden" value="{{$product->id}}">
                             <td>
-                                <a title="undo" onclick="deleteData({{$product->id}})" class="btn btn-primary deletebtnAjex " href="{{URL::to('undo-product/'.$product->id)}}">
-                                    Undo
+                                <a title="undo" data-id="{{ $product->id }}" class="btn btn-primary" href="{{URL::to('undo-product/'.$product->id)}}">
+                                    <i class="fa fa-undo" aria-hidden="true"></i>
                                 </a>
-                                <a title="Permanent Delete" onclick="deleteData({{$product->id}})" class="btn btn-danger deletebtnAjex " href="{{URL::to('delete-product/'.$product->id)}}">
+                                <a title="Permanent Delete" data-id="{{ $product->id }}" class="btn btn-danger dlBtn">
                                     <i class="halflings-icon white trash"></i>
                                 </a>
                             </td>
@@ -113,4 +104,35 @@
 
 @section('script')
 
+
+    <script>
+
+        $.ajaxSetup({
+            headers: {'X-CSRF-Token': '{{ csrf_token() }}'}
+        });
+
+        // start finaly delete the product
+        $(document).on('click','.dlBtn', function () {
+            var id = $(this).data('id');
+            $.ajax({
+                url: "{{ route('products.destroy', '') }}/"+id,
+                data:{id:id},
+                method: "DELETE",
+                dataType: "JSON",
+                success: function (feedBackResult) {
+                    if(feedBackResult.success){
+                        toastr.success(feedBackResult.message);
+                        $("#productTable").load(location.href + " #productTable");
+                    }
+                }
+            })
+        })
+        // end delete the product
+
+    </script>
+
 @endsection
+
+
+
+

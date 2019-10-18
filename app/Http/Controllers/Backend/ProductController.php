@@ -178,7 +178,6 @@ class ProductController extends Controller
 
     public function softdelete($id)
     {
-
         Product::find($id)->delete();
         Session::put('success','Product SoftDelete Successfully !!');
         return back();

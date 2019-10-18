@@ -9,6 +9,7 @@
             <i class="icon-angle-right"></i>
         </li>
         <li><a href="#">All Product</a></li>
+        <button  id="createNewProduct" class="btn btn-sm btn-success pull-right m-t-n-xs" ><i class="fa fa-plus"></i> Create </button>
     </ul>
 
     <div class="row-fluid sortable">
@@ -24,7 +25,34 @@
             </div>
             <div class="box-content">
                 <div class="container">
-                    <button  id="createNewProduct" class="pull-right btn btn-success" style="margin: 17px; font-size: x-large;"><i class="fa fa-plus-circle"></i></button>
+
+                   {{-- <style>
+
+                        #showRecycle {
+                            right: -2px;
+                            z-index: 99;
+                            font-size: 17px;
+                            border: none;
+                            outline: none;
+                            background-color: #ff1515;
+                            color: white;
+                            cursor: pointer;
+                            padding: 13px;
+                            border-radius: 7px;
+                            position: fixed;
+                        }
+
+                        #showRecycle:hover {
+                            background-color: #555;
+                        }
+                    </style>--}}
+
+                    @php
+                        $TrashProducts = \App\Product::onlyTrashed()->get();
+                        $countTrash = count($TrashProducts);
+                    @endphp
+
+                    <a href="{{ route('product.recycle.bin') }}" class="badge badge-danger pull-right" id="showRecycle" title="Recycle" style="margin: 17px; background-color: #f82f53"> View Trash ({{ $countTrash }}) </a>
                     <table class="table table-bordered data-table" id="productTable">
                         <thead>
                         <tr>
@@ -107,13 +135,11 @@
             $('#category_id').val('selectedCategoryValue');
             $('#brand_id').val('selectedBrandValue');
             $(".filename").text('No file selected');
-            $("#features").parent().addClass('');
-            $("#status").parent().addClass('');
-            $(".removeErrorText").text('');
+            $(".removeErrorText").text(''); // its remove form validation error text
             $("#features").attr('checked', false);// it's only get value
             $("#status").attr('checked', false);// it's only get value
-            $("#category_id option[name='Category1']").remove();
-            $("#brand_id option[name='Brand1']").remove();
+            $("#category_id option[name='Category1']").remove();// its remove the append option field whene i click the each edit btn
+            $("#brand_id option[name='Brand1']").remove();// its remove the append option field whene i click the each edit btn
 
         }
 
@@ -348,13 +374,13 @@
 
 
         // start finaly delete the product
-            $(document).on('click','.dlBtn', function () {
+            $(document).on('click','.dlBtn', function () { // it is only for softdelete not parmanent
                 var id = $(this).data('id');
 
                 $.ajax({
-                    url: "{{ route('products.destroy', '') }}/"+id,
+                    url: "{{ route('product.softdelete', '') }}/"+id,
                     data:{id:id},
-                    method: "DELETE",
+                    method: "GET",
                     dataType: "JSON",
                     success: function (feedBackResult) {
                         if(feedBackResult.success){
