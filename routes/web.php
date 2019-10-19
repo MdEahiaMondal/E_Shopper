@@ -66,9 +66,8 @@ Route::post('brands/activeUnctive','Backend\BrandController@ActiveUnactive')->na
 Route::resource('brands','Backend\BrandController');
 
 // Slider route::
-Route::post('slidersActiveUnactive','SliderController@ActiveUnactive')->name('slider.active.unactive');
-Route::resource('sliders','SliderController');
-/*Route::post('sliders/update','SliderController@update')->name('sliders.update');*/
+Route::post('slidersActiveUnactive','Backend\SliderController@ActiveUnactive')->name('slider.active.unactive');
+Route::resource('sliders','Backend\SliderController');
 
 
 // product route::
@@ -82,9 +81,9 @@ Route::resource('products','Backend\ProductController');
 
 // order Route
 
-   /* Route::get('all-order','Backend\OrderController@index');
+    Route::get('all-order','Backend\OrderController@index');
     Route::get('view-order/{order_id}','Backend\OrderController@show');
-    Route::get('orders/{id}/delete', 'Backend\OrderController@destroy')->name('orders.delete');*/
+    Route::get('orders/{id}/delete', 'Backend\OrderController@destroy')->name('orders.delete');
 
 /*.............................end the Backend Controller.................................*/
 

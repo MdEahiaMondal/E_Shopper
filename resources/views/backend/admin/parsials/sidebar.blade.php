@@ -15,12 +15,7 @@
                     <li><a class="submenu" href="{{URL::to('recycle-product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Recycle Bin</span></a></li>
                 </ul>
             </li>--}}
-            <li>
-                <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Manage Order</span><span class="label label-important"></span></a>
-                <ul>
-                    <li><a class="submenu" href="{{URL::to('all-order')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Orders</span></a></li>
-                </ul>
-            </li>
+            <li><a class="submenu" href="{{URL::to('all-order')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">Orders</span></a></li>
             <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Social Links</span></a></li>
             <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Delevaries Man</span></a></li>
             <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Shop Name</span></a></li>

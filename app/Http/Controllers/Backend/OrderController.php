@@ -25,12 +25,8 @@ class OrderController extends Controller
     public function index()
     {
 
-        $all_orders = Order::all();
-        dd($all_orders->user_id);
-        foreach ($all_orders as $oreder){
-            dd($oreder->hasMany);
-        }
-        return view('backend.admin.order.all_orders',compact('all_orders'));
+        $orders = Order::all();
+        return view('backend.admin.order.index',compact('orders'));
     }
 
     /**

@@ -5,7 +5,7 @@
         <div class="product-details"><!--product-details-->
             <div class="col-sm-5">
                 <div class="view-product">
-                    <img style="height: 345px; width: 300px" class="xzoom" id="xzoom-default" src="{{asset('images/product_image/'.$details->image)}}" xoriginal="{{asset('images/product_image/'.$details->image)}}" />
+                    <img style="height: 345px; width: 300px" class="xzoom" id="xzoom-default" src="{{asset('images/product_image/'.$details->image)}}" xoriginal="{{ asset('images/product_image/'.$details->image) }}" />
                 </div>
                 {{--<div id="similar-product" class="carousel slide" data-ride="carousel">
 

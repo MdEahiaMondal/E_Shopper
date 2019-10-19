@@ -2,159 +2,171 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Slider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Image;
-use Session;
-use File;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Validator;
+
 
 class SliderController extends Controller
 {
 
-    public function __construct()
+    public function index(Request $request)
     {
-        $this->middleware('auth:admin');
+        if ($request->ajax()){
+            $sliders = Slider::latest()->get();
+            return DataTables::of($sliders)
+                ->addIndexColumn()
+                ->addColumn('status', function ($row){
+                    $status = ($row->status > 0)? 'Active':'Unactive';
+                    $addCss = ($row->status > 0) ? 'badge badge-success' : 'badge badge-danger';
+                    $title = ($row->status > 0) ? "Press to unactive" : "Prase to active";
+
+                    $btn = "<a type='button' id='ActiveUnactive' title='$title' class='$addCss' statusNumber='$row->status' data-id='$row->id'>$status</a>";
+                    return $btn;
+                })
+                ->addColumn('action', function ($row){
+                    $btn = "<button type='button' class='btn btn-xs btn-info editBtn' data-id =" . $row->id . " title='Edit Item'> <i class='fa fa-edit'></i> </button>";
+                    $btn .= "<button type='button' class='btn btn-xs btn-danger delBtn' data-id =" . $row->id . " title='Delete Item'> <i class='fa fa-trash' aria-hidden='true'></i></button>";
+                    return $btn;
+                })
+                ->rawColumns(['status','action'])
+                ->make(true);
+        }
+        return view('backend.admin.slider.index');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('backend.admin.slider.add_slider');
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
+        $rules = array(
+            's_status' => 'numeric|nullable',
+            's_image' => 'required|image|max:2048'
+        );
 
-       $request->validate([
-           'slider_image' => 'required|mimes:jpeg,png,jpg,PNG,JPG,JPEG',
-       ]);
+        $error = Validator::make($request->all(), $rules);
+        if ($error->fails()){
+            return response()->json(['errors'=>$error->errors()->all()]);
+        }
+
+        $imageName = $request->file('s_image');
+        $setName = rand(). '.' . $imageName->getClientOriginalExtension();
+        Image:: make($imageName)->resize(1140,450)->save(base_path('public/images/slider_image/'.$setName),100);
+
         $value = array();
-        if($request->slider_status == 1){
-            $value['status'] = $request->slider_status;
+        $value['image'] = $setName;
+        if ($request->s_status == 1){
+            $value['status']    = $request->s_status;
         }
-        if($request->hasFile('slider_image')){
-            $original_file_name = $request->slider_image;
-            $AutoRandomName =str_random(20);
-            $get_file_extension = $original_file_name->getClientOriginalExtension();
-            $make_file_name = $AutoRandomName.'.'.$get_file_extension;
-            Image:: make($original_file_name)->resize(400,450)->save(base_path('public/images/slider_image/'.$make_file_name),100);
-            $value['image'] =$make_file_name;
-            DB::table('sliders')->insert($value);
-            Session::put('success','Slider Image Uploaded Successfully !!');
-            return back();
-        }
+
+        Slider::create($value);
+        return response()->json(['success'=>true, 'message'=>'Slider Image Created Successfully!']);
+
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
+    public function show($id)
     {
-        $all_sliders =  DB::table('sliders')->get();
-        return view('backend.admin.slider.all_slider',compact('all_sliders'));
+        //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        $single_slider = DB::table('sliders')->where('id',$id)->first();
-       return view('backend.admin.slider.edit_slider',compact('single_slider'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-
-        if($request->slider_image){
-            // first delete the old image:
-            $old_get_value = DB::table('sliders')->where('id',$id)->first();
-           $old_image_name = $old_get_value->image;
-            unlink(base_path('public/images/slider_image/'.$old_image_name));
-
-
-           // now new image update
-            if($request->hasFile('slider_image')) {
-                $original_file_name = $request->slider_image;
-                $AutoRandomName = str_random(20);
-                $get_file_extension = $original_file_name->getClientOriginalExtension();
-                $make_file_name = $AutoRandomName . '.' . $get_file_extension;
-                Image:: make($original_file_name)->resize(400, 450)->save(base_path('public/images/slider_image/' . $make_file_name), 100);
-                DB::table('sliders')->where('id', $id)->update(['image' => $make_file_name]);
-                Session::put('success', 'Slider Image Updated Successfully !!');
-                return back();
-            }
-
-        }else{
-            Session::put('error','This image already has !!');
-            return back();
+        if (request()->ajax()){
+            $data = Slider::findOrFail($id);
+            return response()->json(['data'=>$data]);
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+    public function update(Request $request, Slider $slider)
+    {
+        $newImage = $request->file('s_image');
+        if ($newImage){
+
+            $oldimage = $request->sliderHiddenImageName;
+            if (file_exists('images/slider_image/'.$oldimage)){
+                unlink('images/slider_image/'.$oldimage);
+            }
+
+
+            // now need to  validation
+            $validator = Validator::make($request->all(), [
+                's_status' => 'numeric|nullable',
+                's_image' => 'required|image|max:2048',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()]);
+            }
+
+
+
+            $setName = rand(). '.' . $newImage->getClientOriginalExtension();
+            Image:: make($newImage)->resize(1140,450)->save(base_path('public/images/slider_image/'.$setName),100);
+
+            $status = $request->s_status == 1 ? 1 : 0;
+            $value['image'] = $setName;
+            $value['status'] = $status;
+
+            $slider->update($value);
+            return response()->json(['success'=>true, 'message'=>'Slider Image Updated Successfully!']);
+
+        }
+
+        $status = $request->s_status == 1 ? 1 : 0;
+
+        $value['image'] = $request->sliderHiddenImageName;
+        $value['status'] = $status;
+
+        $slider->update($value);
+        return response()->json(['success'=>true, 'message'=>'Slider Image Updated Successfully!']);
+
+    }
+
+
+
     public function destroy($id)
     {
-        // first delete the old image:
-        $old_get_value = DB::table('sliders')->where('id',$id)->first();
-        $old_image_name = $old_get_value->image;
-        unlink(base_path('public/images/slider_image/'.$old_image_name));
-        DB::table('sliders')->where('id',$id)->delete();
-        Session::put('success','Slider Deleted Successfully !!');
-        return back();
+        $check = Slider::findOrFail($id);
+        if ($check->image){
+            if (file_exists('images/slider_image/'.$check->image)){
+                unlink('images/slider_image/'.$check->image);
+
+                Slider::whereId($id)->delete();
+                return response()->json(['success'=>'Deleted Successfully Done !']);
+            }
+            Slider::whereId($id)->delete();
+            return response()->json(['success'=>'Deleted Successfully Done !']);
+        }else{
+            Slider::whereId($id)->delete();
+            return response()->json(['success'=>'Deleted Successfully Done !']);
+        }
+
     }
 
 
-    public function unactive($id){
-        DB::table('sliders')->where('id',$id)->update(['status'=>0]);
-        Session::put('success','Slider Image is Unctive now !!');
-        return back();
+    public function ActiveUnactive(Request $request){
+        $id = $request->id;
+        $getStatusNumber = $request->getStatusNumber;
+
+        $check = Slider::findOrFail($id); // you can you ( Slider::where('id',$id)->update(['status'=>$status]); )
+        if ($check){
+            $check->update(['status'=>$getStatusNumber]);
+            return response()->json(['success' => "Publication Status Updated Successfully !"]);
+        }
+
     }
 
-    public function active($id){
-        DB::table('sliders')->where('id',$id)->update(['status'=>1]);
-        Session::put('success','Slider Image is Active now !!');
-        return back();
-    }
 
 
 }
