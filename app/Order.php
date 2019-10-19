@@ -18,6 +18,10 @@ class Order extends Model
        return $this->hasMany(Order_details::class,'order_id');
    }
 
+   public function payment(){
+       return $this->belongsTo(Payment::class);
+   }
+
     /*protected static function boot() {
         parent::boot();
         static::deleting(function($order) { //when delete order first use find(id) and store into $order.

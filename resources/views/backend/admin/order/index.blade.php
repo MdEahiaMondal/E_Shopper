@@ -29,12 +29,15 @@
                     <p class="alert alert-success">{{session('success')}}</p>
                 @endif
                 <div class="container">
-                    <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                    <table class="table table-bordered data-table" id="ordersTable">
                         <thead>
                             <tr>
-                                <th>Order ID</th>
+                                <th>Si No</th>
                                 <th>Customer Name</th>
+                                <th>Email</th>
                                 <th>Order Total</th>
+                                <th>Payment Method</th>
+                                <th>Order Date</th>
                                 <th>Order Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -62,25 +65,41 @@
             headers: {'X-CSRF-Token': '{{ csrf_token() }}'}
         });
 
-        var sliderUrl = "{{ route('sliders.index') }}";
-        var sliderTable = $("#SliderTable").DataTable({
+        var ordersUrl = "{{ route('orders.index') }}";
+        var ordersTable = $("#ordersTable").DataTable({
             processing: true,
             serverSide: true,
-            ajax:sliderUrl,
+            ajax:ordersUrl,
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                {
-                    data: 'image',
-                    name: 'image',
-                    render: function (data,type, full, meta) {
-                        return '<img class="img-thumbnail" style="width: 250px; height: 119px;" src="{{ asset('images/slider_image/') }}/'+data+'"/>';
-                    },
-                    orderable: false,
-                },
+                { data: 'name', name: 'name' },
+                { data: 'email', name: 'email' },
+                { data: 'total', name: 'total' },
+                { data: 'method', name: 'method' },
+                { data: 'created_at', name: 'created_at' },
                 { data: 'status', name: 'status' },
                 { data: 'action', name: 'action', orderable: false, searchable: false },
             ]
 
         });
+
+
+        // click the view details
+        $(document).on('click', '.ViewBtn', function () {
+            var id = $(this).data('id');
+
+            $.ajax({
+                url: "{{ route('redirect.to.details.pages', '') }}/"+id,
+                method: "GET",
+                data: {id: id},
+                dataType: "Json",
+                success: function (feedBackResult) {
+                    var id = feedBackResult.data.id;
+                    window.location = "{{ route('orders.show','') }}/"+id;
+                }
+            })
+        })
+
+
     </script>
 @endsection
