@@ -21,7 +21,7 @@ class OrderController extends Controller
                     $addCss = ($row->status > 0) ? 'badge badge-success' : 'badge badge-danger';
                     $title = ($row->status > 0) ? "Press to Pending" : "Prase to Complete";
 
-                    $btn = "<a type='button' id='StatusChange' title='$title' class='$addCss' statusNumber='$row->status' data-id='$row->id'>$status</a>";
+                    $btn = "<a type='button' id='StatusChange' title='$title' class='$addCss' getStatusNumber='$row->status' data-id='$row->id'>$status</a>";
                     return $btn;
                 })
                 ->addColumn('action', function ($row){
@@ -88,6 +88,16 @@ class OrderController extends Controller
 
     public function destroy($id)
     {
-        //
+        Order::whereId($id)->delete();
+        return response()->json(['success'=>true, 'message'=>'Order Deleted Successfully !']);
     }
+
+
+    public function changeStatus(Request $request)
+    {
+        Order::whereId($request->id)->update(['status'=>$request->setStatus]);
+        return response()->json(['success'=>true, 'message'=>'Publication Status updated Successfully !']);
+    }
+
+
 }

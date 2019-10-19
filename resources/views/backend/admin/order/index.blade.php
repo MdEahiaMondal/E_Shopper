@@ -83,6 +83,37 @@
 
         });
 
+        // change status
+        $(document).on('click', '#StatusChange', function () {
+           var id = $(this).data('id');
+           var getStatusNumber = $(this).attr('getStatusNumber');
+           var setStatus;
+
+           if(getStatusNumber > 0){
+               setStatus = 0;
+           }else{
+               setStatus = 1;
+           }
+
+           $.ajax({
+               url: "{{ route('order.changeStatus') }}",
+               method: "POST",
+               data: {
+                 id: id,
+                 setStatus: setStatus,
+               },
+               dataType: "JSON",
+               success: function (feedBackResult) {
+                   if (feedBackResult.success){
+                       toastr.success(feedBackResult.message);
+                       ordersTable.draw();
+                   }
+               }
+
+           })
+
+
+        });
 
         // click the view details
         $(document).on('click', '.ViewBtn', function () {
@@ -95,10 +126,13 @@
                 dataType: "Json",
                 success: function (feedBackResult) {
                     var id = feedBackResult.data.id;
-                    window.location = "{{ route('orders.show','') }}/"+id;
+                    window.location = "{{ route('orders.show','') }}/"+id; // send to others page
                 }
             })
         })
+
+
+
 
 
     </script>
