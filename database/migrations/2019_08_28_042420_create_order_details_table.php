@@ -14,8 +14,8 @@ class CreateOrderDetailsTable extends Migration
     public function up()
     {
         Schema::create('order_details', function (Blueprint $table) {
-            $table->bigInteger('id')->autoIncrement();
-            $table->bigInteger('order_id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('order_id');
             $table->integer('product_id');
             $table->string('product_name');
             $table->float('product_price');
