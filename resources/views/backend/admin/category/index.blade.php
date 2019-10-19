@@ -85,16 +85,10 @@
 
         // start unactive active
         $('table').on('click', "#ActiveUnactive", function () {
-            var setStatus;
-            var status = $(this).attr('status');
-           /* var id = $(this).parent().parent().find('td').eq(0).text();*/
+            var getStatus = $(this).attr('status');
             var id = $(this).data('id');
 
-            if (status > 0){
-                 setStatus = 0;
-            }else{
-                  setStatus = 1;
-            }
+            var setStatus = (getStatus > 0)? 0: 1;
 
             $.ajax({
                url: "{{ route('categories.activeUnctive') }}",
@@ -125,14 +119,15 @@
         function reset() {
             $("#categoryModal").find('input').each(function () {
                 $(this).val(null);
-            })
+            });
+            $("#description").val('');
         }
 
         function getInputs() {
-            var id = $('input[id="c_id"]').val();
-            var name = $('input[name="c_name"]').val();
-            var description = $('textarea[name="c_description"]').val();
-            var status = $("#c_status").attr("checked") ? 1 : 0;
+            var id = $('input[id="row_id"]').val();
+            var name = $('input[name="name"]').val();
+            var description = $('textarea[name="description"]').val();
+            var status = $("#status").attr("checked") ? 1 : 0;
 
             return {id: id, name: name, description: description, status: status};
         }
@@ -143,7 +138,7 @@
             $("#categoryModal").modal('show');
             $("#createtButton").show();
             $("#updatButton").hide();
-            $(".hideMeC_status").show();
+            $(".hideStatus").show();
 
 
         }
@@ -187,7 +182,7 @@
             $("#categoryModal").modal('show');
             $("#createtButton").hide();
             $("#updatButton").show();
-            $(".hideMeC_status").hide();
+            $(".hideStatus").hide();
 
 
             // take value each line
@@ -196,14 +191,14 @@
             var description = $(this).parent().parent().find('td').eq(2).text();
             /*var status = $(this).parent().parent().find('td').eq(3).text();*/
             // insert edit form
-            $('input[name="c_id"]').val(id);
-            $('input[name="c_name"]').val(name);
-            $('textarea[name="c_description"]').val(description);
+            $('input[name="row_id"]').val(id);
+            $('input[name="name"]').val(name);
+            $('textarea[name="description"]').val(description);
         });
 
       // whene click the update button
         function update() {
-            var id = $("#c_id").val();
+            var id = $("#row_id").val();
             $.ajax({
                 url: "{{ route('categories.update',"") }}/"+id,
                 method: "PUT",
@@ -244,14 +239,17 @@
                 data: {
                    id:id,
                 },
-                success: function (data) {
+                success: function (feedBackResult) {
 
-                    toastr.success(data.message);
-                    categoryTable.draw();
+                    if(feedBackResult.error){
+                        toastr.error(feedBackResult.message);
+                    }
+                    if(feedBackResult.success){
+                        toastr.success(feedBackResult.message);
+                        categoryTable.draw();
+                    }
                 },
-                error: function (data) {
-                    alert(data.message)
-                }
+
             });
         })
 

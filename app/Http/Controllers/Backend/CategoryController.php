@@ -41,7 +41,7 @@ class CategoryController extends Controller
                 ->rawColumns(['status','action',])
                 ->make(true);
         }}
-        return view('backend.admin.category.all_category');
+        return view('backend.admin.category.index');
 
     }
 

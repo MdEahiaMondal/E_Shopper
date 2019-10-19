@@ -41,6 +41,19 @@ Route::get('add-wishlist/{slug}','Frontend\WishListsController@store');
 Route::get('remove-item/{rowId}','Frontend\WishListsController@removeItem');
 Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
 
+
+
+Auth::routes(['verify' => true]);
+
+
+/*Route::get('/home', 'HomeController@index')->name('home');*/
+
+Route::get('profile', function () {
+    // Only verified users may enter...
+})->middleware('verified');
+
+
+
 /*------------------------- end Frontend controller Route-------------------------*/
 
 
@@ -80,21 +93,9 @@ Route::get('recycle-product','Backend\ProductController@recycle')->name('product
 Route::resource('products','Backend\ProductController');
 
 // order Route
-Route::post('orders/changeStatus','OrderController@changeStatus')->name('order.changeStatus');
-Route::get('orders/feedBackResult/{orders}','OrderController@feedBackResult')->name('redirect.to.details.pages');
-Route::resource('orders','OrderController');
-
+Route::post('orders/changeStatus','Backend\OrderController@changeStatus')->name('order.changeStatus');
+Route::get('orders/feedBackResult/{orders}','Backend\OrderController@feedBackResult')->name('redirect.to.details.pages');
+Route::resource('orders','Backend\OrderController');
 
 
 /*.............................end the Backend Controller.................................*/
-
-
-
-Auth::routes(['verify' => true]);
-
-
-/*Route::get('/home', 'HomeController@index')->name('home');*/
-
-Route::get('profile', function () {
-    // Only verified users may enter...
-})->middleware('verified');
