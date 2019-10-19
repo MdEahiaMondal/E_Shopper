@@ -64,7 +64,9 @@
             function reset() {
                 $("#brandModal").find('input').each(function () {
                     $(this).val(null);
-                })
+                });
+                $("#description").val('');
+                $("#status").parent().attr('class', '');
 
             }
 
@@ -80,10 +82,10 @@
 
             // get input fields value
             function getInputRecods() {
-                var id = $('input[name="brand_id"]').val();
-                var name = $('input[name="b_name"]').val();
-                var  description = $('textarea[name="b_description"]').val();
-                var status =$('#b_status').attr('checked')? 1: 0;
+                var id = $('input[name="row_id"]').val();
+                var name = $('input[name="name"]').val();
+                var  description = $('textarea[name="description"]').val();
+                var status =$('#status').parent().attr('class') == 'checked'? 1: 0;
 
                 return{id: id, name: name, description: description, status: status}
             }
@@ -132,16 +134,16 @@
                 var description =$(this).parent().parent().find('td').eq(2).text();
 
                 // now insert into the modal form input field
-                $('input[name="brand_id"]').val(id);
-                $('input[name="b_name"]').val(name);
-                $('textarea[name="b_description"]').val(description);
+                $('input[name="row_id"]').val(id);
+                $('input[name="name"]').val(name);
+                $('textarea[name="description"]').val(description);
 
             });
 
 
             // whene click the submit button
             function update() {
-                var id =$("#brand_id").val();
+                var id =$("#row_id").val();
                 $.ajax({
                     url: "{{ route('brands.update','') }}/"+id,
                     method: "PUT",

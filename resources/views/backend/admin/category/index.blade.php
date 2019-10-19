@@ -115,19 +115,21 @@
 
 
 
+
         // start for create new
         function reset() {
             $("#categoryModal").find('input').each(function () {
                 $(this).val(null);
             });
             $("#description").val('');
+            $("#status").parent().attr('class', '');
         }
 
         function getInputs() {
             var id = $('input[id="row_id"]').val();
             var name = $('input[name="name"]').val();
             var description = $('textarea[name="description"]').val();
-            var status = $("#status").attr("checked") ? 1 : 0;
+            var status = $("#status").parent().attr('class')=='checked'? 1 : 0;
 
             return {id: id, name: name, description: description, status: status};
         }
@@ -189,8 +191,7 @@
             var id = $(this).data('id');
             var name = $(this).parent().parent().find('td').eq(1).text();
             var description = $(this).parent().parent().find('td').eq(2).text();
-            /*var status = $(this).parent().parent().find('td').eq(3).text();*/
-            // insert edit form
+
             $('input[name="row_id"]').val(id);
             $('input[name="name"]').val(name);
             $('textarea[name="description"]').val(description);

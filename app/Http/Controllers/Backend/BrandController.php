@@ -80,10 +80,11 @@ class BrandController extends Controller
 
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $id = $request->get('id');
         $validation = $request->validate([
-            'name'  => 'required|unique:brands,name,'.$id.',id',
+            'name'  => 'required|unique:brands,name,'.$id. 'id',
             'description' => 'string|nullable',
         ]);
 
@@ -97,6 +98,7 @@ class BrandController extends Controller
         }else{
             return response()->json(['error'=>$validation->errors()->all()]);
         }
+
     }
 
 

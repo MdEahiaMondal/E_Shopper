@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/all_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/BrandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/brand/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/brand/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/brand/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/brand/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -285,7 +284,7 @@
       <workItem from="1571269671708" duration="24289000" />
       <workItem from="1571329111702" duration="3540000" />
       <workItem from="1571365899638" duration="29430000" />
-      <workItem from="1571451406461" duration="18412000" />
+      <workItem from="1571451406461" duration="22568000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -392,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571464497915</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="category problem solved">
+      <created>1571472744837</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1571472744837</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -437,6 +443,7 @@
     <MESSAGE value="order show and show deatils complete" />
     <MESSAGE value="order status complate" />
     <MESSAGE value="order delete complate" />
-    <option name="LAST_COMMIT_MESSAGE" value="order delete complate" />
+    <MESSAGE value="category problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="category problem solved" />
   </component>
 </project>
