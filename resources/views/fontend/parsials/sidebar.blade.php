@@ -6,10 +6,10 @@
                     <div class="brands-name">
                         <ul class="nav nav-pills nav-stacked">
                             <?php
-                            $all_category = \App\Category::all();
+                            $categories = \App\Category::where('status', 1)->get();
                             ?>
-                            @foreach($all_category as $categorys)
-                                    <li><a class="{{ (request()->is('category-product/'.$categorys->id)) ? 'active':''}}" href="{{URL:: to('category-product/'.$categorys->id)}}"> <span class="pull-right">(50)</span>{{$categorys->name}}</a></li>
+                            @foreach($categories as $category)
+                                    <li><a class="{{ (request()->is('category-product/'.$category->id)) ? 'active':''}}" href="{{URL:: to('category-product/'.$category->id)}}"> <span class="pull-right">({{ $count = count(\App\Product::where('category_id', $category->id)->get()) }})</span>{{$category->name}}</a></li>
                             @endforeach
 
                         </ul>
@@ -22,9 +22,9 @@
                 <div class="brands-name">
                     <ul class="nav nav-pills nav-stacked">
                         <?php
-                        $all_brand = \App\Brand::all();
+                        $brands = \App\Brand::where('status', 1)->get();
                         ?>
-                        @foreach($all_brand as $brand)
+                        @foreach($brands as $brand)
                             <li><a class="{{ (request()->is('brand-product/'.$brand->id)) ? 'active':''}}" href="{{URL:: to('brand-product/'.$brand->id)}}"> <span class="pull-right">(50)</span>{{$brand->name}}</a></li>
                         @endforeach
 

@@ -34,7 +34,7 @@ class HomeController extends Controller
 
     public function index()
    {
-       $all_products = Product::all()->where('status',1);
+       $all_products = Product::where('status',1)->get();
        return view('fontend.pages.home_content',compact('all_products'));
    }
 

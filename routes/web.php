@@ -7,7 +7,10 @@ Route::get('/','Frontend\HomeController@index');
 Route::get('category-product/{id}','Frontend\HomeController@category_widgs_product');
 Route::get('brand-product/{id}','Frontend\HomeController@product_brand');
 Route::get('view-details/{slug}','Frontend\HomeController@view_product_details');
+
 Route::post('search-product','Frontend\HomeController@ProductSearch');
+
+
 Route::get('user-profile','Frontend\HomeController@UserProfile');
 Route::post('update-profile','Frontend\HomeController@updateProfile')->name('update.profile');
 Route::post('update-profile-password/{id}','Frontend\HomeController@PasswordUpdate')->name('update.profile.password');

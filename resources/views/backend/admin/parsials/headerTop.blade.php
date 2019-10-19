@@ -277,7 +277,8 @@
                                                      document.getElementById('logout-form').submit();">
                                         <i class="halflings-icon off"></i> {{ __('Logout') }}
                                     </a>
-                                </form></li>
+                                </form>
+                            </li>
                         </ul>
                     </li>
                     <!-- end: User Dropdown -->

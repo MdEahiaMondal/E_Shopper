@@ -1,4 +1,9 @@
 @extends('fontend.layouts.master')
+
+@section('sidebar')
+    @include('fontend.parsials.sidebar')
+@endsection
+
 @section('content')
     <div class="features_items"><!--features_items-->
         <h2 class="title text-center">Category Items</h2>

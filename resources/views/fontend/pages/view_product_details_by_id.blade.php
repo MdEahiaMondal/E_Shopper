@@ -1,5 +1,13 @@
 @extends('fontend.layouts.master')
 
+@section('search')
+    @include('fontend.parsials.searchForm')
+@endsection
+
+@section('sidebar')
+    @include('fontend.parsials.sidebar')
+@endsection
+
 @section('content')
     <div class="col-sm-12 padding-right">
         <div class="product-details"><!--product-details-->

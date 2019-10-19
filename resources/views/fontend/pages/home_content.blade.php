@@ -1,4 +1,14 @@
 @extends('fontend.layouts.master')
+
+@section('search')
+    @include('fontend.parsials.searchForm')
+@endsection
+
+
+@section('sidebar')
+    @include('fontend.parsials.sidebar')
+@endsection
+
 @section('content')
     <div class="recommended_items">
         <h2 class="title text-center">Features PRODUCTS</h2>

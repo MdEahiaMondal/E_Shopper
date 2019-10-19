@@ -26,20 +26,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{url('frontend/images/ico/apple-touch-icon-114-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('frontend/images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('frontend/images/ico/apple-touch-icon-57-precomposed.png')}}">
-{{--    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">--}}
     <link rel="stylesheet" href="{{asset('frontend/starRating/StarRating.css')}}">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 
     {{--Custom style--}}
     <link href="{{asset('frontend/css/custom_style.css')}}" rel="stylesheet">
-
-
-    {{--  --}}{{-- // for wuick view--}}{{--
-       <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-       <link rel="stylesheet" href="{{asset('frontend/qucickView/css/style.css')}}">
-       <link rel="stylesheet" href="{{asset('frontend/qucickView/css/reset.css')}}"> <!-- CSS reset -->
-       <script src="{{asset('frontend/qucickView/js/modernizr.js')}}"></script> <!-- Modernizr -->--}}
 
 </head><!--/head-->
 
@@ -134,43 +126,3 @@
             </div>
         </div>
     </div><!--/header-middle-->
-
-    <div class="header-bottom"><!--header-bottom-->
-        <div class="container">
-            <div class="row">
-                @if($url != 'email/verify' and $url != 'login' and $url != 'register' and $url != 'user-profile' and $url != 'wishlist.index' and $url != 'contact-us' and $url != 'insert-payment' and $url != 'show-cart' and $url != 'payment' and $url != 'checkout')
-
-                    <form action="{{url('search-product')}}" method="post">
-                        @csrf
-                         <div class="col-sm-9">
-                            <div class="search_box pull-right">
-                                <input type="text" name="product_search" placeholder="Search"/>
-                            </div>
-                         </div>
-
-                         <div class="col-sm-2">
-                                <select class="pull-right" style="height: 35px;" name="" id="">
-                                    <option value="">Select category</option>
-                                    {{$all_category = \App\Category::all()}}
-                                    @if($all_category)
-                                        @foreach($all_category as $categories)
-                                            <option value="{{$categories->id}}">{{$categories->name}}</option>
-                                        @endforeach
-                                        @else
-                                        <option value="{{$categories->id}}">{{$categories->name}}</option>
-                                    @endif
-                                </select>
-                         </div>
-
-                         <div class="col-sm-1">
-                                <div class="search_button">
-                                    <input type="submit" class="btn" value="Search">
-                                </div>
-
-                         </div>
-                    </form>
-                    @endif
-            </div>
-        </div>
-    </div><!--/header-bottom-->
-</header><!--/header-->
