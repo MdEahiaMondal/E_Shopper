@@ -80,11 +80,6 @@ Route::get('recycle-product','Backend\ProductController@recycle')->name('product
 Route::resource('products','Backend\ProductController');
 
 // order Route
-
-    Route::get('all-order','Backend\OrderController@index');
-    Route::get('view-order/{order_id}','Backend\OrderController@show');
-    Route::get('orders/{id}/delete', 'Backend\OrderController@destroy')->name('orders.delete');
-
 Route::post('orders/changeStatus','OrderController@changeStatus')->name('order.changeStatus');
 Route::get('orders/feedBackResult/{orders}','OrderController@feedBackResult')->name('redirect.to.details.pages');
 Route::resource('orders','OrderController');

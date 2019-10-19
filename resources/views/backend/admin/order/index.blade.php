@@ -129,9 +129,28 @@
                     window.location = "{{ route('orders.show','') }}/"+id; // send to others page
                 }
             })
-        })
+        });
 
 
+        // delete the order
+        $(document).on('click', '.delBtn', function () {
+            var id = $(this).data('id');
+
+            $.ajax({
+                url: "{{ route('orders.destroy','') }}/"+id,
+                method: "DELETE",
+                data:{
+                    id: id,
+                },
+                dataType: "JSON",
+                success: function (feedBackResult) {
+                    if(feedBackResult.success){
+                        toastr.success(feedBackResult.message)
+                        ordersTable.draw();
+                    }
+                }
+            })
+        });
 
 
 
