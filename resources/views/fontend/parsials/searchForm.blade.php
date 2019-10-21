@@ -1,8 +1,9 @@
-<form action="{{ route('product.search.text') }}" method="post">
+<form action="" method="post">
     @csrf
     <div class="col-sm-9">
         <div class="search_box pull-right">
-            <input type="text" name="product_search" placeholder="Search"/>
+            <input type="text" name="liveSearch" id="liveSearch" placeholder="Search"/>
+            <div id="autocompleteResultShow"></div>
         </div>
     </div>
 
@@ -62,3 +63,5 @@
         </div>
     </form>
 @endif--}}
+
+

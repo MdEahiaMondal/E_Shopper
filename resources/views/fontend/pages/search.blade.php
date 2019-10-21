@@ -43,6 +43,7 @@
     @endif
 
 
+
 {{--    @if( (Session::has('searchText')) )
         <div class="features_items"><!--features_items-->
             <h2 class="title text-center">Search Items</h2>

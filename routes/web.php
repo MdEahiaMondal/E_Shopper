@@ -6,9 +6,9 @@
 Route::get('/','Frontend\HomeController@index');
 Route::get('category-product/{id}','Frontend\HomeController@category_widgs_product');
 Route::get('brand-product/{id}','Frontend\HomeController@product_brand');
-Route::get('view-details/{slug}','Frontend\HomeController@view_product_details');
+Route::get('view-details/{slug}','Frontend\HomeController@view_product_details')->name('product.details');
 
-Route::post('search-product-text','Frontend\SearchController@ProductSearch')->name('product.search.text');
+Route::get('live-search-product','Frontend\SearchController@searchAction')->name('live.search.product');
 Route::post('search-product','Frontend\SearchController@priceRangeSearch')->name('price.range');
 
 
