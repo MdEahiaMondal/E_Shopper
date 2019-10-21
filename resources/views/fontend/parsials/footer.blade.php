@@ -174,6 +174,7 @@
 <!-- XZOOM JQUERY PLUGIN  -->
 <script type="text/javascript" src="{{asset('frontend/plagin/zoom/js/xzoom.min.js')}}"></script>
 <script src="{{asset('frontend/plagin/zoom/js/setup.js')}}"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> {{--slider range for price range--}}
 
 
 <script>

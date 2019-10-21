@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/searchForm.blade.php" afterDir="false" />
+    <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="brand problem solved">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SearchController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/BrandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/SliderController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/parsials/headerTop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/parsials/headerTop.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/brand_wisge_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/brand_wisge_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/category_wised_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/category_wised_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/css/price-range.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/css/price-range.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/js/price-range.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/js/price-range.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/home_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/home_content.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/view_product_details_by_id.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/view_product_details_by_id.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/searchForm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/searchForm.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -150,7 +146,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AjaxCrudeInLaravel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../slider_range" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -163,19 +159,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Frontend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend\auth" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\FrontendController" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\xmp\xm\htdocs\runningGitHub project\E_Shopper\public\backend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend\admin\auth" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Backend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\database\migrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\xampp\htdocs\runningGitHub project\E_Shopper\app\Http\Controllers\Frontend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Frontend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend\auth" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -294,7 +290,9 @@
       <workItem from="1571269671708" duration="24289000" />
       <workItem from="1571329111702" duration="3540000" />
       <workItem from="1571365899638" duration="29430000" />
-      <workItem from="1571451406461" duration="28229000" />
+      <workItem from="1571451406461" duration="30683000" />
+      <workItem from="1571576913546" duration="3370000" />
+      <workItem from="1571620787066" duration="21148000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>

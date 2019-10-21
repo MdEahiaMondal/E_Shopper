@@ -32,12 +32,35 @@
                 </div>
             </div><!--/brands_products-->
 
-            <div class="price-range"><!--price-range-->
+            <div class=""><!--price-range-->
                 <h2>Price Range</h2>
                 <div class="well text-center">
-                    <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-                    <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+
+                    <div id="priceSlider"></div>
+
+                    @php
+                        $minPrice = \App\Product::min('price');
+                        $maxPrice = \App\Product::max('price');
+
+                    @endphp
+                    <input id="maxprice" name="maxprice" readonly value="{{ $maxPrice }}"  type="hidden">
+                    <input id="miniPrice" name="miniPrice" readonly value="{{ $minPrice }}" type="hidden">
+
+                    <form action="{{ route('price.range') }}" method="post">
+                        @csrf
+                        <div class="form-group row" style="margin-top: 7px;">
+                            <div class="col-xs-4 pull-left">
+                                <input class="form-control" id="minimumPrice"  name="minimumPrice" readonly type="text">
+                            </div>
+                            <div class="col-xs-4 pull-right">
+                                <input class="form-control" id="maximumPrice" name="maximumPrice" readonly type="text">
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-sm"  value="Filter">
+                    </form>
+
                 </div>
+
 
             </div><!--/price-range-->
 
@@ -48,3 +71,5 @@
         </div>
     </div>
 </div>
+
+

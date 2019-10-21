@@ -1,4 +1,4 @@
-<form action="{{url('search-product')}}" method="post">
+<form action="{{ route('product.search.text') }}" method="post">
     @csrf
     <div class="col-sm-9">
         <div class="search_box pull-right">

@@ -34,8 +34,9 @@ class HomeController extends Controller
 
     public function index()
    {
-       $all_products = Product::where('status',1)->get();
-       return view('fontend.pages.home_content',compact('all_products'));
+       $products = Product::where('status', 1)->get();
+       $features_Products = Product::where('features', 1)->get();
+       return view('fontend.pages.home_content',compact('products','features_Products'));
    }
 
 
@@ -64,27 +65,6 @@ class HomeController extends Controller
    }
 
 
-   public function ProductSearch(Request $request){
-        if ($request->product_search){
-            $request->validate([
-                'product_search' =>'required',
-            ]);
-        }
-
-       $category_id = $request->category_id;
-       $search_text = $request->product_search;
-       Session::put('search_text',$search_text);
-       Session::put('search_error','No Details found. Try to search again !');
-       if ($category_id){
-           dd($category_id);
-           $all_search_product = Product::where('name','LIKE','%'.$search_text.'%')->Where('category_id',$category_id)->get();
-           return view('fontend.pages.search',compact('all_search_product'));
-       }else{
-           $all_search_product = Product::where('name','LIKE','%'.$search_text.'%')->get();
-           return view('fontend.pages.search',compact('all_search_product'));
-       }
-
-   }
 
 
    public function UserProfile(){
