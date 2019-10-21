@@ -1,4 +1,9 @@
-<form action="" method="post">
+
+@error('liveSearch')
+<div class="alert alert-danger">{{ $message }}</div>
+@enderror
+
+<form action="{{ route('search.product') }}" method="post">
     @csrf
     <div class="col-sm-9">
         <div class="search_box pull-right">
@@ -8,7 +13,7 @@
     </div>
 
     <div class="col-sm-2">
-        <select class="pull-right" style="height: 35px;" name="" id="">
+        <select class="pull-right" style="height: 35px;" name="category_id" id="category_id">
             <option value="">Select category</option>
             {{$categories = \App\Category::where('status', 1)->get()}}
             @if($categories)

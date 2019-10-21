@@ -12,9 +12,9 @@
 
 @section('content')
 
-    @if( (Session::has('priceRange')) )
+  @if( (Session::has('priceRange')) )
         <div class="features_items"><!--features_items-->
-            <h2 class="title text-center">Search Items</h2>
+            <h2 class="title text-center">Search Items with Price</h2>
             @if(count($products) > 0 )
                 @foreach ($products as $search_products)
                     <div class="col-sm-4">
@@ -37,16 +37,16 @@
                     </div>
                 @endforeach
             @else
-                <p class="text-center alert alert-danger"> No Details found. Try to search again ! </p>
+                <p class="text-center alert alert-danger"> No Details found with price. Try to search again ! </p>
             @endif
         </div><!--features_items-->
     @endif
 
 
 
-{{--    @if( (Session::has('searchText')) )
+   @if( (Session::has('search_text')) )
         <div class="features_items"><!--features_items-->
-            <h2 class="title text-center">Search Items</h2>
+            <h2 class="title text-center">Search  Items  with ( <span style="color: #f27474">{{ Session::get('search_text') }}</span> ) </h2>
             @if(count($products) > 0 )
                 @foreach ($products as $search_products)
                     <div class="col-sm-4">
@@ -69,10 +69,10 @@
                     </div>
                 @endforeach
             @else
-                <p style="font-size: 28px" class="">Search for: "{{ Session::has('search_text')    }}"</p>
-                <p class="text-center alert alert-danger">{{  Session::has('search_error')  }}</p>
+                <p style="font-size: 28px" class="">Search for: "{{ Session::get('search_text') }}"</p>
+                <p class="text-center alert alert-danger">{{  Session::get('search_error')  }} </p>
             @endif
         </div><!--features_items-->
-    @endif--}}
+    @endif
 
 @endsection
