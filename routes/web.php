@@ -21,7 +21,7 @@ Route::post('update-profile-password/{id}','Frontend\HomeController@PasswordUpda
 // Frontend Comment and like dislike controller Route
 Route::post('insert-comment','Frontend\CommentController@insert')->name('insert.comment');
 Route::get('getComment','Frontend\CommentController@getComment')->name('get.comment.data');
-Route::post('like','Frontend\CommentController@like')->name('like');
+Route::post('like','Frontend\CommentController@like')->name('like.comment');
 Route::post('dislike','Frontend\CommentController@dislike')->name('dislike');
 
 // Cart Route

@@ -57,9 +57,24 @@ class CommentController extends Controller
 
 
 
-    public function like(Request $request){
+    public function like(Request $request)
+    {
+        $comment_id  = $request->comment_id;
+        $find = LikeUnlike::where('comment_id', $comment_id)->where('user_id', Auth::id())->first();
+        if (!$find){
+            $newLike = new LikeUnlike;
+            $newLike->comment_id = $comment_id;
+            $newLike->user_id = Auth::id();
+            $newLike->like = 1;
+            $newLike->save();
+            $like = 1;
+            return response()->json(['success'=>$like]);
+        }
 
-        $like_status = $request->like_s;
+
+
+        /*$like_status = $request->like_s;
+
         $comment_id = $request->comment_id;
         $change_like = 0;
 
@@ -89,7 +104,7 @@ class CommentController extends Controller
             'change_like' =>$change_like,
         );
 
-        return response()->json($response,200);
+        return response()->json($response,200);*/
 
     }
 

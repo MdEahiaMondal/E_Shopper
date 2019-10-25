@@ -119,7 +119,7 @@ class ProductController extends Controller
         $CheckImage = $request->file('image');
         if ($CheckImage){
             $setImageName = rand(). '.' .$CheckImage->getClientOriginalExtension();
-            Image::make($CheckImage)->resize(207,183)->save(public_path('images/product_image/'.$setImageName),'100');
+            Image::make($CheckImage)->resize(400,450)->save(public_path('images/product_image/'.$setImageName),'100');
             $value['image'] = $setImageName;
             Product::insert($value);
             return response()->json(['success'=>true, 'message'=>'Product Created Successfully !']);
@@ -201,7 +201,7 @@ class ProductController extends Controller
             }
 
             $setNewImageName = rand(). '.' .$newImage->getClientOriginalExtension();
-            Image::make($newImage)->resize(207,183)->save(public_path('images/product_image/'.$setNewImageName),'100');
+            Image::make($newImage)->resize(400,450)->save(public_path('images/product_image/'.$setNewImageName),'100');
             $value['image'] = $setNewImageName;
             $product->update($value);
             return response()->json(['success'=>true, 'message'=>'Product Updated Successfully !']);

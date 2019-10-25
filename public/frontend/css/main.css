@@ -678,7 +678,7 @@ ul.sub-menu {
   text-align: center;
   text-transform: uppercase;
   position: relative;
-  z-index:3;
+  z-index:0;
 }
 
 .left-sidebar h2:after, h2.title:after{
@@ -1601,7 +1601,7 @@ h2.title {
 
 .cart_info table tr td {
   border-top: 0 none;
-  vertical-align: inherit;
+  vertical-align: middle;
 }
 
 

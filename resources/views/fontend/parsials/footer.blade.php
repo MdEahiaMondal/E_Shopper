@@ -165,10 +165,13 @@
 <script src="{{asset('backend/sweat_aleart/sweataleart.min.js')}}"></script>
 <script src="{{asset('frontend/showMore/showMoreAndLess.js')}}"></script> {{--show more text and less--}}
 
-{{--// for quick view--}}{{--
---}}{{--<script src="{{asset('frontend/qucickView/js/jquery-2.1.1.js')}}"></script>--}}{{--
+ {{-- start quick view js link--}}
+<script src="{{asset('frontend/qucickView/js/jquery-2.1.1.js')}}"></script>
 <script src="{{asset('frontend/qucickView/js/velocity.min.js')}}"></script>
-<script src="{{asset('frontend/qucickView/js/main.js')}}"></script><!-- Resource jQuery -->--}}
+<script src="{{asset('frontend/qucickView/js/main.js')}}"></script>
+{{-- end  quick view--}}
+
+
 
 {{-- for zoom--}}
 <!-- XZOOM JQUERY PLUGIN  -->

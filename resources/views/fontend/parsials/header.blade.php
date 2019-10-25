@@ -30,9 +30,16 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ asset('frontend/qucickView/css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/qucickView/css/style.css') }}">
+    <script src="{{ asset('frontend/qucickView/js/modernizr.js') }}"></script> <!-- Modernizr -->
+
+
+
     {{--Custom style--}}
     <link href="{{asset('frontend/css/price-range.css')}}" rel="stylesheet"> {{--for slider  range--}}
-    <link href="{{asset('frontend/css/custom_style.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/css/custom_style.css')}}" rel="stylesheet"> {{--our  stylesheet--}}
 
 
 

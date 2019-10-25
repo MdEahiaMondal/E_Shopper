@@ -186,12 +186,16 @@
 
     <script src="{{asset('frontend/js/likeDislike.js')}}"></script>
     <script>
-        var likeUrl = "{{route('like')}}";
-        var dislikeUrl = "{{route('dislike')}}";
         var token = "{{Session::token()}}";
         var commentUrl = "{{route('insert.comment')}}"
     </script>
     <script>
+
+
+        $.ajaxSetup({
+            headers: {'X-CSRF-Token': '{{ csrf_token() }}'}
+        });
+
 
         $(document).ready(function() {
             $("#commentFormButton").click(function() {
@@ -208,8 +212,13 @@
             .success(function (data) {
                 var html = "";
                 data.forEach(function (row) {
+                   var  iddd =row.id;
                     <?php
                         $likes = \App\LikeUnlike::all();
+                            $comment = \App\Comment::all();
+
+                        $like = \App\LikeUnlike::where(["comment_id"=>$likes->comment_id, 'like'=>1])->get();
+                        $count = count($like);
                         $like_count = 0;
                         $dislike_count = 0;
                         $likeButton = "btn-secondary";
@@ -265,7 +274,7 @@
 
                     html += "<p>";
                         html +="<span>";
-                            html += "<button class='like btn <?php echo $likeButton?>' onclick='likeComment("+row.id+")'>" +"<i class='fa fa-thumbs-up'></i>"+ "</button>";
+                            html += "<button class='like btn <?php echo $likeButton?>' onclick='likeComment("+row.id+")'>" +"<i class='fa fa-thumbs-up'></i> <span id='likeCount'> <?php echo $count;?> </span>"+ "</button>";
                             html += "<button class='dislike btn <?php echo $dislikeButton ?>'>" +"<i class='fa fa-thumbs-down'></i>"+ "</button>";
                         html +="</span>";
                     html += "</p>";
@@ -307,6 +316,7 @@
                                 'Thanks For Your Comment !',
                                 'success'
                             );
+                            $("#mainCommentForm")[0].reset();
                             getCommentRecords();
                         }
                     },
@@ -327,7 +337,27 @@
 
         // like unlike system
         function likeComment(id) {
-            alert(id)
+            var comment_id = id;
+            var likeCount = $("#likeCount").text();
+
+            $.ajax({
+                url: "{{ route('like.comment') }}",
+                method: "POST",
+                data: {
+                    comment_id: comment_id,
+                    likeCount: likeCount,
+                },
+                dataType: "JSON",
+                success: function (feedBackResult) {
+                    if (feedBackResult.success == 1){
+                        var count = Number(likeCount) + Number(1);
+                        $("#likeCount").html(count);
+                    }
+
+
+                }
+
+            })
         }
 
 

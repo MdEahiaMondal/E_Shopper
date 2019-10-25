@@ -12,7 +12,7 @@
                             <h3 class="headingTop text-center">Select Your Payment Method</h3>
                         </div>
                         <div class="paymentWrap">
-                            <div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
+                            <div class=" paymentBtnGroup btn-group-justified" style="     display: block;" data-toggle="buttons">
                                 <label class="btn paymentMethod active">
                                     <div class="method visa"></div>
                                     <input type="radio" name="pament_method" value="handCash" checked>
@@ -29,11 +29,6 @@
                                     <div class="method vishwa"></div>
                                     <input type="radio" name="pament_method" value="vishwa">
                                 </label>
-                                <label class="btn paymentMethod">
-                                    <div class="method ez-cash"></div>
-                                    <input type="radio" name="pament_method" value="ez_cash">
-                                </label>
-
                             </div>
                         </div>
                         <div class="footerNavWrap clearfix">
