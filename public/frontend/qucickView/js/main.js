@@ -63,6 +63,7 @@ jQuery(document).ready(function($){
 
 	function updateQuickView(slug, category, name, brand, price, description, id, url) {
 
+	    var setUrl = "add-wishlist/'"+slug+"";
 	$('.cd-quick-view .cd-item-info h2').text(name);
 	$('.cd-quick-view .cd-item-info  .name').text(price);
 	$('.cd-quick-view .cd-item-info  .brand').text(brand);
@@ -70,6 +71,8 @@ jQuery(document).ready(function($){
 	$('.cd-quick-view .cd-item-info  .description').text(description);
 	$('.cd-quick-view .cd-item-info  .cd-item-action').find('.product_id').val(id);
 	$('.cd-quick-view .cd-item-info  .cd-item-action').find('.productQuantity').val(1);
+	$('.cd-quick-view .cd-item-info  .cd-item-action').find('.setUrlToWishlist').attr('href', setUrl);
+
 
 	var addImage =	$('.cd-quick-view .cd-slider li');
         addImage.find('img').attr('src', url).addClass('selected');

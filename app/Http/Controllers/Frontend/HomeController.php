@@ -59,9 +59,9 @@ class HomeController extends Controller
        return view('fontend.pages.brand_wisge_product',compact('all_brand_products',$all_brand_products));
    }
 
-   public function view_product_details($slug){
-       $details = Product::where('slug',$slug)->where('status',1)->first();
-       return view('fontend.pages.view_product_details_by_id',compact('details',$details));
+   public function productDetails($slug){
+       $details = Product::where(['slug'=>$slug, 'status'=>1])->first();
+       return view('fontend.pages.product_details',compact('details',$details));
    }
 
 

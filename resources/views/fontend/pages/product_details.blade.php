@@ -212,36 +212,7 @@
             .success(function (data) {
                 var html = "";
                 data.forEach(function (row) {
-                   var  iddd =row.id;
-                    <?php
-                        $likes = \App\LikeUnlike::all();
-                            $comment = \App\Comment::all();
 
-                        $like = \App\LikeUnlike::where(["comment_id"=>$likes->comment_id, 'like'=>1])->get();
-                        $count = count($like);
-                        $like_count = 0;
-                        $dislike_count = 0;
-                        $likeButton = "btn-secondary";
-                        $dislikeButton = "btn-secondary";
-                        foreach ($likes as $like) {
-
-                            if ($like->like == 1) {
-                                $like_count++;
-                            }
-                            if ($like->like == 0) {
-                                $dislike_count++;
-                            }
-
-                            if(Auth::check()){
-                                if($like->like == 1 && $like->user_id == Auth::id())
-                                    $likeButton = "btn-warning";
-
-                                if($like->like == 0 && $like->user_id == Auth::id())
-                                    $dislikeButton = "btn-danger";
-                            }
-
-                        }
-                        ?>
                      html += "<ul>";
 
                     html += "<input type='hidden' id='comment_id' value='"+row.id+"'>";
@@ -274,8 +245,8 @@
 
                     html += "<p>";
                         html +="<span>";
-                            html += "<button class='like btn <?php echo $likeButton?>' onclick='likeComment("+row.id+")'>" +"<i class='fa fa-thumbs-up'></i> <span id='likeCount'> <?php echo $count;?> </span>"+ "</button>";
-                            html += "<button class='dislike btn <?php echo $dislikeButton ?>'>" +"<i class='fa fa-thumbs-down'></i>"+ "</button>";
+                            html += "<button class='like btn ' onclick='likeComment("+row.id+")'>" +"<i class='fa fa-thumbs-up'></i> <span id='likeCount'> 10 </span>"+ "</button>";
+                            html += "<button class='dislike btn '>" +"<i class='fa fa-thumbs-down'></i>" + 10 + "</button>";
                         html +="</span>";
                     html += "</p>";
 

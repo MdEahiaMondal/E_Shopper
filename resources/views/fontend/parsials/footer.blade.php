@@ -184,6 +184,8 @@
     var liveSearchUrl = "{{ route('live.search.product') }}";
 </script>
 
+
+
 <script>
     $(function()
     {

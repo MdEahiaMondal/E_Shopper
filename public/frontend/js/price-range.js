@@ -20,3 +20,20 @@ $(document).ready(function () {
     $("#maximumPrice").val(getSliderElement.slider('values',1) );
 
 });
+
+/*
+$(".priceRangeForm").on('submit', function (event) {
+    event.preventDefault();
+
+    $.ajax({
+       url: getpriceRangehUrl,
+        method: "get",
+        data: $(this).serialize(),
+        success: function (data) {
+           var minimumPrice = data.minimumPrice;
+           var maximumPrice = data.maximumPrice;
+            window.location.replace(priceDataUrl,[minimumPrice,maximumPrice]);
+        }
+    });
+
+});*/

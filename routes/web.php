@@ -6,11 +6,19 @@
 Route::get('/','Frontend\HomeController@index');
 Route::get('category-product/{id}','Frontend\HomeController@category_widgs_product');
 Route::get('brand-product/{id}','Frontend\HomeController@product_brand');
-Route::get('view-details/{slug}','Frontend\HomeController@view_product_details')->name('product.details');
+Route::get('view-details/{slug}','Frontend\HomeController@productDetails')->name('product.details');
 
 Route::post('product-search','Frontend\SearchController@ProductSearch')->name('search.product');
 Route::get('live-search-product','Frontend\SearchController@searchAction')->name('live.search.product');
 Route::post('search-price-product','Frontend\SearchController@priceRangeSearch')->name('price.range');
+
+
+// WishListsController Route
+Route::get('wishlist.index','Frontend\WishListsController@index');
+Route::get('add-wishlist/{slug}','Frontend\WishListsController@store')->name('add.wishlist');
+Route::get('remove-item/{rowId}','Frontend\WishListsController@removeItem');
+Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
+
 
 
 Route::get('user-profile','Frontend\HomeController@UserProfile');
@@ -39,12 +47,6 @@ Route::post('insert-payment','Frontend\CheckoutController@stor_payment')->middle
 // send email route contact-us
 Route::get('contact-us','Frontend\SendEmailController@index');
 Route::post('send-email','Frontend\SendEmailController@send')->name('send.email');
-
-// WishListsController Route
-Route::get('wishlist.index','Frontend\WishListsController@index');
-Route::get('add-wishlist/{slug}','Frontend\WishListsController@store');
-Route::get('remove-item/{rowId}','Frontend\WishListsController@removeItem');
-Route::get('move-to-cart/{rowId}','Frontend\WishListsController@MoveToCart');
 
 
 

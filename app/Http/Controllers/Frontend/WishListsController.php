@@ -17,6 +17,7 @@ class WishListsController extends Controller
     public function store($slug)
     {
 
+
         $product = Product::where('slug',$slug)->first();
 
         // check if this product already has in wishlist so make error
@@ -27,7 +28,8 @@ class WishListsController extends Controller
 
         // if there is a value in $checkDuplicates make error
         if ($checkDuplicates->isNotEmpty()){
-            return back()->with('error','Product already has in you Wishlist !!');
+             session()->flash('error','Product already has in you Wishlist !!');
+             return back();
         }else{
 
 

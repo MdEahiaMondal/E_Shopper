@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 class SearchController extends Controller
 {
 
+
     public function priceRangeSearch(Request $request)
     {
         $minimumPrice = $request->minimumPrice;

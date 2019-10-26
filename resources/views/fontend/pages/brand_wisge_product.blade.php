@@ -8,25 +8,47 @@
     <div class="features_items"><!--features_items-->
         <h2 class="title text-center">Brand Items</h2>
         @if(count($all_brand_products) > 0 )
-        @foreach ($all_brand_products as $brand_products)
-            <div class="col-sm-4">
-                <div class="product-image-wrapper">
-                    <div class="single-products">
-                        <div class="productinfo text-center">
-                            <a href="{{URL:: to('view-details/'.$brand_products->slug)}}"> <img class="zoom cus_size" src="{{asset('images/product_image/'.$brand_products->image)}}" alt="" /></a>
-                            <h2>{{$brand_products->price}} TK</h2>
-                            <p>{{$brand_products->name}}</p>
-                            <a href="{{URL:: to('view-details/'.$brand_products->slug)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+        @foreach ($all_brand_products as $product)
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <a href="{{URL:: to('view-details/'.$product->slug)}}" data-slug="{{ $product->slug }}" class="quickImage">
+                                    <img class="zoom cus_size" src="{{asset('images/product_image/'.$product->image)}}" alt="" />
+                                </a>
+                                <h2 class="price" data-price="{{ $product->price }}"> {{ $product->price }} TK </h2>
+                                <p class="brand" data-brand="{{ $product->brand->name }}"></p>
+                                <p class="category" data-category="{{ $product->category->name }}"></p>
+                                <p class="description" data-description="{{ $product->description }}"></p>
+                                <p class="name" data-name="{{ $product->name }}"> {{ $product->name }} </p>
+                                <a href="{{URL:: to('view-details/'.$product->slug)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="choose">
-                        <ul class="nav nav-pills nav-justified">
-                            <li><a href="{{url('add-wishlist/'.$brand_products->slug)}}"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                            <li><a href="{{URL:: to('view-details/'.$brand_products->slug)}}"><i class="fa fa-plus-square"></i>View to Details</a></li>
-                        </ul>
+
+                        <div class="choose">
+                            <ul class="nav nav-pills nav-justified">
+                                <li>
+                                    <a href="{{ route('add.wishlist',$product->slug)}}"><i class="fa fa-plus-square"></i>Add to wishlist</a>
+                                </li>
+                                <li>
+                                    <a data-id="{{ $product->id }}" class="quickTrigger"> Quick View </a>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
-            </div>
+            @endforeach
+        @else
+            <p style="font-size: 28px" class="">Search for: "{{ Session::get('search_text') }}"</p>
+            <p class="text-center alert alert-danger">{{  Session::get('search_error')  }} </p>
+        @endif
+    </div><!--features_items-->
+    @endif
+
+
+    @include('fontend.parsials.quick_view')
         @endforeach
         @else
             <p class="text-center alert alert-danger">Not Available</p>
