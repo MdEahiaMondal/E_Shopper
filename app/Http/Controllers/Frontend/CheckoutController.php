@@ -7,6 +7,7 @@ use App\Order_details;
 use App\Payment;
 use App\Shipping;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -24,22 +25,22 @@ class CheckoutController extends Controller
 
    public function insert_shipping(Request $request){
        $request->validate([
-           'shipping_first_name'    => 'required|alpha',
-           'shipping_last_name'     => 'required|alpha',
-           'shipping_email'         => 'required|email',
-           'shipping_address'       => 'required',
-           'shipping_phone'         => 'required|numeric',
-           'shipping_city'          => 'required',
+           'first_name'    => 'required|alpha',
+           'last_name'     => 'required|alpha',
+           'email'         => 'required|email',
+           'address'       => 'required',
+           'phone'         => 'required|numeric',
+           'city'          => 'required',
 
        ]);
 
-       Session::put('shipping_first_name',  $request->shipping_first_name);
-       Session::put('shipping_last_name',   $request->shipping_last_name);
-       Session::put('shipping_email',       $request->shipping_email);
-       Session::put('shipping_address',     $request->shipping_address);
-       Session::put('shipping_phone',       $request->shipping_phone);
-       Session::put('shipping_city',        $request->shipping_city);
-       return redirect('payment');
+       Session::put('shipping_first_name',  $request->first_name);
+       Session::put('shipping_last_name',   $request->last_name);
+       Session::put('shipping_email',       $request->email);
+       Session::put('shipping_address',     $request->address);
+       Session::put('shipping_phone',       $request->phone);
+       Session::put('shipping_city',        $request->city);
+       return redirect()->route('payment.giveData');
 
    }
 
@@ -47,7 +48,8 @@ class CheckoutController extends Controller
       return view('fontend.pages.payment');
    }
 
-   public function stor_payment(Request $request){
+   public function paymentStore(Request $request){
+
        $pay_method = $request->pament_method;
        if ($pay_method){
 
@@ -64,7 +66,7 @@ class CheckoutController extends Controller
            $order_data['user_id'] = \Auth::user()->id;
            $order_data['payment_id'] = $pament_id;
            $order_data['total'] = $remove_comma;
-
+           $order_data['created_at']        = Carbon::now();
            $order_id = Order::insertGetId($order_data);
 
             // first insert data to shipping table
@@ -82,6 +84,7 @@ class CheckoutController extends Controller
             $sp_data['address']     = $shipping_address;
             $sp_data['phone']       = $shipping_phone;
             $sp_data['city']        = $shipping_city;
+            $sp_data['created_at']        = Carbon::now();
             Shipping::insertGetId($sp_data);
 
            // four insert data to order_details table
@@ -95,6 +98,7 @@ class CheckoutController extends Controller
                $od_data['product_name'] =$content->name;
                $od_data['product_price'] =$content->price;
                $od_data['product_sales_quantity'] =$content->qty;
+               $od_data['created_at']        = Carbon::now();
               Order_details::insertGetId($od_data);
            }
 

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
+    <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="checketout proble solve">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/brand_wisge_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/brand_wisge_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/category_wised_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/category_wised_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/payment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -288,7 +289,7 @@
       <workItem from="1571675782674" duration="625000" />
       <workItem from="1571710678310" duration="5926000" />
       <workItem from="1571992238469" duration="24018000" />
-      <workItem from="1572055885270" duration="15425000" />
+      <workItem from="1572055885270" duration="17695000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -488,6 +489,7 @@
     <MESSAGE value="product normal search and validation and some errors problem solve" />
     <MESSAGE value="product quick view is done" />
     <MESSAGE value="product quick view insert into the search pages and brand and category pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="product quick view insert into the search pages and brand and category pages" />
+    <MESSAGE value="checketout proble solve" />
+    <option name="LAST_COMMIT_MESSAGE" value="checketout proble solve" />
   </component>
 </project>

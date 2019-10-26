@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-1">
                     <div class="login-form"><!--login form-->
-                        <h1>Thanks for order....</h1>
+                        <h1 style="font-size: 45px;">Thanks for order....</h1>
                         <h2>We will contact with you as soon as prosible...</h2>
 
                     </div><!--/login form-->

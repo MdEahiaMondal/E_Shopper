@@ -23,42 +23,42 @@
 
                                 <form action="{{url('insert-shipping')}}" method="post">
                                     @csrf
-                                    <input type="text" name="shipping_first_name"  placeholder="First Name">
-                                    @error('shipping_first_name')
+                                    <input type="text" name="first_name"  placeholder="First Name">
+                                    @error('first_name')
                                     <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
 
-                                    <input type="text" name="shipping_last_name" placeholder="Last Name">
-                                    @error('shipping_last_name')
+                                    <input type="text" name="last_name" placeholder="Last Name">
+                                    @error('last_name')
                                     <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
 
-                                    <input type="email" name="shipping_email" placeholder="Email*">
-                                    @error('shipping_email')
+                                    <input type="email" name="email" placeholder="Email*">
+                                    @error('email')
                                     <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
 
-                                    <input type="text" name="shipping_address" placeholder="Address*">
-                                    @error('shipping_address')
+                                    <input type="text" name="address" placeholder="Address*">
+                                    @error('address')
                                     <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
 
-                                    <input type="text" name="shipping_phone" placeholder="Phone">
-                                    @error('shipping_phone')
+                                    <input type="text" name="phone" placeholder="Phone">
+                                    @error('phone')
                                     <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
 
-                                    <select name="shipping_city">
+                                    <select name="city">
                                         <option>-- City --</option>
                                         <option value="pangsha">pangsha</option>
                                         <option value="rajbary">rajbary</option>

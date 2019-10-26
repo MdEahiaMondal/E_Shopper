@@ -41,8 +41,8 @@ Route:: post('update-cart','Frontend\CartController@updateItem');
 // checkout Route
 Route::get('checkout','Frontend\CheckoutController@checkout')->middleware('auth');
 Route::post('insert-shipping','Frontend\CheckoutController@insert_shipping')->middleware('auth');
-Route::get('payment','Frontend\CheckoutController@payment')->middleware('auth');
-Route::post('insert-payment','Frontend\CheckoutController@stor_payment')->middleware('auth');
+Route::get('payment','Frontend\CheckoutController@payment')->name('payment.giveData')->middleware('auth');
+Route::post('insert-payment','Frontend\CheckoutController@paymentStore')->name('payment.store')->middleware('auth');
 
 // send email route contact-us
 Route::get('contact-us','Frontend\SendEmailController@index');

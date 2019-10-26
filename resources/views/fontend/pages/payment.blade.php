@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="paymentCont">
-                <form action="{{url('insert-payment')}}" method="post">
+                <form action="{{ route('payment.store') }}" method="post">
                     @csrf
                         <div class="headingWrap">
                             @if(Session('success'))
