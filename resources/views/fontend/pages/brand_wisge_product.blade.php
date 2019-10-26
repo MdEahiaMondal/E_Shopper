@@ -39,20 +39,13 @@
 
                     </div>
                 </div>
-            @endforeach
-        @else
-            <p style="font-size: 28px" class="">Search for: "{{ Session::get('search_text') }}"</p>
-            <p class="text-center alert alert-danger">{{  Session::get('search_error')  }} </p>
-        @endif
-    </div><!--features_items-->
-    @endif
-
-
-    @include('fontend.parsials.quick_view')
         @endforeach
         @else
             <p class="text-center alert alert-danger">Not Available</p>
         @endif
     </div><!--features_items-->
+
+
+    @include('fontend.parsials.quick_view')
 
 @endsection

@@ -9,7 +9,7 @@
                             $categories = \App\Category::where('status', 1)->get();
                             ?>
                             @foreach($categories as $category)
-                                    <li><a class="{{ (request()->is('category-product/'.$category->id)) ? 'active':''}}" href="{{URL:: to('category-product/'.$category->id)}}"> <span class="pull-right">({{ $count = count(\App\Product::where('category_id', $category->id)->get()) }})</span>{{$category->name}}</a></li>
+                                    <li><a class="{{ (request()->is('category-product/'.$category->id)) ? 'active':''}}" href="{{URL:: to('category-product/'.$category->id)}}"> <span class="pull-right">( {{ $count = count(\App\Product::where(['category_id'=>$category->id, 'deleted_at'=>null])->get()) }} )</span>{{$category->name}}</a></li>
                             @endforeach
 
                         </ul>
@@ -25,7 +25,7 @@
                         $brands = \App\Brand::where('status', 1)->get();
                         ?>
                         @foreach($brands as $brand)
-                            <li><a class="{{ (request()->is('brand-product/'.$brand->id)) ? 'active':''}}" href="{{URL:: to('brand-product/'.$brand->id)}}"> <span class="pull-right">(50)</span>{{$brand->name}}</a></li>
+                            <li><a class="{{ (request()->is('brand-product/'.$brand->id)) ? 'active':''}}" href="{{URL:: to('brand-product/'.$brand->id)}}"> <span class="pull-right">( {{ $count = count(\App\Product::where(['brand_id' =>$brand->id, 'deleted_at'=>null])->get()) }} )</span>{{$brand->name}}</a></li>
                         @endforeach
 
                     </ul>
