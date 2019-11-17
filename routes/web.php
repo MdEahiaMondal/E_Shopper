@@ -73,7 +73,7 @@ Route::get('profile', function () {
 /*.............................start the Backend Controller.........................*/
 
 // Backend controller Route
-Route::get('/admin','Backend\Auth\LoginController@showLoginForm');
+Route::get('/admin','Backend\Auth\LoginController@showLoginForm')->name('admin.login.get');
 Route::post('admin/login', 'Backend\Auth\LoginController@login')->name('admin.login');
 Route::post('admin/logout', 'Backend\Auth\LoginController@logout')->name('admin.logout');
 Route::get('admin/dashboard','Backend\AdminController@index');
