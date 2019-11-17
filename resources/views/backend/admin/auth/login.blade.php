@@ -53,6 +53,11 @@
                             <h3 class="text-center"> {{  'Admin Login' }} </h3>
                         </div>
                         <div class="card-body">
+
+                            @if(Session('success'))
+                                <p class="alert alert-success">{{ Session('success') }}</p>
+                            @endif
+
                             <form id="login-form"  class="form m-md-5" action="{{ route('admin.login') }}" method="post">
                                 @csrf
                                 <div class="form-group">
