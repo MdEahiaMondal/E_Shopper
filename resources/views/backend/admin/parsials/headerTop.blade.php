@@ -270,9 +270,9 @@
                             </li>
                             <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
                             <li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST">
                                     @csrf
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ route('admin.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="halflings-icon off"></i> {{ __('Logout') }}

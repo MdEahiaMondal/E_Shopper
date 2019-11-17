@@ -49,6 +49,16 @@ class LoginController extends Controller
         return view('backend.admin.auth.login');
     }
 
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/admin')->with('success', 'Logout successfully done!');
+    }
+
     /**
      * Get the guard to be used during authentication.
      *

@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Closure;
 
 class AdminMiddleare
@@ -15,7 +16,7 @@ class AdminMiddleare
      */
     public function handle($request, Closure $next)
     {
-        if (\Auth::guard()->user() == 'admin'){
+        if (Auth::guard()->user() == 'admin'){
             return $next($request);
         }
        return back();

@@ -16,7 +16,8 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-     {   switch ($guard){
+     {
+         switch ($guard){
                 case 'admin':
                     if (Auth::guard($guard)->check()) {
                         return redirect('dashboard');
