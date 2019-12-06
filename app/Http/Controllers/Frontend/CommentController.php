@@ -50,8 +50,9 @@ class CommentController extends Controller
     }
 
 
-    public function getComment(){
-        return  $all = Comment::all();
+    public function getComment(Request $request){
+
+        return  $all = Comment::latest()->where('product_id', $request->product_id)->get();
     }
 
 

@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/qucickView/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/qucickView/css/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/qucickView/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/qucickView/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/add_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/add_cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/wishlist_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/wishlist_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/product_details.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +139,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coaching" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -304,7 +300,7 @@
       <workItem from="1574078864932" duration="34000" />
       <workItem from="1574494448105" duration="736000" />
       <workItem from="1574509426335" duration="515000" />
-      <workItem from="1575606098837" duration="5714000" />
+      <workItem from="1575606098837" duration="11336000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -495,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575608128978</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="some style problem solved">
+      <created>1575633991935</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1575633991935</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -525,7 +528,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="make resource route for product and make modal with form and pages,, and show all category and brand" />
     <MESSAGE value="profuct insert" />
     <MESSAGE value="profuct insert complete with ajax and DataTables" />
     <MESSAGE value="product udate and edit complete" />
@@ -550,6 +552,7 @@
     <MESSAGE value="whene admin pages show by bad url then return redirect to admin login pages" />
     <MESSAGE value="search and quick view problem solved" />
     <MESSAGE value="install bugdebagger and setup route group" />
-    <option name="LAST_COMMIT_MESSAGE" value="install bugdebagger and setup route group" />
+    <MESSAGE value="some style problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="some style problem solved" />
   </component>
 </project>

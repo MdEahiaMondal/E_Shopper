@@ -105,6 +105,48 @@
                 <div class="tab-pane fade active in" id="reviews" >{{--(reviews button) ase in main.css tha has with comment--}}
 
                     <div class="col-sm-12">
+
+
+                        @if(Auth::user())
+                            <p><b>Write Your Review</b></p>
+                            <form id="mainCommentForm"  method="POST">
+                                @csrf
+                                <input type="hidden" id="product_id" name="product_id" value="{{$details->id}}">
+                                <p id="CommentError"></p>
+                                <textarea name="comment_body"> {{old('comment_body')}} </textarea>
+                                <b>Rating: </b> <x-star-rating {{--value="3"--}} number="5"></x-star-rating>
+                                <input id="rate" type="hidden" name="star_rating" value=""/>
+                                <script src="{{asset('frontend/starRating/StarRating.js')}}"></script>
+                                <button type="submit" class="btn btn-default pull-right">Submit</button>
+                            </form>
+                        @endif
+                            <br>
+                            <br>
+                            <br>
+
+                            @if(!Auth::user())
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="comment_login_link">
+                                            <form id="commentForm"  action="{{ route('login') }}" method="post">
+                                                @csrf
+                                                <span style="margin-bottom: 18px">
+											<input type="email" name="email" placeholder="Email Address"/>
+										</span>
+                                                <span style="margin-bottom: 18px"><input type="password" name="password" placeholder="Enter Password"/></span>
+                                                <button type="submit" class="btn btn-default">Login</button>
+                                            </form>
+
+                                            <b class="hideMe">Please log in to write review <a  id="commentFormButton" class="comment_login" >Login</a></b>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <br>
+                            <br>
+                            <br>
+
                         @if(count($details->comment))
                               <div class="per_single_comment" id="ajaxLoad">
                                     {{--data come here from database vai ajax--}}
@@ -114,40 +156,7 @@
                         @endif
                         <hr>
 
-                        @if(Auth::user())
-                            <p><b>Write Your Review</b></p>
-                            <form id="mainCommentForm"  method="POST">
-                                @csrf
-                                <input type="hidden" name="product_id" value="{{$details->id}}">
-                                <p id="CommentError"></p>
-                                <textarea name="comment_body"> {{old('comment_body')}} </textarea>
-                                <b>Rating: </b> <x-star-rating {{--value="3"--}} number="5"></x-star-rating>
-                                <input id="rate" type="hidden" name="star_rating" value=""/>
-                                <script src="{{asset('frontend/starRating/StarRating.js')}}"></script>
-                                <button type="submit" class="btn btn-default pull-right">Submit</button>
-                            </form>
-                        @endif
                     </div>
-
-                    @if(!Auth::user())
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="comment_login_link">
-                                        <form id="commentForm"  action="{{ route('login') }}" method="post">
-                                            @csrf
-										<span style="margin-bottom: 18px">
-											<input type="email" name="email" placeholder="Email Address"/>
-										</span>
-                                            <span style="margin-bottom: 18px"><input type="password" name="password" placeholder="Enter Password"/></span>
-                                            <button type="submit" class="btn btn-default">Login</button>
-                                        </form>
-
-                                        <b class="hideMe">Please log in to write review <a  id="commentFormButton" class="comment_login" >Login</a></b>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-
                 </div>
 
                 {{-- for show and less text star--}}
@@ -206,56 +215,55 @@
 
 
         // get all comment from database
-        var GetCommentUrl = "{{ route('get.comment.data') }}";
         function getCommentRecords(){
-            $.get(GetCommentUrl)
-            .success(function (data) {
-                var html = "";
-                data.forEach(function (row) {
 
-                     html += "<ul>";
+            var product_id = $("#product_id").val();
+            $.get("{{ route('get.comment.data') }}", {product_id: product_id} , function (feedBackResult) {
+                var html = "";
+                feedBackResult.forEach(function (row) {
+
+                    html += "<ul>";
 
                     html += "<input type='hidden' id='comment_id' value='"+row.id+"'>";
-                     html += "<li>";
-                         html += "<a href=''><i class='fa fa-user'></i>"+row.name+"</a>";
-                     html += "</li>";
-
-                     html += "<li>";
-                        html += "<a href=''><i class='fa fa-clock-o'></i>"+ row.created_at  +"</a>";
-                     html += "</li>";
-
-                     html += "<li>";
-                        html += "<a href=''><i class='fa fa-calendar-o'></i>"+row.created_at+"</a>";
-                     html += "</li>";
-
-
-                     html += "<p>";
-                        for (var i =1; i<=row.star_rating; i++) {
-                            html += "<i style='color: gold' class='fa fa-star'></i>";
-                        }
-                    html += "</p>";
-
-
-                     html += "<li id='sas' class='comment more' style='color: initial; margin-bottom:20px;'>"  + row.body + "</li>";
+                    html += "<li>";
+                    html += "<a href=''><i class='fa fa-user'></i>"+row.name+"</a>";
+                    html += "</li>";
 
                     html += "<li>";
-                        html += "<p>Was this review helpful to you?</p>";
+                    html += "<a href=''><i class='fa fa-clock-o'></i>"+ row.created_at  +"</a>";
+                    html += "</li>";
+
+                    html += "<li>";
+                    html += "<a href=''><i class='fa fa-calendar-o'></i>"+row.created_at+"</a>";
                     html += "</li>";
 
 
                     html += "<p>";
-                        html +="<span>";
-                            html += "<button class='like btn ' onclick='likeComment("+row.id+")'>" +"<i class='fa fa-thumbs-up'></i> <span id='likeCount'> 10 </span>"+ "</button>";
-                            html += "<button class='dislike btn '>" +"<i class='fa fa-thumbs-down'></i>" + 10 + "</button>";
-                        html +="</span>";
+                    for (var i =1; i<=row.star_rating; i++) {
+                        html += "<i style='color: gold' class='fa fa-star'></i>";
+                    }
                     html += "</p>";
 
-                     html += "</ul>";
-                     html += "<hr>";
+
+                    html += "<li id='sas' class='comment more' style='color: initial; margin-bottom:20px;'>"  + row.body + "</li>";
+
+                    html += "<li>";
+                    html += "<p>Was this review helpful to you?</p>";
+                    html += "</li>";
+
+
+                    html += "<p>";
+                    html +="<span>";
+                    html += "<button class='like btn ' onclick='likeComment("+row.id+")'>" +"<i class='fa fa-thumbs-up'></i> <span id='likeCount'> 10 </span>"+ "</button>";
+                    html += "<button class='dislike btn '>" +"<i class='fa fa-thumbs-down'></i>" + 10 + "</button>";
+                    html +="</span>";
+                    html += "</p>";
+
+                    html += "</ul>";
+                    html += "<hr>";
                 });
                 $(".per_single_comment").html(html);
             });
-
 
         }
         getCommentRecords();
