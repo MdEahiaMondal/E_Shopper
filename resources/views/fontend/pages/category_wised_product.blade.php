@@ -46,4 +46,7 @@
         @endif
     </div><!--features_items-->
 
+
+    @include('fontend.parsials.quick_view')
+
 @endsection

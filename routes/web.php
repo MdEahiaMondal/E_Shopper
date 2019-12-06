@@ -8,7 +8,7 @@ Route::get('category-product/{id}','Frontend\HomeController@category_widgs_produ
 Route::get('brand-product/{id}','Frontend\HomeController@product_brand');
 Route::get('view-details/{slug}','Frontend\HomeController@productDetails')->name('product.details');
 
-Route::post('product-search','Frontend\SearchController@ProductSearch')->name('search.product');
+Route::get('product-search','Frontend\SearchController@ProductSearch')->name('search.product');
 Route::get('live-search-product','Frontend\SearchController@searchAction')->name('live.search.product');
 Route::post('search-price-product','Frontend\SearchController@priceRangeSearch')->name('price.range');
 

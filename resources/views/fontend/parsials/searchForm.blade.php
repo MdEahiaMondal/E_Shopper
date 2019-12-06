@@ -3,7 +3,7 @@
 <div class="alert alert-danger">{{ $message }}</div>
 @enderror
 
-<form action="{{ route('search.product') }}" method="post">
+<form action="{{ route('search.product') }}" method="get">
     @csrf
     <div class="col-sm-9">
         <div class="search_box pull-right">

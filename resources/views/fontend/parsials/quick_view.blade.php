@@ -24,7 +24,9 @@
                        <input type="text" style=" width: 37px; height: 24px; display: inline-block;" class="productQuantity" name="qty" value="1" />
                         <input type="hidden" class="product_id" name="product_id" value="">
                         <button type="submit" class="btn btn-default cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                        <a class="btn btn-default cart" href="{{ route('add.wishlist',$product->slug) }}"><i class="fa fa-plus-square"></i>Add to wishlist</a>
+                            @if(isset($product))
+                            <a class="btn btn-default cart" href="{{ route('add.wishlist',$product->slug) }}"><i class="fa fa-plus-square"></i>Add to wishlist</a>
+                        @endif
                     </form>
                 </span>
         </ul> <!-- cd-item-action -->

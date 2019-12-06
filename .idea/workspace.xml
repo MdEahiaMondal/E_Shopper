@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/category_wised_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/category_wised_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/quick_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/quick_view.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +137,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../multi_auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -293,7 +293,12 @@
       <workItem from="1572147967772" duration="177000" />
       <workItem from="1572399877915" duration="178000" />
       <workItem from="1572830725941" duration="2207000" />
-      <workItem from="1573994584374" duration="10180000" />
+      <workItem from="1573994584374" duration="10330000" />
+      <workItem from="1574039747546" duration="113000" />
+      <workItem from="1574078864932" duration="34000" />
+      <workItem from="1574494448105" duration="736000" />
+      <workItem from="1574509426335" duration="515000" />
+      <workItem from="1575606098837" duration="922000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -463,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574009717052</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="whene admin pages show by bad url then return redirect to admin login pages">
+      <created>1574012627954</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1574012627954</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -517,6 +529,7 @@
     <MESSAGE value="checketout proble solve" />
     <MESSAGE value="admin logout problem solve" />
     <MESSAGE value="whene admin logout then return redirect to admin login pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="whene admin logout then return redirect to admin login pages" />
+    <MESSAGE value="whene admin pages show by bad url then return redirect to admin login pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="whene admin pages show by bad url then return redirect to admin login pages" />
   </component>
 </project>
