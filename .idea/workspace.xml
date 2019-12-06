@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/category_wised_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/category_wised_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/quick_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/quick_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,6 +126,8 @@
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
       <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
       <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="ProjectId" id="1RirCdVgS7770rS9s8hbbvRa7OJ" />
@@ -298,7 +299,7 @@
       <workItem from="1574078864932" duration="34000" />
       <workItem from="1574494448105" duration="736000" />
       <workItem from="1574509426335" duration="515000" />
-      <workItem from="1575606098837" duration="922000" />
+      <workItem from="1575606098837" duration="1801000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -475,7 +476,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574012627954</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="search and quick view problem solved">
+      <created>1575607253939</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1575607253939</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -505,7 +513,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="slider per item show in modal from database value for edit update" />
     <MESSAGE value="slider delete and active unactive status successfully done" />
     <MESSAGE value="make resource route for product and make modal with form and pages,, and show all category and brand" />
     <MESSAGE value="profuct insert" />
@@ -530,6 +537,7 @@
     <MESSAGE value="admin logout problem solve" />
     <MESSAGE value="whene admin logout then return redirect to admin login pages" />
     <MESSAGE value="whene admin pages show by bad url then return redirect to admin login pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="whene admin pages show by bad url then return redirect to admin login pages" />
+    <MESSAGE value="search and quick view problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="search and quick view problem solved" />
   </component>
 </project>
