@@ -164,7 +164,7 @@
 
                             <div class="form-group">
                                 <label for="address">Your Current Password</label>
-                                <input type="password"  name="current_password" value="{{$user_info->password}}"  id="address" class="form-control">
+                                <input type="password"  name="current_password" value=""  id="address" class="form-control">
                             </div>
 
                             <div class="form-group">

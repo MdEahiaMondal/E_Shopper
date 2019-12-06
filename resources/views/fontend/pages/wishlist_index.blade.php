@@ -16,7 +16,6 @@
                     <table class="table table-condensed">
                         <thead>
                         <tr class="cart_menu">
-                            <td class="image">Image</td>
                             <td class="description">Name</td>
                             <td class="price">Price</td>
                             <td class="quantity">Move</td>

@@ -46,7 +46,7 @@ class SearchController extends Controller
 
 
         }else{
-            $products = Product::where('name','LIKE','%'.$search_text.'%')->where(['status'=> 1]) ->where('deleted_at', null)->get();
+            $products = Product::where('name', 'LIKE', '%'.$search_text.'%')->where(['status' => 1]) ->where('deleted_at', null)->get();
 
             if(count($products) > 0){
                 return view('fontend.pages.search',compact('products'));
@@ -69,14 +69,13 @@ class SearchController extends Controller
 
             if ($serchText != ''){
                $searchData =  Product::where('name', 'like', '%'. $serchText .'%')->where('deleted_at', null)->get();
-            }
 
-            $totalResultRow = count($searchData);
+                $totalResultRow = count($searchData);
 
-            if ($totalResultRow > 0){
+                if ($totalResultRow > 0){
 
-                foreach ($searchData as $rowData){
-                    $outputResult .='<div class="border-bottom" style=" background-color: #ccccc5; border-bottom: inset; ">
+                    foreach ($searchData as $rowData){
+                        $outputResult .='<div class="border-bottom" style=" background-color: #ccccc5; border-bottom: inset; ">
                                             <a href="'.route('product.details','')."/". $rowData->slug .' ">
                                                 <div>
                                                     <img width="80" height="80" src="'.asset('images/product_image/'.$rowData->image) .'">
@@ -85,12 +84,15 @@ class SearchController extends Controller
                                                 </div>
                                             </a>
                                         </div>';
+                    }
+                    return response()->json(['success'=>$outputResult]);
+                }else{
+                    $outputResult ='<div class="text-center" style=" background-color: #ccccc5; border-bottom: inset; padding: 5px;color: red;"> No product found </div>';
+                    return response()->json(['error'=>$outputResult]);
                 }
-                return response()->json(['success'=>$outputResult]);
-            }else{
-                $outputResult ='<div class="text-center" style=" background-color: #ccccc5; border-bottom: inset; padding: 5px;color: red;"> No product found </div>';
-                return response()->json(['error'=>$outputResult]);
             }
+
+
         }
 
     }

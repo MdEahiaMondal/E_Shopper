@@ -10,8 +10,8 @@ Primary style
 }
 
 *::after, *::before {
-  content: '';
-}
+     content: '';
+ }
 
 
 body::after {
