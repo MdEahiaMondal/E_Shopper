@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/fontend/pages/comment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/product_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +25,7 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Blade" />
       </list>
     </option>
   </component>
@@ -139,7 +142,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coaching" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RolePermission" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -300,7 +303,8 @@
       <workItem from="1574078864932" duration="34000" />
       <workItem from="1574494448105" duration="736000" />
       <workItem from="1574509426335" duration="515000" />
-      <workItem from="1575606098837" duration="11336000" />
+      <workItem from="1575606098837" duration="13419000" />
+      <workItem from="1575658352484" duration="9781000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -498,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575633991935</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="perticular product comment show with ajax">
+      <created>1575640898450</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1575640898450</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView">
@@ -528,7 +539,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="profuct insert" />
     <MESSAGE value="profuct insert complete with ajax and DataTables" />
     <MESSAGE value="product udate and edit complete" />
     <MESSAGE value="status and features when update thats time catch the error fix and solved" />
@@ -553,6 +563,7 @@
     <MESSAGE value="search and quick view problem solved" />
     <MESSAGE value="install bugdebagger and setup route group" />
     <MESSAGE value="some style problem solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="some style problem solved" />
+    <MESSAGE value="perticular product comment show with ajax" />
+    <option name="LAST_COMMIT_MESSAGE" value="perticular product comment show with ajax" />
   </component>
 </project>

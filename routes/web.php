@@ -33,7 +33,7 @@ Route::group(['namespace' => 'Frontend'], function (){
 // Frontend Comment and like dislike controller Route
     Route::post('insert-comment','CommentController@insert')->name('insert.comment');
     Route::get('getComment','CommentController@getComment')->name('get.comment.data');
-    Route::post('like','CommentController@like')->name('like.comment');
+    Route::post('like','CommentController@like')->name('like');
     Route::post('dislike','CommentController@dislike')->name('dislike');
 
 // Cart Route

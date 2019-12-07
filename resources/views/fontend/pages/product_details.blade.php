@@ -151,8 +151,10 @@
                               <div class="per_single_comment" id="ajaxLoad">
                                     {{--data come here from database vai ajax--}}
                               </div>
+                                <button class="btn btn-block btn-primary">Load more</button>
+
                             @else
-                            <p class="alert alert-warning">There is no Comment !</p>
+                            <p id="perPage" data-perPage="3" class="alert alert-warning text-center">There is no Comment !</p>
                         @endif
                         <hr>
 
@@ -191,9 +193,9 @@
 @section('script')
     {{--// its ony for comment login form section--}}
 
-    <script src="{{asset('frontend/js/moment.js')}}"></script>{{--// this moment.js use only for js time format--}}
+{{--    <script src="{{asset('frontend/js/moment.js')}}"></script>--}}{{--// this moment.js use only for js time format--}}
 
-    <script src="{{asset('frontend/js/likeDislike.js')}}"></script>
+{{--    <script src="{{asset('frontend/js/likeDislike.js')}}"></script>--}}
     <script>
         var token = "{{Session::token()}}";
         var commentUrl = "{{route('insert.comment')}}"
@@ -216,58 +218,13 @@
 
         // get all comment from database
         function getCommentRecords(){
-
             var product_id = $("#product_id").val();
             $.get("{{ route('get.comment.data') }}", {product_id: product_id} , function (feedBackResult) {
-                var html = "";
-                feedBackResult.forEach(function (row) {
-
-                    html += "<ul>";
-
-                    html += "<input type='hidden' id='comment_id' value='"+row.id+"'>";
-                    html += "<li>";
-                    html += "<a href=''><i class='fa fa-user'></i>"+row.name+"</a>";
-                    html += "</li>";
-
-                    html += "<li>";
-                    html += "<a href=''><i class='fa fa-clock-o'></i>"+ row.created_at  +"</a>";
-                    html += "</li>";
-
-                    html += "<li>";
-                    html += "<a href=''><i class='fa fa-calendar-o'></i>"+row.created_at+"</a>";
-                    html += "</li>";
-
-
-                    html += "<p>";
-                    for (var i =1; i<=row.star_rating; i++) {
-                        html += "<i style='color: gold' class='fa fa-star'></i>";
-                    }
-                    html += "</p>";
-
-
-                    html += "<li id='sas' class='comment more' style='color: initial; margin-bottom:20px;'>"  + row.body + "</li>";
-
-                    html += "<li>";
-                    html += "<p>Was this review helpful to you?</p>";
-                    html += "</li>";
-
-
-                    html += "<p>";
-                    html +="<span>";
-                    html += "<button class='like btn ' onclick='likeComment("+row.id+")'>" +"<i class='fa fa-thumbs-up'></i> <span id='likeCount'> 10 </span>"+ "</button>";
-                    html += "<button class='dislike btn '>" +"<i class='fa fa-thumbs-down'></i>" + 10 + "</button>";
-                    html +="</span>";
-                    html += "</p>";
-
-                    html += "</ul>";
-                    html += "<hr>";
-                });
-                $(".per_single_comment").html(html);
+                $(".per_single_comment").html(feedBackResult);
             });
 
         }
         getCommentRecords();
-
 
 
         $(document).ready(function() {
@@ -312,32 +269,6 @@
 
         });// end of main $(document).ready(function () {
 
-
-
-        // like unlike system
-        function likeComment(id) {
-            var comment_id = id;
-            var likeCount = $("#likeCount").text();
-
-            $.ajax({
-                url: "{{ route('like.comment') }}",
-                method: "POST",
-                data: {
-                    comment_id: comment_id,
-                    likeCount: likeCount,
-                },
-                dataType: "JSON",
-                success: function (feedBackResult) {
-                    if (feedBackResult.success == 1){
-                        var count = Number(likeCount) + Number(1);
-                        $("#likeCount").html(count);
-                    }
-
-
-                }
-
-            })
-        }
 
 
     </script>
