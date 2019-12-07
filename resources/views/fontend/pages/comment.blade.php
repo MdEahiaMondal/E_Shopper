@@ -1,59 +1,60 @@
 
 @foreach($comments as $comment)
-    <ul>
-        <input type="hidden" id="comment_id" value="{{ $comment->id }}">
-        <li>
-            <a href=""><i class="fa fa-user"></i>{{ $comment->name }}</a>
-        </li>
+    <div class="CommentLoadContent">
+        <ul>
+            <input type="hidden" id="comment_id" value="{{ $comment->id }}">
+            <li>
+                <a href=""><i class="fa fa-user"></i>{{ $comment->name }}</a>
+            </li>
 
-        <li>
-            <a href=""><i class="fa fa-clock-o"></i>{{ $comment->created_at->diffForHumans() }}</a>
-        </li>
+            <li>
+                <a href=""><i class="fa fa-clock-o"></i>{{ $comment->created_at->diffForHumans() }}</a>
+            </li>
 
-       <p>
-            @for ( $i = 1; $i <= $comment->star_rating; $i++)
-                <i style='color: gold' class='fa fa-star'></i>
-            @endfor
-       </p>
+            <p>
+                @for ( $i = 1; $i <= $comment->star_rating; $i++)
+                    <i style='color: gold' class='fa fa-star'></i>
+                @endfor
+            </p>
 
-       <li>
-           {{ $comment->body }}
-       </li>
+            <li>
+                {{ $comment->body }}
+            </li>
 
-        <br>
-        <br>
-        <li>
-            <p>Was this review helpful to you?</p>
-        </li>
-
-
-        <?php
-        $likes = \App\LikeUnlike::where('comment_id',$comment->id)->get();
-        $like_count = 0;
-        $dislike_count = 0;
-        $likeButton = "btn-secondary";
-        $dislikeButton = "btn-secondary";
-        ?>
-
-        @foreach($likes as $like)
-
-            @php
-                if ($like->like == 1)
-                    $like_count++;
-            if ($like->like == 0)
-                $dislike_count++;
-            if(Auth::check()){
-                if($like->like == 1 && $like->user_id == Auth::id())
-                    $likeButton = "btn-warning";
-                if($like->like == 0 && $like->user_id == Auth::id())
-                    $dislikeButton = "btn-danger";
-            }
-            @endphp
-        @endforeach
+            <br>
+            <br>
+            <li>
+                <p>Was this review helpful to you?</p>
+            </li>
 
 
+            <?php
+            $likes = \App\LikeUnlike::where('comment_id',$comment->id)->get();
+            $like_count = 0;
+            $dislike_count = 0;
+            $likeButton = "btn-secondary";
+            $dislikeButton = "btn-secondary";
+            ?>
 
-        <p>
+            @foreach($likes as $like)
+
+                @php
+                    if ($like->like == 1)
+                        $like_count++;
+                if ($like->like == 0)
+                    $dislike_count++;
+                if(Auth::check()){
+                    if($like->like == 1 && $like->user_id == Auth::id())
+                        $likeButton = "btn-warning";
+                    if($like->like == 0 && $like->user_id == Auth::id())
+                        $dislikeButton = "btn-danger";
+                }
+                @endphp
+            @endforeach
+
+
+
+            <p>
         <span>
             <button type="button"   data-comment_id="{{$comment->id}}_l" data-like="{{$likeButton}}" class="like btn {{ $likeButton }} ">
                 <i class="fa fa-thumbs-up"></i>  <small class="like_count"> {{ $like_count }}</small> <b> Liks </b>
@@ -63,12 +64,43 @@
                   <i class="fa fa-thumbs-down"></i> <b><small class="dislike_count"> {{ $dislike_count }} </small></b> <span> Dislikes </span>
               </button>
         </span>
-        </p>
-    </ul>
+            </p>
+        </ul>
+    </div>
+
 
 @endforeach
 
+<a href="#" id="loadMore">Load More</a>
+
+<style>
+
+    .CommentLoadContent{
+         display: none;
+     }
+
+    .noContent {
+        color: #000 !important;
+        background-color: transparent !important;
+        pointer-events: none;
+    }
+
+</style>
+
 <script>
+
+    $(document).ready(function(){
+        $(".CommentLoadContent").slice(0, 4).show();
+        $("#loadMore").on("click", function(e){
+            e.preventDefault();
+            $(".CommentLoadContent:hidden").slice(0, 4).slideDown();
+            if($(".CommentLoadContent:hidden").length == 0) {
+                $("#loadMore").text("No Content").addClass("noContent");
+            }
+        });
+
+    })
+
 
     var likeUrl = "{{route('like')}}";
     var dislikeUrl = "{{route('dislike')}}";
