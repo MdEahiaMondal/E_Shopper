@@ -17,7 +17,7 @@
                 @endfor
             </p>
 
-            <li>
+            <li class="comments-space">
                 {{ $comment->body }}
             </li>
 
@@ -52,8 +52,6 @@
                 @endphp
             @endforeach
 
-
-
             <p>
         <span>
             <button type="button"   data-comment_id="{{$comment->id}}_l" data-like="{{$likeButton}}" class="like btn {{ $likeButton }} ">
@@ -67,28 +65,74 @@
             </p>
         </ul>
     </div>
-
-
 @endforeach
 
-<a href="#" id="loadMore">Load More</a>
+
+<a href="#" class="btn btn-primary" id="loadMore">Load More</a>
 
 <style>
 
     .CommentLoadContent{
          display: none;
+         margin-bottom: inherit;
      }
 
+    .CommentLoadContent:last-of-type {
+        margin-bottom:0;
+    }
     .noContent {
-        color: #000 !important;
-        background-color: transparent !important;
         pointer-events: none;
     }
 
+    .comments-space {
+        min-height:20px;
+        height:auto;
+        text-align: justify;
+        color: black;
+    }
+    .remaining-content span {
+        display:none;
+    }
+
+
+
 </style>
+
 
 <script>
 
+
+    var showChar = 256;
+    var ellipsestext = "...";
+    var moretext = "See More";
+    var lesstext = "See Less";
+    $('.comments-space').each(function () {
+        var content = $(this).html();
+        if (content.length > showChar) {
+            var show_content = content.substr(0, showChar);
+            var hide_content = content.substr(showChar, content.length - showChar);
+            var html = show_content + '<span class="moreelipses">' + ellipsestext + '</span><span class="remaining-content"><span>' + hide_content + '</span>&nbsp;&nbsp;<a href="" style="margin-top: 10px;\n' +
+                '    color: #fd970e;" class="morelink">' + moretext + '</a></span>';
+            $(this).html(html);
+        }
+    });
+
+    $(".morelink").click(function () {
+        if ($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+
+
+
+    // load more for item
     $(document).ready(function(){
         $(".CommentLoadContent").slice(0, 4).show();
         $("#loadMore").on("click", function(e){

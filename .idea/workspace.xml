@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/comment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/comment.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -301,7 +302,7 @@
       <workItem from="1574494448105" duration="736000" />
       <workItem from="1574509426335" duration="515000" />
       <workItem from="1575606098837" duration="13419000" />
-      <workItem from="1575658352484" duration="16722000" />
+      <workItem from="1575658352484" duration="22269000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -520,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575694834248</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="comment load more done">
+      <created>1575698579608</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1575698579608</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TodoView">
@@ -550,7 +558,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="status and features when update thats time catch the error fix and solved" />
     <MESSAGE value="select category and brand when i click edit button thats time all appened value show the own selected option one item is more whene you click create button and click selected field thats time show this problem catch the error fix and solved" />
     <MESSAGE value="product trash delete successfully" />
     <MESSAGE value="product trash count  successfully done" />
@@ -575,6 +582,7 @@
     <MESSAGE value="perticular product comment show with ajax" />
     <MESSAGE value="comment and like unlike done" />
     <MESSAGE value="likeUnlike table set cascade and others problem solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="likeUnlike table set cascade and others problem solved" />
+    <MESSAGE value="comment load more done" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment load more done" />
   </component>
 </project>

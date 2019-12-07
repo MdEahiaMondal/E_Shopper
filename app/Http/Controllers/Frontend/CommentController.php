@@ -15,7 +15,7 @@ class CommentController extends Controller
     public function insert(Request $request){
 
        $validate =  $request->validate([
-            'comment_body' => 'required|min:4|max:2000'
+            'comment_body' => 'required|min:4|max:3000'
         ]);
 
         if ($validate){
