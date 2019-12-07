@@ -1,4 +1,8 @@
 @extends('backend.admin.layout.admin_layout')
+
+@section('title', 'Orders')
+
+
 @section('admin_content')
 
     <!-- start: Content -->

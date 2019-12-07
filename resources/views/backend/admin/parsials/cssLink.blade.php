@@ -7,8 +7,8 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"> {{--// for toastr popup--}}
 
-<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> {{-- for dataTables--}}
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">{{-- for dataTables--}}
+<link href="{{ asset('backend/css/jquery.dataTables.min.css') }}" rel="stylesheet"> {{-- for dataTables--}}
+<link href="{{ asset('backend/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">{{-- for dataTables--}}
 
 <!-- end: CSS -->
 

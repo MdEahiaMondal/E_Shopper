@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/backend/css/dataTables.bootstrap4.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/css/jquery.dataTables.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/comment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/comment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Shipping.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Shipping.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/layout/admin_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/layout/admin_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/order/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/order/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/parsials/cssLink.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/parsials/cssLink.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/parsials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/parsials/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Blade" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -302,7 +310,7 @@
       <workItem from="1574494448105" duration="736000" />
       <workItem from="1574509426335" duration="515000" />
       <workItem from="1575606098837" duration="13419000" />
-      <workItem from="1575658352484" duration="22269000" />
+      <workItem from="1575658352484" duration="25598000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -528,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575698579608</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="text show more and less done">
+      <created>1575704193056</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1575704193056</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView">
@@ -558,7 +573,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="select category and brand when i click edit button thats time all appened value show the own selected option one item is more whene you click create button and click selected field thats time show this problem catch the error fix and solved" />
     <MESSAGE value="product trash delete successfully" />
     <MESSAGE value="product trash count  successfully done" />
     <MESSAGE value="slider error solved" />
@@ -583,6 +597,7 @@
     <MESSAGE value="comment and like unlike done" />
     <MESSAGE value="likeUnlike table set cascade and others problem solved" />
     <MESSAGE value="comment load more done" />
-    <option name="LAST_COMMIT_MESSAGE" value="comment load more done" />
+    <MESSAGE value="text show more and less done" />
+    <option name="LAST_COMMIT_MESSAGE" value="text show more and less done" />
   </component>
 </project>

@@ -21,9 +21,9 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>{{$orders->user->name}}</td>
-                        <td class="center">{{$orders->user->email}}</td>
-                        <td class="center">{{$orders->user->phone}}</td>
+                        <td>{{$order->name}}</td>
+                        <td class="center">{{$order->user->email}}</td>
+                        <td class="center">{{$order->user->phone}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -52,11 +52,11 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>{{$orders->shipping->first_name}} {{$orders->shipping->last_name}}</td>
-                        <td class="center">{{$orders->shipping->email}}</td>
-                        <td class="center">{{$orders->shipping->address}}</td>
-                        <td class="center">{{$orders->shipping->city}}</td>
-                        <td class="center">{{$orders->shipping->phone}}</td>
+                        <td>{{$order->shipping->first_name}} {{$order->shipping->last_name}}</td>
+                        <td class="center">{{$order->shipping->email}}</td>
+                        <td class="center">{{$order->shipping->address}}</td>
+                        <td class="center">{{$order->shipping->city}}</td>
+                        <td class="center">{{$order->shipping->phone}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -87,7 +87,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($orders->order_details as $info)
+                    @foreach($order->order_details as $info)
                         <tr>
                             <td>{{$info->product_name}}</td>
                             <td><img width="100" src="{{asset('images/product_image/'.$info->product->image)}}" alt=""></td>
@@ -99,7 +99,7 @@
 
                         <tr>
                             <td colspan="4"></td>
-                            <td>{{ $orders->total }} Tk <sup>with tax</sup></td>
+                            <td>{{ $order->total }} Tk <sup>with tax</sup></td>
                         </tr>
                     </tbody>
                 </table>

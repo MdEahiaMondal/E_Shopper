@@ -54,41 +54,18 @@ class OrderController extends Controller
     }
 
 
-    public function create()
+
+    public function show(Order $order)
     {
-        //
+        return view('backend.admin.order.details', compact('order'));
     }
 
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show($id)
-    {
-        $orders = Order::findOrFail($id);
-        return view('backend.admin.order.details', compact('orders'));
-    }
 
     public function feedBackResult($id)
     {
         $orders = Order::findOrFail($id);
         return response()->json(['data'=>$orders]);
 
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
     }
 
 

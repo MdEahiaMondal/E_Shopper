@@ -6,7 +6,7 @@
 
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title> Admin</title>
+    <title>@yield('title')</title>
     <meta name="description" content="Metro Admin Template.">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">

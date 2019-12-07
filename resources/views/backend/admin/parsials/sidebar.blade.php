@@ -16,9 +16,9 @@
                 </ul>
             </li>--}}
             <li><a class="submenu" href="{{ route('orders.index') }}"><i class="icon-file-alt"></i><span class="hidden-tablet">Orders</span></a></li>
-            <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Social Links</span></a></li>
-            <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Delevaries Man</span></a></li>
-            <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Shop Name</span></a></li>
+            <li><a href="#0"><i class="icon-edit"></i><span class="hidden-tablet"> Social Links</span></a></li>
+            <li><a href="#0"><i class="icon-list-alt"></i><span class="hidden-tablet"> Delevaries Man</span></a></li>
+            <li><a href="#0"><i class="icon-list-alt"></i><span class="hidden-tablet"> Shop Name</span></a></li>
         </ul>
     </div>
 </div>
