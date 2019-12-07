@@ -66,7 +66,6 @@
         </p>
     </ul>
 
-
 @endforeach
 
 <script>
@@ -100,7 +99,6 @@
                         var new_dislike = parseInt(cu_dislike) - 1;
                         $('*[data-comment_id="'+ comment_id +'_d"]').find('.dislike_count').text(new_dislike);
                     }
-
                 }
 
                 if (data.is_like == 0) {
@@ -111,17 +109,11 @@
                     var new_like = parseInt(cu_like) - 1;
                     $('*[data-comment_id="'+ comment_id +'_l"]').find('.like_count').text(new_like);
                 }
-
-
             }// end of success
-
         });
-
     });
 
     // end of like system
-
-
 
 // start dislike system
     $(".dislike").on('click', function (event) {
@@ -143,15 +135,12 @@
                     var new_dislike = parseInt(cu_dislike) + 1;
                     $('*[data-comment_id="'+ comment_id +'_d"]').find('.dislike_count').text(new_dislike);
 
-
                     if(data.change_dislike == 1){
                         // now need to change a count value(-)  in tis line only for problem solve::whene we click the dislike button it increment automatice fo that or
                         var cu_like =  $('*[data-comment_id="'+ comment_id +'_l"]').find('.like_count').text();
                         var new_like = parseInt(cu_like) - 1;
                         $('*[data-comment_id="'+ comment_id +'_l"]').find('.like_count').text(new_like);
                     }
-
-
                 }
 
                 if (data.is_dislike == 0) {
@@ -163,13 +152,9 @@
                     $('*[data-comment_id="'+ comment_id +'_d"]').find('.dislike_count').text(new_dislike);
                 }
 
-
             }// end of success
 
         });
-
-
-
     });
 
 

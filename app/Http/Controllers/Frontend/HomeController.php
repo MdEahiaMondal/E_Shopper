@@ -60,8 +60,8 @@ class HomeController extends Controller
    }
 
    public function productDetails($slug){
-       $details = Product::where(['slug'=>$slug, 'status'=>1])->first();
-       return view('fontend.pages.product_details',compact('details',$details));
+       $singleProduct = Product::where(['slug'=>$slug, 'status'=>1])->first();
+       return view('fontend.pages.product_details',compact('singleProduct'));
    }
 
 

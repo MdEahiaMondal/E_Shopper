@@ -52,8 +52,8 @@ class CommentController extends Controller
 
     public function getComment(Request $request){
 
-        $perpage = $request->perPage;
-         $comments = Comment::latest()->where('product_id', $request->product_id)->take($perpage)->get();
+         $comments = Comment::latest()->where('product_id', $request->product_id)->get();
+
          return view('fontend.pages.comment', compact('comments'));
     }
 

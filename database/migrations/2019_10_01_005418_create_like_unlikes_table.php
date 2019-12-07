@@ -15,10 +15,12 @@ class CreateLikeUnlikesTable extends Migration
     {
         Schema::create('like_unlikes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->integer('comment_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('comment_id');
             $table->boolean('like');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
         });
     }
 

@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/fontend/pages/comment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_01_005418_create_like_unlikes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_01_005418_create_like_unlikes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/comment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/comment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/product_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +143,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RolePermission" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../coaching" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -156,19 +157,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\xampp\htdocs\runningGitHub project\E_Shopper\app\Http\Controllers\Frontend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Frontend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend\auth" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\xmp\xm\htdocs\runningGitHub project\E_Shopper\public\backend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend\admin\auth" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Backend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\database\migrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\xampp\htdocs\runningGitHub project\E_Shopper\app\Http\Controllers\Frontend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Frontend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend\auth" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -304,7 +305,7 @@
       <workItem from="1574494448105" duration="736000" />
       <workItem from="1574509426335" duration="515000" />
       <workItem from="1575606098837" duration="13419000" />
-      <workItem from="1575658352484" duration="9781000" />
+      <workItem from="1575658352484" duration="13844000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -509,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575640898450</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="comment and like unlike done">
+      <created>1575690792155</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1575690792155</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -539,7 +547,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="profuct insert complete with ajax and DataTables" />
     <MESSAGE value="product udate and edit complete" />
     <MESSAGE value="status and features when update thats time catch the error fix and solved" />
     <MESSAGE value="select category and brand when i click edit button thats time all appened value show the own selected option one item is more whene you click create button and click selected field thats time show this problem catch the error fix and solved" />
@@ -564,6 +571,7 @@
     <MESSAGE value="install bugdebagger and setup route group" />
     <MESSAGE value="some style problem solved" />
     <MESSAGE value="perticular product comment show with ajax" />
-    <option name="LAST_COMMIT_MESSAGE" value="perticular product comment show with ajax" />
+    <MESSAGE value="comment and like unlike done" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment and like unlike done" />
   </component>
 </project>
