@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 
+use App\Brand;
+use App\Category;
 use App\Product;
 use App\User;
 use File;
@@ -40,10 +42,13 @@ class HomeController extends Controller
    }
 
 
-   public function category_widgs_product($id){
+   public function category_widgs_product($slug){
+
+        $category = Category::where('slug', $slug)->first();
+
        $all_category_products = Product::
-           where('category_id',$id)
-           ->where('products.status',1)
+           where('category_id', $category->id)
+           ->where('products.status', 1)
            ->get();
 
 
@@ -51,11 +56,15 @@ class HomeController extends Controller
    }
 
 
-   public function product_brand($id){
+   public function product_brand($slug){
+
+       $brand = Brand::where('slug', $slug)->first();
+
        $all_brand_products = Product::
-           where('brand_id',$id)
-           ->where('products.status',1)
+       where('brand_id', $brand->id)
+           ->where('products.status', 1)
            ->get();
+
        return view('fontend.pages.brand_wisge_product',compact('all_brand_products',$all_brand_products));
    }
 

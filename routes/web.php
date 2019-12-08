@@ -8,7 +8,7 @@ Route::group(['namespace' => 'Frontend'], function (){
 
     // HomeController Route
     Route::get('/','HomeController@index');
-    Route::get('category-product/{id}','HomeController@category_widgs_product');
+    Route::get('category-product/{slug}','HomeController@category_widgs_product');
     Route::get('brand-product/{id}','HomeController@product_brand');
     Route::get('view-details/{slug}','HomeController@productDetails')->name('product.details');
 

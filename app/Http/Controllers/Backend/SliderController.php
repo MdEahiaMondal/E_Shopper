@@ -116,7 +116,6 @@ class SliderController extends Controller
             if (file_exists('images/slider_image/'.$oldimage)){
 
                 unlink('images/slider_image/'.$oldimage);
-
             }
 
             // now need to  validation
