@@ -14,6 +14,13 @@ $(document).ready(function () {
             data: {serchText: serchText},
             dataType: "JSON",
             success: function (feedBackResult) {
+
+
+                if (feedBackResult.nullText){
+                    $("#autocompleteResultShow").empty()
+                }
+
+
                 if (feedBackResult.success){
                     $("#autocompleteResultShow").html(feedBackResult.success);
                 }

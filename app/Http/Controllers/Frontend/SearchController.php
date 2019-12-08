@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Product;
+use Illuminate\Support\Str;
 use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -65,21 +66,26 @@ class SearchController extends Controller
 
         if (request()->ajax()){
             $outputResult = '';
-            $serchText = $request->serchText;
+            $serchText = trim($request->serchText);
+
+            if ($request->serchText == null)
+            {
+                return response()->json(['nullText' => 'searchTextEmpty']);
+            }
 
             if ($serchText != ''){
-               $searchData =  Product::where('name', 'like', '%'. $serchText .'%')->where('deleted_at', null)->get();
+               $searchData =  Product::where('name', 'like', '%'. $serchText .'%')->where('deleted_at', null)->take(4)->get();
 
                 $totalResultRow = count($searchData);
 
                 if ($totalResultRow > 0){
 
                     foreach ($searchData as $rowData){
-                        $outputResult .='<div class="border-bottom" style=" background-color: #ccccc5; border-bottom: inset; ">
+                        $outputResult .='<div class="border-bottom" style=" background-color: #ccccc5; border-bottom: inset; width: 326px ">
                                             <a href="'.route('product.details','')."/". $rowData->slug .' ">
                                                 <div>
                                                     <img width="80" height="80" src="'.asset('images/product_image/'.$rowData->image) .'">
-                                                     <span class="pl-4 pr-4">' . $rowData->name .  '</span>
+                                                     <span class="pl-4 pr-4">' . Str::limit($rowData->name, 20) .  '</span>
                                                     <span style="color: #FE980F">Price '. $rowData->price .' Tk</span>
                                                 </div>
                                             </a>
