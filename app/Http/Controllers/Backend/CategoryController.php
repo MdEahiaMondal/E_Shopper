@@ -7,6 +7,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
+use Image;
 use Yajra\DataTables\DataTables;
 
 class CategoryController extends Controller
@@ -56,19 +57,16 @@ class CategoryController extends Controller
             'name' => 'required|unique:categories,name',
             'description' => 'string|nullable',
             'status' => 'numeric|nullable',
+            'image' => 'nullable|string'
         ]);
 
+
         if ($validation){
-            $value = array();
-            $value['name']          = $request->name;
-            $value['description']   = $request->description;
-
-            if($request->status == 1){
-                $value['status']    = $request->status;
-            }
-
-            Category::insert($value);
+            $slug = strtolower(Str::slug($request->name));
+            $request['slug'] = $slug;
+            Category::create($request->all());
             return ['success'=>true, 'message'=>'Successfully added Category'];
+
         }else{
             return response()->json(['error'=>$validation->errors()->all()]);
         }

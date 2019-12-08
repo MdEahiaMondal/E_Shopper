@@ -12,6 +12,5 @@ $factory->define(Category::class, function (Faker $faker) {
         'slug' =>mb_strtolower(Str::slug( $category)),
         'description' => $faker->paragraph,
         'status' => '1',
-        'image' => $faker->imageUrl(),
     ];
 });

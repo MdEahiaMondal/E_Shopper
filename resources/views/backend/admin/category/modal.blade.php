@@ -18,6 +18,12 @@
                     <textarea id="description" name="description" cols="30" rows="10">{{old('description')}}</textarea>
                 </div>
 
+            {{--    <div class="form-group">
+                    <label for="image"><h3>Image:</h3></label>
+                    <input type="file" name="image" id="image" class="form-control" accept="image/*" onchange="preview_image(event)">
+                    <img style="width: 250px; height: 119px;" src="" id="output_image" alt="">
+                </div>
+--}}
                 <div class="form-group form-check hideStatus">
                     <label class="form-check-label">
                         <input class="form-check-input"   type="checkbox" id="status" name="status" value="1"> Category Status

@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/factories/BrandFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/SliderFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/AdminTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Brand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Slider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/BrandFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/BrandFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_22_121624_create_category_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_22_121624_create_category_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_23_082844_create_brand_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_23_082844_create_brand_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_24_001641_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_24_001641_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_24_090628_create_slider_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_24_090628_create_slider_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/modal.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -313,7 +311,8 @@
       <workItem from="1574509426335" duration="515000" />
       <workItem from="1575606098837" duration="13419000" />
       <workItem from="1575658352484" duration="41556000" />
-      <workItem from="1575772789856" duration="2876000" />
+      <workItem from="1575772789856" duration="5168000" />
+      <workItem from="1575793353694" duration="480000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -560,7 +559,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575720599766</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="database seed and factory use done">
+      <created>1575775948042</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1575775948042</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView">
@@ -590,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="slider error solved" />
     <MESSAGE value="admin panel color change" />
     <MESSAGE value="order show and show deatils complete" />
     <MESSAGE value="order status complate" />
@@ -615,6 +620,7 @@
     <MESSAGE value="text show more and less done" />
     <MESSAGE value="order relationship problem solved" />
     <MESSAGE value="show all count product and others to dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="show all count product and others to dashboard" />
+    <MESSAGE value="database seed and factory use done" />
+    <option name="LAST_COMMIT_MESSAGE" value="database seed and factory use done" />
   </component>
 </project>

@@ -39,9 +39,10 @@
         <thead>
         <tr>
             <th>SI</th>
-            <th>Category Name</th>
-            <th>Category Description</th>
-            <th>Category Status</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Description</th>
+            <th>Status</th>
             <th width="100">Actions</th>
         </tr>
         </thead>
@@ -74,6 +75,7 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     { data: 'name', name: 'name' },
+                    { data: 'slug', name: 'slug' },
                     { data: 'description', name: 'description' },
                     { data: 'status', name: 'status' },
                     { data: 'action', name: 'action', orderable: false, searchable: false },
@@ -129,6 +131,7 @@
             var id = $('input[id="row_id"]').val();
             var name = $('input[name="name"]').val();
             var description = $('textarea[name="description"]').val();
+            // var image = $('input[name="image"]').val();
             var status = $("#status").parent().attr('class')=='checked'? 1 : 0;
 
             return {id: id, name: name, description: description, status: status};
@@ -190,7 +193,7 @@
             // take value each line
             var id = $(this).data('id');
             var name = $(this).parent().parent().find('td').eq(1).text();
-            var description = $(this).parent().parent().find('td').eq(2).text();
+            var description = $(this).parent().parent().find('td').eq(3).text();
 
             $('input[name="row_id"]').val(id);
             $('input[name="name"]').val(name);

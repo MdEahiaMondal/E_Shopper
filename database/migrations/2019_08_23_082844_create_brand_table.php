@@ -19,7 +19,6 @@ class CreateBrandTable extends Migration
             $table->string('slug', 80);
             $table->text('description')->nullable();
             $table->boolean('status')->default('0');
-            $table->string('image', 100)->nullable()->default('default.png');
             $table->timestamps();
         });
     }
