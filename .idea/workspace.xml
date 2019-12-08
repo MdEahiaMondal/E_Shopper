@@ -2,17 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1090211173-5decb8e8629a3-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/118865443-5decb83d908c7-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1471021679-5decb8a2b9a6d-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1512632588-5decbb463d257-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1534654670-5decbcf3250a3-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/179090950-5decbd546b5c6-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/187647434-5decbbdce86be-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/1948120360-5decbd4c3825a-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/2049975986-5decb9d66b16d-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/24759578-5decbb3c3ab2e-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/499693731-5decbd96a5771-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/520999189-5decba5fac094-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/585574308-5decbd2db01b6-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/61714405-5decbd8b26cd7-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/648751339-5decb956173bb-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/694619288-5decbb499b74c-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/844257959-5decbf5921319-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/885240602-5decbb6757886-.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/slider_image/94837371-5decbda66478c-.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Brand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Slider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/BrandFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/BrandFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_22_121624_create_category_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_22_121624_create_category_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_23_082844_create_brand_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_23_082844_create_brand_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/category/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/category/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/BrandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/BrandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/SliderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/SliderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/brand/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/brand/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/slider/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/slider/modal.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,19 +176,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\xmp\xm\htdocs\runningGitHub project\E_Shopper\public\backend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend\admin\auth" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Backend" />
-      <recent name="F:\xmp\xm\htdocs\new_esopper\database\migrations" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\xampp\htdocs\runningGitHub project\E_Shopper\app\Http\Controllers\Frontend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Frontend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend\auth" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\fontend" />
       <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\xmp\xm\htdocs\runningGitHub project\E_Shopper\public\backend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend\admin\auth" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\resources\views\backend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\app\Http\Controllers\Backend" />
+      <recent name="F:\xmp\xm\htdocs\new_esopper\database\migrations" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -312,7 +326,7 @@
       <workItem from="1575606098837" duration="13419000" />
       <workItem from="1575658352484" duration="41556000" />
       <workItem from="1575772789856" duration="5168000" />
-      <workItem from="1575793353694" duration="480000" />
+      <workItem from="1575793353694" duration="4422000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -566,7 +580,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575775948042</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="category slug add done">
+      <created>1575794017013</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1575794017013</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -596,7 +617,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="admin panel color change" />
     <MESSAGE value="order show and show deatils complete" />
     <MESSAGE value="order status complate" />
     <MESSAGE value="order delete complate" />
@@ -621,6 +641,7 @@
     <MESSAGE value="order relationship problem solved" />
     <MESSAGE value="show all count product and others to dashboard" />
     <MESSAGE value="database seed and factory use done" />
-    <option name="LAST_COMMIT_MESSAGE" value="database seed and factory use done" />
+    <MESSAGE value="category slug add done" />
+    <option name="LAST_COMMIT_MESSAGE" value="category slug add done" />
   </component>
 </project>

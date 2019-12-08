@@ -62,7 +62,10 @@ class BrandController extends Controller
         ]);
 
         if ($validate){
-            Brand::insert($request->all());
+
+            $slug = strtolower(Str::slug($request->name));
+            $request['slug'] = $slug;
+            Brand::create($request->all());
             return ['success'=>true, 'message'=>'Successfully added Brand'];
         }else{
             return response()->json(['error'=>$validate->errors()->all()]);

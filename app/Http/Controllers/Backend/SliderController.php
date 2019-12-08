@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Image;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\DataTables;
@@ -53,26 +54,35 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-            's_status' => 'numeric|nullable',
-            's_image' => 'required|image|max:2048'
+            'status' => 'numeric|nullable',
+            'image' => 'required|image|max:2048'
         );
 
         $error = Validator::make($request->all(), $rules);
+
         if ($error->fails()){
+
             return response()->json(['errors'=>$error->errors()->all()]);
+
         }
 
-        $imageName = $request->file('s_image');
-        $setName = rand(). '.' . $imageName->getClientOriginalExtension();
+        $imageName = $request->file('image');
+
+        $setName = rand(). '-' .uniqid(). '-'  . '.' . $imageName->getClientOriginalExtension();
+
         Image:: make($imageName)->resize(1140,450)->save(base_path('public/images/slider_image/'.$setName),100);
 
-        $value = array();
-        $value['image'] = $setName;
-        if ($request->s_status == 1){
-            $value['status']    = $request->s_status;
-        }
+        $slug = strtolower(Str::slug($setName));
 
-        Slider::create($value);
+        $status = $request->status == 1?  '1' : '0';
+        $data = [
+            'image' => $setName,
+            'slug' => $slug,
+            'status' => $status,
+        ];
+
+        Slider::create($data);
+
         return response()->json(['success'=>true, 'message'=>'Slider Image Created Successfully!']);
 
     }
@@ -95,20 +105,29 @@ class SliderController extends Controller
 
     public function update(Request $request, Slider $slider)
     {
-        $newImage = $request->file('s_image');
+
+
+
+        $newImage = $request->file('image');
+        $oldimage = $request->sliderHiddenImageName;
+
         if ($newImage){
 
-            $oldimage = $request->sliderHiddenImageName;
             if (file_exists('images/slider_image/'.$oldimage)){
-                unlink('images/slider_image/'.$oldimage);
-            }
 
+                unlink('images/slider_image/'.$oldimage);
+
+            }
 
             // now need to  validation
             $validator = Validator::make($request->all(), [
-                's_status' => 'numeric|nullable',
-                's_image' => 'required|image|max:2048',
+
+                'status' => 'numeric|nullable',
+
+                'image' => 'required|image|max:2048',
+
             ]);
+
 
             if ($validator->fails()) {
                 return response()->json(['errors' => $validator->errors()]);
@@ -116,24 +135,34 @@ class SliderController extends Controller
 
 
 
-            $setName = rand(). '.' . $newImage->getClientOriginalExtension();
+            $setName = rand(). '-' .uniqid(). '-'  . '.' . $newImage->getClientOriginalExtension();
+
             Image:: make($newImage)->resize(1140,450)->save(base_path('public/images/slider_image/'.$setName),100);
 
-            $status = $request->s_status == 1 ? 1 : 0;
-            $value['image'] = $setName;
-            $value['status'] = $status;
 
-            $slider->update($value);
+            $status = $request->status == 1 ? 1 : 0;
+
+                $data = [
+                    'image' => $setName,
+                    'slug' => strtolower(Str::slug($setName)),
+                    'status' => $status,
+                ];
+
+            $slider->update($data);
             return response()->json(['success'=>true, 'message'=>'Slider Image Updated Successfully!']);
 
         }
 
-        $status = $request->s_status == 1 ? 1 : 0;
 
-        $value['image'] = $request->sliderHiddenImageName;
-        $value['status'] = $status;
 
-        $slider->update($value);
+        $status = $request->status == 1 ? 1 : 0;
+
+        $data = [
+            'image' => $oldimage,
+            'slug' => $slider->slug,
+            'status' => $status,
+        ];
+        $slider->update($data);
         return response()->json(['success'=>true, 'message'=>'Slider Image Updated Successfully!']);
 
     }

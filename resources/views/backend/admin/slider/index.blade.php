@@ -29,8 +29,9 @@
                         <thead>
                             <tr>
                                 <th>SI</th>
-                                <th>Slider Image</th>
-                                <th>Slider Status</th>
+                                <th>Image</th>
+                                <th>Slug</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -73,6 +74,7 @@
                     },
                     orderable: false,
                 },
+                { data: 'slug', name: 'slug' },
                 { data: 'status', name: 'status' },
                 { data: 'action', name: 'action', orderable: false, searchable: false },
             ]
@@ -82,13 +84,14 @@
         function Slider_formReset(){
             $("#output_image").attr('src','');
             $(".filename").text('No file selected');
-            $("#s_status").parent().removeClass('checked');
+            $("#status").parent().removeClass('checked');
             $("#sliderForm")[0].reset();
         }
 
         // first click the createNewSlider thene modal show
         $("#createNewSlider").click(function () {
             Slider_formReset();
+            $("#status").parent().removeClass('checked');
             $("#sliderModal").modal('show');
             $("#actionSubmitSlider").val('create')
         });
@@ -180,11 +183,12 @@
                     $("#sliderHiddenImageName").val(result.data.image);
 
                     if (result.data.status == 1){
-                        $("#s_status").attr('checked', true);// it's only get value
-                        $("#s_status").parent().addClass('checked');
+                        $("#status").attr('checked', true);// it's only get value
+                        $("#status").attr('value', 1);// it's only get value
+                        $("#status").parent().addClass('checked');
                     }else{
-                        $("#s_status").parent().removeClass('checked');
-                        $("#s_status").attr('checked', false);// it's only get value
+                        $("#status").parent().removeClass('checked');
+                        $("#status").attr('checked', false);// it's only get value
                     }
 
                     $("#modelTitle").text('Edit Slider');

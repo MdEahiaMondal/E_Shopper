@@ -15,15 +15,15 @@
                     <input type="hidden" id="sliderHiddenImageName" name="sliderHiddenImageName"> {{--// this image name from database  --}}
 
                     <div class="form-group">
-                        <label for="s_image"><h3>Slider Image</h3></label>
-                        <input  type="file" class="form-control" id="s_image" name="s_image" accept="image/*" onchange="preview_image(event)">
+                        <label for="image"><h3>Slider Image</h3></label>
+                        <input  type="file" class="form-control" id="image" name="image" accept="image/*" onchange="preview_image(event)">
                         <img style="width: 250px; height: 119px;" src="" id="output_image" alt="">
 
                     </div>
 
                     <div class="form-group form-check slider_status">
                         <label class="form-check-label">
-                            <input  type="checkbox" class="form-check-input" id="s_status" name="s_status" value="1"> Slider Status
+                            <input  type="checkbox" class="form-check-input" id="status" name="status" value="1"> Slider Status
                         </label>
                     </div>
 

@@ -17,9 +17,10 @@
             <thead>
             <tr>
                 <th>SI</th>
-                <th>Brand Name</th>
-                <th>Brand Description</th>
-                <th>Brand Status</th>
+                <th> Name</th>
+                <th> Slug</th>
+                <th> Description</th>
+                <th> Status</th>
                 <th width="100">Actions</th>
             </tr>
             </thead>
@@ -53,6 +54,7 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},// t his line only for indexin
                     { data: 'name', name: 'name' },
+                    { data: 'slug', name: 'slug' },
                     { data: 'description', name: 'description' },
                     { data: 'status', name: 'status' },
                     { data: 'action', name: 'action', orderable: false, searchable: false },
@@ -131,7 +133,7 @@
                 // get text every row
                 var id =$(this).data('id');
                 var name =$(this).parent().parent().find('td').eq(1).text();
-                var description =$(this).parent().parent().find('td').eq(2).text();
+                var description =$(this).parent().parent().find('td').eq(3).text();
 
                 // now insert into the modal form input field
                 $('input[name="row_id"]').val(id);
