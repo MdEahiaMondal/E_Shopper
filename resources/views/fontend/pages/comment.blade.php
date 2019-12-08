@@ -143,7 +143,7 @@
             }
         });
 
-    })
+    });
 
 
     var likeUrl = "{{route('like')}}";

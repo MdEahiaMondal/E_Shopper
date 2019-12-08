@@ -105,7 +105,7 @@
         <h2 class="title text-center">ALL PRODUCTS</h2>
 
         @foreach ($products as $product)
-            <div class="col-sm-4">
+            <div class="col-sm-4 ProductLoadContent">
                 <div class="product-image-wrapper">
 
                     <div class="single-products">
@@ -136,8 +136,48 @@
                 </div>
             </div>
         @endforeach
+
     </div>
 
+    <a href="#" class="btn btn-primary btn-block" id="loadMore">Load More</a>
     @include('fontend.parsials.quick_view')
 
 @endsection
+
+
+
+<style>
+
+    .ProductLoadContent{
+        display: none;
+        margin-bottom: inherit;
+    }
+
+    .noContent {
+        pointer-events: none;
+    }
+
+
+
+</style>
+
+
+
+@section('script')
+    <script>
+        // load more for item
+        $(document).ready(function(){
+            $(".ProductLoadContent").slice(0, 6).show();
+            $("#loadMore").on("click", function(e){
+                e.preventDefault();
+                $(".ProductLoadContent:hidden").slice(0, 6).slideDown();
+                if($(".ProductLoadContent:hidden").length == 0) {
+                    $("#loadMore").text("No Content").addClass("noContent");
+                }
+            });
+
+        });
+    </script>
+@endsection
+
+
