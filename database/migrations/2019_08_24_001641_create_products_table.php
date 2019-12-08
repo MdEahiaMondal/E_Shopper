@@ -16,17 +16,17 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
-            $table->string('slug')->unique();
-            $table->integer('category_id')->unsigned();/*thisng it will not be minus so use unsigned*/
-            $table->integer('brand_id')->unsigned();
+            $table->string('slug');
+            $table->unsignedBigInteger('category_id');/*thisng it will not be minus so use unsigned*/
+            $table->unsignedBigInteger('brand_id');
             $table->longText('description');
-            $table->string('image')->nullable();
+            $table->string('image', 100)->nullable();
             $table->float('price');
             $table->integer('quantity');
             $table->string('size')->nullable();
             $table->string('color')->nullable();
-            $table->tinyInteger('status')->default('0')->comment('1=active and 0=unactive');
-            $table->tinyInteger('features')->default('0')->comment('1=sow the fetures and 0=or not');
+            $table->boolean('status')->default('0')->comment('1=active and 0=unactive');
+            $table->boolean('features')->default('0')->comment('1=sow the fetures and 0=or not');
             $table->softDeletes();
             $table->timestamps();
         });
