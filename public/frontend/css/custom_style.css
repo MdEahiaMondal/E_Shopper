@@ -5,3 +5,13 @@
 .custom_widt{
 
  }
+
+#autocompleteResultShow{
+    position: absolute;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 536px;
+    right: 0;
+}

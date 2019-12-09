@@ -93,7 +93,7 @@ class SearchController extends Controller
                     }
                     return response()->json(['success'=>$outputResult]);
                 }else{
-                    $outputResult ='<div class="text-center" style=" background-color: #ccccc5; border-bottom: inset; padding: 5px;color: red;"> No product found </div>';
+                    $outputResult ='<div class="text-center" style=" background-color: #ccccc5; border-bottom: inset; padding: 5px;color: red; width: 326px;"> No product found </div>';
                     return response()->json(['error'=>$outputResult]);
                 }
             }

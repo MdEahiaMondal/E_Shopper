@@ -2,12 +2,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="margin-bottom: 43px;">
                 <ul class="nav nav-pills nav-stacked nav-email shadow mb-20">
                     <li>
                         <div class="text-center">
                             <figure>
-                                <img style="border-radius: 78px; margin-bottom: 20px" alt="" src="{{asset('images/profile_pic/'.$user_info->avatar)}}">
+                                <img style="border-radius: 78px; margin-bottom: 20px" alt="" src="{{ asset('images/profile_pic/'.$user_info->avatar) }}">
                             </figure>
                         </div>
                     </li>
@@ -40,140 +40,146 @@
                             <div class="col-lg-12">
                                 <h2 style="padding: 20px;">Personal Information <sub id="Profile_edit" style="font-size: 18px; color: #0e90d2; cursor: pointer">Edit</sub></h2>
                                     <table class="table table-striped">
-
-                                       {{-- @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif--}}
-
-                                        <tbody>
-                                        <form id="profile" action="{{route('update.profile')}}" method="Post" enctype="multipart/form-data">
-                                            @csrf
-                                            <tr>
-                                                <td colspan="1">
-                                                    <div class="well form-horizontal">
-                                                        <div class="form-group">
-                                                            <label for="firstName">First Name</label>
-                                                            <input type="text" name="name" value="{{$user_info->name}}"  id="firstName" class="form-control {{ $errors->has('name') ? 'has-error' : ''}} ">
-                                                            @error('name')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="email_adress">Email Address</label>
-                                                            <input type="text" name="email" value="{{$user_info->email}}"  id="email_adress" class="form-control">
-                                                                @error('email')
-                                                                <span class="text-danger invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                @enderror
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="birth_day">Your Date of Birth </label>
-                                                            <input type="text" name="birthday" value="{{$user_info->birthday}}"   id="birth_day" class="form-control">
-                                                                @error('birthday')
-                                                                <span class="text-danger invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                @enderror
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="address">Your Address</label>
-                                                            <input type="text" name="address" value="{{$user_info->address}}"  id="address" class="form-control">
-                                                                @error('address')
-                                                                <span class="text-danger invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                @enderror
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td  colspan="1">
-                                                    <div class="well form-horizontal">
-
-                                                        <div class="form-group">
-                                                            <label for="lasttName">Last Name</label>
-                                                            <input type="text" name="lastname" value="{{$user_info->lastname}}"  id="lasttName"  class="form-control @error('lastname') is-invalid @enderror">
-                                                                @error('lastname')
-                                                                <span class="text-danger invalid-feedback" role="alert">
+                                        <tbody class="UserTableInfo">
+                                            <form id="profile" action="{{route('update.profile')}}" method="Post" enctype="multipart/form-data">
+                                                @csrf
+                                                <tr>
+                                                    <td colspan="1">
+                                                        <div class="well form-horizontal">
+                                                            <div class="form-group">
+                                                                <label for="firstName">First Name</label>
+                                                                <input type="text" name="name" value="{{$user_info->name}}"  id="firstName" class="form-control {{ $errors->has('name') ? 'has-error' : ''}} ">
+                                                                @error('name')
+                                                                <span class="text-danger" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
                                                                 @enderror
-                                                        </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="email_adress">Email Address</label>
+                                                                <input type="text" name="email" value="{{$user_info->email}}"  id="email_adress" class="form-control">
+                                                                    @error('email')
+                                                                    <span class="text-danger" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                    @enderror
+                                                            </div>
 
-                                                        <div class="form-group">
-                                                            <label for="phoneNumber">Phone Number</label>
-                                                            <input  type="text" name="phone" value="{{$user_info->phone}}"  id="demo"  class="form-control">
-                                                                @error('phone')
-                                                                <span class="text-danger invalid-feedback" role="alert">
+                                                            <div class="form-group">
+                                                                <label for="birth_day">Your Date of Birth </label>
+                                                                <input type="text" name="birthday" value="{{$user_info->birthday}}"   id="birth_day" class="form-control">
+                                                                    @error('birthday')
+                                                                    <span class="text-danger" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                    @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="address">Your Address</label>
+                                                                <input type="text" name="address" value="{{$user_info->address}}"  id="address" class="form-control">
+                                                                    @error('address')
+                                                                    <span class="text-danger" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                    @enderror
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td  colspan="1">
+                                                        <div class="well form-horizontal">
+
+                                                            <div class="form-group">
+                                                                <label for="lasttName">Last Name</label>
+                                                                <input type="text" name="lastname" value="{{$user_info->lastname}}"  id="lasttName"  class="form-control @error('lastname') is-invalid @enderror">
+                                                                    @error('lastname')
+                                                                    <span class="text-danger" role="alert">
                                                                         <strong>{{ $message }}</strong>
                                                                     </span>
-                                                                @enderror
+                                                                    @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="phoneNumber">Phone Number</label>
+                                                                <input  type="text" name="phone" value="{{$user_info->phone}}"  id="demo"  class="form-control">
+                                                                    @error('phone')
+                                                                    <span class="text-danger" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label>Gender : </label>
+                                                                Male <input type="radio" name="gender" value="male" <?php if($user_info->gender == 'male'){echo 'checked';} ?> >
+                                                                Female <input type="radio" name="gender" value="female" <?php if($user_info->gender == 'female'){echo 'checked';} ?> >
+                                                                    @error('gender')
+                                                                    <span class="text-danger" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                    @enderror
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="avatar">Profile Image</label>
+                                                                <input onchange="preview_image(event)" type="file" name="avatar" value=""  id="avatar">
+                                                                    @error('avatar')
+                                                                    <span class="text-danger" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                    @enderror
+                                                                 <img width="150" src="{{asset('images/profile_pic/'.$user_info->avatar)}}" id="output_image" alt="">
+                                                            </div>
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label>Gender : </label>
-                                                            Male <input type="radio" name="gender" value="male" <?php if($user_info->gender == 'male'){echo 'checked';} ?> >
-                                                            Female <input type="radio" name="gender" value="female" <?php if($user_info->gender == 'female'){echo 'checked';} ?> >
-                                                                @error('gender')
-                                                                <span class="text-danger invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                @enderror
+                                                            <input id="ProfilesubmitHide" class="btn btn-warning"  type="submit" value="Save">
                                                         </div>
-
-                                                        <div class="form-group">
-                                                            <label for="avatar">Profile Image</label>
-                                                            <input onchange="preview_image(event)" type="file" name="avatar" value=""  id="avatar">
-                                                                @error('avatar')
-                                                                <span class="text-danger invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                @enderror
-                                                             <img width="150" src="{{asset('images/profile_pic/'.$user_info->avatar)}}" id="output_image" alt="">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <input id="ProfilesubmitHide" class="btn btn-warning"  type="submit" value="Save">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </form>
                                         </tbody>
                                     </table>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
                 <div id="passwordChange" class="panel panel-default">
                     <div class="panel-heading resume-heading">
                         <h2 style="padding: 20px;">Your password <sub id="Profile_pass_edit" style="font-size: 18px; color: #0e90d2; cursor: pointer"> Change Password </sub> </h2>
 
-                        <form action="{{route('update.profile.password',$user_info->id)}}" method="post">
-                            @csrf
+                        <form action="{{route('update.profile.password', $user_info->id)}}" id="userPassForm" method="post">
+                           @csrf
 
                             <div class="form-group">
                                 <label for="address">Your Current Password</label>
                                 <input type="password"  name="current_password" value=""  id="address" class="form-control">
+                                @error('current_password')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="new_password">New Password</label>
-                                <input type="password" name="new_password" value=""  id="new_password" class="form-control">
+                                <input type="password" name="password" value="" autofocus id="new_password" class="form-control">
+                                @error('password')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="confirm_new_password">Confirm Password</label>
-                                <input type="password" name="confirm_new_password" value=""  id="confirm_new_password" class="form-control">
+                                <label for="password-confirm">Confirm Password</label>
+                                <input type="password" name="password_confirmation" value="" autofocus id="password-confirm" class="form-control">
+                                @error('password_confirmation')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -193,4 +199,29 @@
         </div>
     </div>
 
+@endsection
+
+
+
+@section('script')
+
+
+    {{--for profile pages--}}
+    <script>
+        $(document).ready(function () {
+            $("#userPassForm").hide();
+            $(".UserTableInfo").hide();
+        });
+
+            $("#Profile_pass_edit").click(function () {
+                $("#userPassForm").toggle('slow')
+
+            });
+
+            $("#Profile_edit").click(function () {
+                $(".UserTableInfo").toggle('slow')
+            });
+
+
+    </script>
 @endsection

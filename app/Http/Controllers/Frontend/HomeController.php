@@ -7,9 +7,11 @@ use App\Brand;
 use App\Category;
 use App\Product;
 use App\User;
+use Brian2694\Toastr\Facades\Toastr;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Image;
 use Session;
 use App\Http\Controllers\Controller;
@@ -77,15 +79,15 @@ class HomeController extends Controller
 
 
    public function UserProfile(){
-       $user_info = Auth::user();
+       $user_info = auth()->user();
        return view('fontend.pages.profile', compact('user_info'));
    }
 
    public function updateProfile(Request $request){
 
        $validate =  $request->validate([
-            'name' => 'required|string|max:25',
-            'lastname' => 'string|max:30|nullable',
+            'name' => 'required|string|max:60',
+            'lastname' => 'string|max:60|nullable',
             'email' => 'required|unique:users,email,'.Auth::user()->id.',id',
             'phone' => 'required|unique:users,phone,'.Auth::user()->id.',id',
             'birthday' => 'string|nullable',
@@ -106,25 +108,63 @@ class HomeController extends Controller
            }
 
            $getfile_extension = $originalFileName->getClientOriginalExtension();
+
            $make_randomName = Str::random(20);
+
            $makeFileName =$make_randomName.'.'.$getfile_extension;
+
            $goToRightLocation =public_path('images/profile_pic/'.$makeFileName);
+
            Image::make($originalFileName)->resize(150,150)->save($goToRightLocation);
+
            $validate['avatar'] =$makeFileName;
+
            User::where('id', Auth::user()->id)->update($validate);
+
            Session::put('success','Update Your Info with Image Successfully !!');
+
            return back();
 
        }
      User::where('id',Auth::user()->id)->update($validate);
+
        Session::put('success','Update Your Info  Successfully !!');
+
     return back();
 
    }
 
-   public function PasswordUpdate(Request $request, $id){
-        dd($request->all());
-   }
+
+    public function PasswordUpdate(Request $request, $id)
+    {
+        $this->validate($request, [
+            'current_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $MakeHashNewPassword = Hash::make($request->password);
+        $user = User::findOrFail($id);
+
+
+        if (Hash::check($request->current_password, $user->password)){
+
+            $user->password = $MakeHashNewPassword;
+
+            $user->save();
+
+            Session::put('success', 'Updated your Old password !');
+
+            return redirect()->back();
+
+        }else{
+            Session::put('error', 'Current Password Does not match to old Password');
+
+            return redirect()->back();
+        }
+
+
+
+    }
 
 
 

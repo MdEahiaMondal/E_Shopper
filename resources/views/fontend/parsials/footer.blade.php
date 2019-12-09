@@ -190,11 +190,11 @@
     $(function()
     {
         @if( $all = Session::get('success'))
-        Swal.fire("Successful!", "{{ $all }} {{Session::put('success',null)}}", "success");
+            Swal.fire("Successful!", "{{ $all }} {{Session::put('success',null)}}", "success");
         @endif
 
         @if( $error = Session::get('error'))
-        Swal.fire("Warning!", "{{ $error }} {{Session::put('error',null)}}", "error");
+            Swal.fire("Warning!", "{{ $error }} {{Session::put('error',null)}}", "error");
         @endif
     });
 </script>
@@ -250,29 +250,6 @@
     }
 </script>
 
-
-{{--for profile pages--}}
-<script>
-    $(document).ready(function () {
-        @if (Request::path() == 'user-profile')
-        $('input').attr('disabled','disabled');
-        $("#ProfilesubmitHide").hide();
-        @else
-        $('input').removeAttr('disabled');
-        $("#ProfilesubmitHide").show();
-        @endif
-        $("#Profile_edit").click(function () {
-            $("#ProfilesubmitHide").show();
-            $('input').removeAttr('disabled');
-        });
-
-        $("#Profile_pass_edit").click(function () {
-            $("#pass_submit").removeAttr('disabled');
-            $('form input[type="password"]').removeAttr('disabled');
-        });
-
-    });
-</script>
 
 
 
