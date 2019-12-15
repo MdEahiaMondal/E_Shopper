@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/auth/login.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -308,7 +308,7 @@
       <workItem from="1575851964376" duration="850000" />
       <workItem from="1575854147391" duration="1288000" />
       <workItem from="1575855642203" duration="8772000" />
-      <workItem from="1576399566418" duration="2293000" />
+      <workItem from="1576399566418" duration="3081000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -604,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575863079613</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="now we need to socialite for this we edit our login pages">
+      <created>1576402079035</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1576402079035</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -634,7 +641,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="search by slider range is done" />
     <MESSAGE value="product normal search and validation and some errors problem solve" />
     <MESSAGE value="product quick view is done" />
     <MESSAGE value="product quick view insert into the search pages and brand and category pages" />
@@ -659,6 +665,7 @@
     <MESSAGE value="upload pic and load more added in home pages" />
     <MESSAGE value="searching problem selved" />
     <MESSAGE value="profile password change done" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile password change done" />
+    <MESSAGE value="now we need to socialite for this we edit our login pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="now we need to socialite for this we edit our login pages" />
   </component>
 </project>

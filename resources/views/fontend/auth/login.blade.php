@@ -3,7 +3,7 @@
 <section id="form"><!--form-->
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-sm-offset-3">
+            <div class="col-sm-6 col-sm-offset-3">
                 <div class="login-form"><!--login form-->
                     <h2>Login to your account</h2>
                     <form action="{{ route('login') }}" method="post">
