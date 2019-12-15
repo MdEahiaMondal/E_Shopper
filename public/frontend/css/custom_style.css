@@ -15,3 +15,44 @@
     left: 536px;
     right: 0;
 }
+
+
+.social-btn .btn {
+    margin: 10px 0;
+    font-size: 15px;
+    text-align: left;
+    line-height: 24px;
+}
+.social-btn .btn i {
+    float: left;
+    margin: 4px 15px  0 5px;
+    min-width: 15px;
+}
+.input-group-addon .fa{
+    font-size: 18px;
+}
+
+.or-seperator {
+    margin: 20px 0 10px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+.or-seperator i {
+    padding: 0 10px;
+    background: #f7f7f7;
+    position: relative;
+    top: -11px;
+    z-index: 1;
+}
+
+.btn_facebook{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn_git{
+    color: #fff;
+    background-color: #4e4e4e;
+    border-color: rgba(31, 62, 93, 0.68);
+}

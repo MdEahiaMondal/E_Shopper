@@ -54,6 +54,12 @@
                         </div>
                         <div class="card-body">
 
+                            <div class="text-center">
+                                <p><b>Email:</b> admin@gmail.com</p>
+                                <p><b>Password:</b> 12345678</p>
+
+                            </div>
+
                             @if(Session('success'))
                                 <p class="alert alert-success">{{ Session('success') }}</p>
                             @endif
@@ -82,11 +88,12 @@
                                     <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
                                 </div>
 
-                                @if (Route::has('password.request'))
+
+                                {{--@if (Route::has('password.request'))
                                     <a class="btn btn-link text-info" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                @endif--}}
 
                             </form>
                         </div>

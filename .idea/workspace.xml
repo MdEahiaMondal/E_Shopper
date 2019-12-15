@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/profile_pic/9yqPrQdUcWQr42mULsMS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/profile_pic/FbTlfaWdEEy4z5url3Ih.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/css/custom_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/css/custom_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/pages/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/pages/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/parsials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/parsials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/fontend/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/auth/login.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -313,7 +307,8 @@
       <workItem from="1575793353694" duration="20916000" />
       <workItem from="1575851964376" duration="850000" />
       <workItem from="1575854147391" duration="1288000" />
-      <workItem from="1575855642203" duration="6581000" />
+      <workItem from="1575855642203" duration="8772000" />
+      <workItem from="1576399566418" duration="2293000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -602,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575821161873</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="profile password change done">
+      <created>1575863079612</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1575863079613</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -632,7 +634,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="brand problem solved" />
     <MESSAGE value="search by slider range is done" />
     <MESSAGE value="product normal search and validation and some errors problem solve" />
     <MESSAGE value="product quick view is done" />
@@ -657,6 +658,7 @@
     <MESSAGE value="slug wise product show" />
     <MESSAGE value="upload pic and load more added in home pages" />
     <MESSAGE value="searching problem selved" />
-    <option name="LAST_COMMIT_MESSAGE" value="searching problem selved" />
+    <MESSAGE value="profile password change done" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile password change done" />
   </component>
 </project>
