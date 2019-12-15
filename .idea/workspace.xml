@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fontend/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/Auth/LoginController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,6 +128,10 @@
       <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
     </include_path>
   </component>
   <component name="ProjectId" id="1RirCdVgS7770rS9s8hbbvRa7OJ" />
@@ -308,7 +310,7 @@
       <workItem from="1575851964376" duration="850000" />
       <workItem from="1575854147391" duration="1288000" />
       <workItem from="1575855642203" duration="8772000" />
-      <workItem from="1576399566418" duration="3081000" />
+      <workItem from="1576399566418" duration="3957000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -611,7 +613,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576402079035</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="first we need install socialite pakeg">
+      <created>1576402843366</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1576402843366</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView">
@@ -641,7 +650,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="product normal search and validation and some errors problem solve" />
     <MESSAGE value="product quick view is done" />
     <MESSAGE value="product quick view insert into the search pages and brand and category pages" />
     <MESSAGE value="checketout proble solve" />
@@ -666,6 +674,7 @@
     <MESSAGE value="searching problem selved" />
     <MESSAGE value="profile password change done" />
     <MESSAGE value="now we need to socialite for this we edit our login pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="now we need to socialite for this we edit our login pages" />
+    <MESSAGE value="first we need install socialite pakeg" />
+    <option name="LAST_COMMIT_MESSAGE" value="first we need install socialite pakeg" />
   </component>
 </project>
