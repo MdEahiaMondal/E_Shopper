@@ -60,37 +60,47 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
+
         $userSocial = Socialite::driver($provider)->user();
+
         $data['User_App_Id'] =$userSocial->id;
         $data['provider_name'] =$provider;
         $data['nickname'] = $userSocial->nickname;
         $data['name'] =$userSocial->name;
         $data['email'] =$userSocial->email;
         $data['avatar'] =$userSocial->avatar;
+        $data['phone'] ='123456789';
+
         /*dd($data);*/
         /*$data['password'] =$userSocial->token;*/
         if ($userSocial->email){
+
             $findUser = User::where('User_App_Id', $userSocial->id)->first();
+
             if($findUser){
+
                 User::where('User_App_Id', $userSocial->id)->update($data);
                 Auth::loginUsingId($findUser->id);
-                return redirect()->route('home');
             }else{
+
                 $userSingUpId = User::insertGetId($data);
                 Auth::loginUsingId($userSingUpId);
-                return redirect()->route('home');
             }
         }else{
-            $findUser = User::where('User_App_Id', $userSocial->id)->first();
+
+                $findUser = User::where('User_App_Id', $userSocial->id)->first();
+
             if($findUser){
+
                 User::where('User_App_Id', $userSocial->id)->update($data);
                 Auth::loginUsingId($findUser->id);
-                return redirect()->route('home');
             }
-            $userSingUpId = User::insertGetId($data);
-            Auth::loginUsingId($userSingUpId);
-            return redirect()->route('home');
+
+                $userSingUpId = User::insertGetId($data);
+                Auth::loginUsingId($userSingUpId);
         }
+
+        return  redirect('/')->with('success', 'You are now login');
     }
 
 

@@ -56,6 +56,12 @@ Route::group(['namespace' => 'Frontend'], function (){
 });
 
 
+// frontend login with social media
+
+Route::get('login/{provider}', 'Frontend\Auth\LoginController@redirectToProvider');// this (provider) means user can login any social name like facbook or google
+Route::get('login/{provider}/callback', 'Frontend\Auth\LoginController@handleProviderCallback');
+
+
 
 
 Auth::routes(['verify' => true]);
