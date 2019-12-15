@@ -10,7 +10,7 @@
                         @csrf
                         <div class="text-center social-btn">
                             <a href="{{ url('login/facebook') }}" class="btn btn_facebook btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
-                            <a href="#" class="btn btn_git btn-block"><i class="fa fa-github"></i> Sign in with <b>Twitter</b></a>
+                            <a href="{{ url('login/github') }}" class="btn btn_git btn-block"><i class="fa fa-github"></i> Sign in with <b>Twitter</b></a>
                             <a href="{{ url('login/google') }}" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
                         </div>
 

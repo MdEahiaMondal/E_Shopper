@@ -3,8 +3,67 @@
   <component name="ChangeListManager">
     <list default="true" id="c1f9a390-b682-4131-afa4-fc83c5beaa5d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1032473254.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1041854618.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1061209070.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1072208164.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1141721823.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1233602008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1334411989.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1352522298.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1401893076.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1430121520.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1435210730.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/145098669.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1499009910.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1515598678.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1588585542.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1691249146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1721719707.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1803703824.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1814538795.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1870376252.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1953979914.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/1967682879.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/2001262518.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/206694366.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/2089783213.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/2120755346.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/2135381219.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/219368901.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/245407160.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/304545774.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/339270343.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/407635359.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/408964926.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/430878958.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/454072803.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/45471984.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/489035067.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/547248133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/613133303.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/61324693.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/635912146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/676045493.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/698319110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/738342228.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/777995468.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/83626185.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/867879762.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/88199927.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/915576251.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product_image/921839546.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/profile_pic/9yqPrQdUcWQr42mULsMS.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/profile_pic/FbTlfaWdEEy4z5url3Ih.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1040689733-5decd7f0e859f-.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1298164848-5decd801eb5b5-.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/1866238349-5decd87a51352-.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/241075682-5decd813a0c22-.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/25152850-5decd80b6b87f-.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/300540271-5decd7fabaf6f-.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/527334581-5decd81b4af9a-.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/slider_image/929168997-5decd8b09ab6d-.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/fontend/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fontend/auth/login.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -313,7 +372,7 @@
       <workItem from="1575851964376" duration="850000" />
       <workItem from="1575854147391" duration="1288000" />
       <workItem from="1575855642203" duration="8772000" />
-      <workItem from="1576399566418" duration="9003000" />
+      <workItem from="1576399566418" duration="10029000" />
     </task>
     <task id="LOCAL-00001" summary="slider per item show in modal from database value for edit update">
       <created>1570970432200</created>
@@ -637,7 +696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576408563087</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="complete login by google">
+      <created>1576409515877</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1576409515877</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView">
@@ -667,7 +733,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="checketout proble solve" />
     <MESSAGE value="admin logout problem solve" />
     <MESSAGE value="whene admin logout then return redirect to admin login pages" />
     <MESSAGE value="whene admin pages show by bad url then return redirect to admin login pages" />
@@ -692,6 +757,7 @@
     <MESSAGE value="first we need install socialite pakeg" />
     <MESSAGE value="configaration to login controller" />
     <MESSAGE value="complete login by facebook" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete login by facebook" />
+    <MESSAGE value="complete login by google" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete login by google" />
   </component>
 </project>
