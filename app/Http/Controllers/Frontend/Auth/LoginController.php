@@ -69,7 +69,8 @@ class LoginController extends Controller
         $data['name'] =$userSocial->name;
         $data['email'] =$userSocial->email;
         $data['avatar'] =$userSocial->avatar;
-        $data['phone'] ='123456789';
+        $number = uniqid();
+        $data['phone'] = $number;
 
         /*dd($data);*/
         /*$data['password'] =$userSocial->token;*/
